@@ -90,7 +90,7 @@ public class Rankings extends AppCompatActivity {
         restEstadisticas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                restablecerEstadiaticas();
+                restablecerEstadiaticas(v);
             }
         });
 
@@ -103,6 +103,7 @@ public class Rankings extends AppCompatActivity {
         });
 
     }
+
     public void mostrarTop5 (){
         baseDeDatos = bbdd.getWritableDatabase();
         String j1="";
@@ -235,7 +236,7 @@ public class Rankings extends AppCompatActivity {
         }
     }
 
-    public void restablecerEstadiaticas (){
+    public void restablecerEstadiaticas (View view){
         baseDeDatos = bbdd.getWritableDatabase();
 
         if(modo==0){
@@ -259,7 +260,6 @@ public class Rankings extends AppCompatActivity {
         num5.setVisibility(View.INVISIBLE);
         imageAvatar6.setVisibility(View.INVISIBLE);
         num6.setVisibility(View.INVISIBLE);
-
 
         mostrarTop5();
     }
