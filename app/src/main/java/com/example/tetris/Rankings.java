@@ -90,7 +90,7 @@ public class Rankings extends AppCompatActivity {
         restEstadisticas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                restablecerEstadiaticas(v);
+                restablecerEstadiaticas();
             }
         });
 
@@ -254,7 +254,7 @@ public class Rankings extends AppCompatActivity {
         baseDeDatos.close();
     }
 
-    public void restablecerEstadiaticas (View view){
+    public void restablecerEstadiaticas (){
         baseDeDatos = bbdd.getWritableDatabase();
 
         if(modo==0){
