@@ -134,76 +134,46 @@ public class Rankings extends AppCompatActivity {
 
         Cursor fila1 = baseDeDatos.rawQuery("select * from "+tipoBBDD+"  order by puntuacion DESC",null);
 
+        int i = 1;
         if(fila1.moveToFirst()){
 
-            j1 = fila1.getString(0);
-            p1 = fila1.getString(1);
-            byte[] blob1 = fila1.getBlob(2);
-            if(blob1!=null) {
-                ByteArrayInputStream bais1 = new ByteArrayInputStream(blob1);
-                bitmap1 = BitmapFactory.decodeStream(bais1);
-            }
-            imageAvatar1.setVisibility(View.VISIBLE);
-            num1.setVisibility(View.VISIBLE);
-            if (fila1.moveToNext()) {
-                j2 = fila1.getString(0);
-                p2 = fila1.getString(1);
-                byte[] blob2 = fila1.getBlob(2);
-                if(blob2!=null) {
-                    ByteArrayInputStream bais2 = new ByteArrayInputStream(blob2);
-                    bitmap2 = BitmapFactory.decodeStream(bais2);
+            while(!fila1.isAfterLast()){
+                switch (i){
+                    case 1:
+                        mostrarTop5Aux(j1,p1,fila1,bitmap1,i);
+                        imageAvatar1.setVisibility(View.VISIBLE);
+                        num1.setVisibility(View.VISIBLE);
+                        break;
+                    case 2:
+                        mostrarTop5Aux(j2,p2,fila1,bitmap2,i);
+                        imageAvatar2.setVisibility(View.VISIBLE);
+                        num2.setVisibility(View.VISIBLE);
+                        break;
+                    case 3:
+                        mostrarTop5Aux(j3,p3,fila1,bitmap3,i);
+                        imageAvatar3.setVisibility(View.VISIBLE);
+                        num3.setVisibility(View.VISIBLE);
+                        break;
+                    case 4:
+                        mostrarTop5Aux(j4,p4,fila1,bitmap4,i);
+                        imageAvatar4.setVisibility(View.VISIBLE);
+                        num4.setVisibility(View.VISIBLE);
+                        break;
+                    case 5:
+                        mostrarTop5Aux(j5,p5,fila1,bitmap5,i);
+                        imageAvatar5.setVisibility(View.VISIBLE);
+                        num5.setVisibility(View.VISIBLE);
+                        break;
+                    case 6:
+                        mostrarTop5Aux(j6,p6,fila1,bitmap6,i);
+                        imageAvatar6.setVisibility(View.VISIBLE);
+                        num6.setVisibility(View.VISIBLE);
                 }
-                imageAvatar2.setVisibility(View.VISIBLE);
-                num2.setVisibility(View.VISIBLE);
+                fila1.moveToNext();
+                i++;
             }
-            if (fila1.moveToNext()) {
-                j3 = fila1.getString(0);
-                p3 = fila1.getString(1);
-                byte[] blob3 = fila1.getBlob(2);
-                if(blob3!=null) {
-                    ByteArrayInputStream bais3 = new ByteArrayInputStream(blob3);
-                    bitmap3 = BitmapFactory.decodeStream(bais3);
-                }
-                imageAvatar3.setVisibility(View.VISIBLE);
-                num3.setVisibility(View.VISIBLE);
-            }
-            if (fila1.moveToNext()) {
-                j4 = fila1.getString(0);
-                p4 = fila1.getString(1);
-                byte[] blob4 = fila1.getBlob(2);
-                if(blob4!=null) {
-                    ByteArrayInputStream bais4 = new ByteArrayInputStream(blob4);
-                    bitmap4 = BitmapFactory.decodeStream(bais4);
-                }
-                imageAvatar4.setVisibility(View.VISIBLE);
-                num4.setVisibility(View.VISIBLE);
-            }
-            if (fila1.moveToNext()) {
-                j5 = fila1.getString(0);
-                p5 = fila1.getString(1);
-                byte[] blob5 = fila1.getBlob(2);
-                if(blob5!=null) {
-                    ByteArrayInputStream bais5 = new ByteArrayInputStream(blob5);
-                    bitmap5 = BitmapFactory.decodeStream(bais5);
-                }
-                imageAvatar5.setVisibility(View.VISIBLE);
-                num5.setVisibility(View.VISIBLE);
-            }
-            if (fila1.moveToNext()) {
-                j6 = fila1.getString(0);
-                p6= fila1.getString(1);
-                byte[] blob6 = fila1.getBlob(2);
-                if(blob6!=null) {
-                    ByteArrayInputStream bais6 = new ByteArrayInputStream(blob6);
-                    bitmap6 = BitmapFactory.decodeStream(bais6);
-                }
-                imageAvatar6.setVisibility(View.VISIBLE);
-                num6.setVisibility(View.VISIBLE);
-            }
-
 
         }else {
-
             j1="";
             j2="";
             j3="";
@@ -232,26 +202,37 @@ public class Rankings extends AppCompatActivity {
         mostrarPunt5.setText(p5);
         mostrarPunt6.setText(p6);
 
-        if(bitmap1!=null){
-            imageAvatar1.setImageBitmap(bitmap1);
-        }
-        if(bitmap2!=null) {
-            imageAvatar2.setImageBitmap(bitmap2);
-        }
-        if(bitmap3!=null){
-            imageAvatar3.setImageBitmap(bitmap3);
-        }
-        if(bitmap4!=null){
-            imageAvatar4.setImageBitmap(bitmap4);
-        }
-        if(bitmap5!=null){
-            imageAvatar5.setImageBitmap(bitmap5);
-        }
-        if(bitmap6!=null){
-            imageAvatar6.setImageBitmap(bitmap6);
-        }
-
         baseDeDatos.close();
+    }
+
+    public void mostrarTop5Aux(String j, String p,Cursor fila1,Bitmap bitmap,int i){
+        j = fila1.getString(0);
+        p = fila1.getString(1);
+        byte[] blob = fila1.getBlob(2);
+        if(blob!=null) {
+            ByteArrayInputStream bais = new ByteArrayInputStream(blob);
+            bitmap = BitmapFactory.decodeStream(bais);
+            switch (i) {
+                case 1:
+                    imageAvatar1.setImageBitmap(bitmap);
+                    break;
+                case 2:
+                    imageAvatar2.setImageBitmap(bitmap);
+                    break;
+                case 3:
+                    imageAvatar3.setImageBitmap(bitmap);
+                    break;
+                case 4:
+                    imageAvatar4.setImageBitmap(bitmap);
+                    break;
+                case 5:
+                    imageAvatar5.setImageBitmap(bitmap);
+                    break;
+                case 6:
+                    imageAvatar6.setImageBitmap(bitmap);
+                    break;
+            }
+        }
     }
 
     public void restablecerEstadiaticas (){
