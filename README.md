@@ -3,11 +3,6 @@ Proyecto de rompecabezas de combinación de fichas en Android (Tetris) para la a
 ## ¿Qué es el Tetris?
 El Tetris es un videojuego de puzle, lanzado en 1984 por Alekséi Pázhitnov.
 Este juego consiste en la generación de piezas conocidas como tetrominós, y su posterior descenso por una pantalla por la que el usuario deberá ir moviendo las piezas formando un puzzle interactivo.
-## Colaboradores
-Nuestro método de trabajo se basa en el Scrum por lo que contamos con distintos roles.
-* Scrum Master: @miguelrod21
-* Producto Owner:  @Diegopasfer1909
-* Developer Team: @alfonsopajueloaguirre @dMurill0 @Danielmg21 @aliholi44 @oscar-llury
 ## Sprint 1
 * Juego base
   * Piezas como 4 bloques cuadrados
