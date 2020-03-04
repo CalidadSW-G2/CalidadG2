@@ -118,12 +118,6 @@ public class Rankings extends AppCompatActivity {
         String p4="";
         String p5="";
         String p6="";
-        Bitmap bitmap1 = null;
-        Bitmap bitmap2 = null;
-        Bitmap bitmap3 = null;
-        Bitmap bitmap4 = null;
-        Bitmap bitmap5 = null;
-        Bitmap bitmap6 = null;
 
         //********************** AMBAS FUNCIONAN
 
@@ -141,34 +135,49 @@ public class Rankings extends AppCompatActivity {
             while(!fila1.isAfterLast()){
                 switch (i){
                     case 1:
-                        mostrarTop5Aux(j1,p1,fila1,bitmap1,i);
+                        j1 = fila1.getString(0);
+                        p1 = fila1.getString(1);
+                        mostrarTop5Aux(fila1,i);
                         imageAvatar1.setVisibility(View.VISIBLE);
                         num1.setVisibility(View.VISIBLE);
                         break;
                     case 2:
-                        mostrarTop5Aux(j2,p2,fila1,bitmap2,i);
+                        j2 = fila1.getString(0);
+                        p2 = fila1.getString(1);
+                        mostrarTop5Aux(fila1,i);
                         imageAvatar2.setVisibility(View.VISIBLE);
                         num2.setVisibility(View.VISIBLE);
                         break;
                     case 3:
-                        mostrarTop5Aux(j3,p3,fila1,bitmap3,i);
+                        j3 = fila1.getString(0);
+                        p3 = fila1.getString(1);
+                        mostrarTop5Aux(fila1,i);
                         imageAvatar3.setVisibility(View.VISIBLE);
                         num3.setVisibility(View.VISIBLE);
                         break;
                     case 4:
-                        mostrarTop5Aux(j4,p4,fila1,bitmap4,i);
+                        j4 = fila1.getString(0);
+                        p4 = fila1.getString(1);
+                        mostrarTop5Aux(fila1,i);
                         imageAvatar4.setVisibility(View.VISIBLE);
                         num4.setVisibility(View.VISIBLE);
                         break;
                     case 5:
-                        mostrarTop5Aux(j5,p5,fila1,bitmap5,i);
+                        j5 = fila1.getString(0);
+                        p5 = fila1.getString(1);
+                        mostrarTop5Aux(fila1,i);
                         imageAvatar5.setVisibility(View.VISIBLE);
                         num5.setVisibility(View.VISIBLE);
                         break;
                     case 6:
-                        mostrarTop5Aux(j6,p6,fila1,bitmap6,i);
+                        j6 = fila1.getString(0);
+                        p6 = fila1.getString(1);
+                        mostrarTop5Aux(fila1,i);
                         imageAvatar6.setVisibility(View.VISIBLE);
                         num6.setVisibility(View.VISIBLE);
+                        break;
+                    default:
+                        break;
                 }
                 fila1.moveToNext();
                 i++;
@@ -206,13 +215,11 @@ public class Rankings extends AppCompatActivity {
         baseDeDatos.close();
     }
 
-    public void mostrarTop5Aux(String j, String p,Cursor fila1,Bitmap bitmap,int i){
-        j = fila1.getString(0);
-        p = fila1.getString(1);
+    public void mostrarTop5Aux(Cursor fila1,int i){
         byte[] blob = fila1.getBlob(2);
         if(blob!=null) {
             ByteArrayInputStream bais = new ByteArrayInputStream(blob);
-            bitmap = BitmapFactory.decodeStream(bais);
+            Bitmap bitmap = BitmapFactory.decodeStream(bais);
             switch (i) {
                 case 1:
                     imageAvatar1.setImageBitmap(bitmap);
@@ -231,6 +238,8 @@ public class Rankings extends AppCompatActivity {
                     break;
                 case 6:
                     imageAvatar6.setImageBitmap(bitmap);
+                    break;
+                default:
                     break;
             }
         }
