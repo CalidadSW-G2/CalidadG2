@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Inicio extends AppCompatActivity {
-
+    //Bug-emulated
     Button modoClasico;
     Button muerteSubita;
     ImageView settings;
