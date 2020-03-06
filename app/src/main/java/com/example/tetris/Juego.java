@@ -1,27 +1,21 @@
 package com.example.tetris;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.util.Log;
 import android.view.Gravity;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import static android.content.ContentValues.TAG;
-import static androidx.core.content.ContextCompat.startActivity;
 import pl.droidsonroids.gif.GifImageView;
 
 
@@ -37,7 +31,7 @@ public class Juego extends View implements View.OnClickListener {
     public int nivelActual = 0;
     private int nivelvar = 1;
     private Timer timer = new Timer();
-    private Timer crono = new Timer();
+    private Timer chrono = new Timer();
     private List<Integer> filasPorBorrar;
     private int timerPeriod = 1000;
     private VentanaNext ventana;
@@ -88,7 +82,7 @@ public class Juego extends View implements View.OnClickListener {
     }
 
     public void Cronometro() {
-        crono.schedule(new TimerTask() {
+        chrono.schedule(new TimerTask() {
             @Override
             public void run() {
                 mainActivity.runOnUiThread(new TimerTask() {
