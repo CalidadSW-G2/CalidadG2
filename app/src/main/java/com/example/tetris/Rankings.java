@@ -124,7 +124,7 @@ public class Rankings extends AppCompatActivity {
         String p5="";
         String p6="";
 
-        //********************** AMBAS FUNCIONAN
+        //********************** BOTH WORKS
 
         Cursor fila1 = baseDeDatos.rawQuery("select * from "+tipoBBDD+"  order by puntuacion DESC",null);
 
