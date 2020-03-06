@@ -17,31 +17,52 @@ import android.widget.Toast;
 import java.io.ByteArrayInputStream;
 
 public class Rankings extends AppCompatActivity {
-    private TextView textoRanking1,textoRanking2,textoRanking3,textoRanking4,textoRanking5,textoRanking6,mostrarPunt1,mostrarPunt2,mostrarPunt3,mostrarPunt4,mostrarPunt5,mostrarPunt6;
-    private TextView num_1,num_2,num_3,num_4,num_5,num_6;
-    private ImageView imageAvatar1,imageAvatar2,imageAvatar3,imageAvatar4,imageAvatar5,imageAvatar6;
-    private SQLiteDatabase BaseDeDatos;
-    private AdminSQLiteOpenHelper BBDD;
-    private int modo;
-    private String tipoBBDD;
+    private TextView textoRanking1;
+    private TextView textoRanking2;
+    private TextView textoRanking3;
+    private TextView textoRanking4;
+    private TextView textoRanking5;
+    private TextView textoRanking6;
+    private TextView mostrarPunt1;
+    private TextView mostrarPunt2;
+    private TextView mostrarPunt3;
+    private TextView mostrarPunt4;
+    private TextView mostrarPunt5;
+    private TextView mostrarPunt6;
+    private TextView num1;
+    private TextView num2;
+    private TextView num3;
+    private TextView num4;
+    private TextView num5;
+    private TextView num6;
+    private ImageView imageAvatar1;
+    private ImageView imageAvatar2;
+    private ImageView imageAvatar3;
+    private ImageView imageAvatar4;
+    private ImageView imageAvatar5;
+    private ImageView imageAvatar6;
+    private SQLiteDatabase baseDeDatos;
+    private AdminSQLiteOpenHelper bbdd;
+    private String tipoBBDD = "rankingNormal";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         Bundle p = this.getIntent().getExtras();
-        modo = p.getInt("modo");
-        BBDD = new AdminSQLiteOpenHelper(this, "RankingJugadores", null, 1);
+        int modo = p.getInt("modo");
+        bbdd = new AdminSQLiteOpenHelper(this, "RankingJugadores", null, 1);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rankings);
 
         Button restEstadisticas =  findViewById(R.id.restablecerEstadisticas);
         Button menu= findViewById(R.id.goMenu);
 
-        num_1 = findViewById(R.id.primero);
-        num_2 = findViewById(R.id.segundo);
-        num_3 = findViewById(R.id.tercero);
-        num_4 = findViewById(R.id.cuarto);
-        num_5 = findViewById(R.id.quinto);
-        num_6 = findViewById(R.id.sexto);
+        num1 = findViewById(R.id.primero);
+        num2 = findViewById(R.id.segundo);
+        num3 = findViewById(R.id.tercero);
+        num4 = findViewById(R.id.cuarto);
+        num5 = findViewById(R.id.quinto);
+        num6 = findViewById(R.id.sexto);
 
         textoRanking1 = findViewById(R.id.mostrarRanking1);
         textoRanking2 = findViewById(R.id.mostrarRanking2);
@@ -64,6 +85,10 @@ public class Rankings extends AppCompatActivity {
         imageAvatar5 = findViewById(R.id.imageJ5);
         imageAvatar6 = findViewById(R.id.imageJ6);
 
+        if(modo != 0){
+            tipoBBDD = "rankingHard";
+        }
+
         mostrarTop5();
 
         restEstadisticas.setOnClickListener(new View.OnClickListener() {
@@ -82,106 +107,76 @@ public class Rankings extends AppCompatActivity {
         });
 
     }
+
     public void mostrarTop5 (){
-        BaseDeDatos = BBDD.getWritableDatabase();
-        String columnas[] = new String[]{"nombre","puntuacion","foto"};//,"puntuacion"
-        String j1="",j2="",j3="",j4="",j5="",j6="",p1="",p2="",p3="",p4="",p5="",p6="";
-        Bitmap bitmap1 = null,bitmap2 = null,bitmap3 = null,bitmap4 = null,bitmap5 = null,bitmap6 = null;
+
+        baseDeDatos = bbdd.getWritableDatabase();
+        String j1="";
+        String j2="";
+        String j3="";
+        String j4="";
+        String j5="";
+        String j6="";
+        String p1="";
+        String p2="";
+        String p3="";
+        String p4="";
+        String p5="";
+        String p6="";
 
         //********************** AMBAS FUNCIONAN
-        //-----1 forma
-        if(modo==0){
-            tipoBBDD = "rankingNormal";
-        }else{
-            tipoBBDD = "rankingHard";
-        }
-        Cursor fila1 = BaseDeDatos.rawQuery("select * from "+tipoBBDD+"  order by puntuacion DESC",null);
 
-        //-----2 forma
-        //Cursor fila2 = BaseDeDatos.query("rankingNormal", columnas, null, null, null, null, "puntuacion"+" DESC");
-        if(fila1.moveToFirst()){
-            //mostrarRanking.setText(fila1.getString(0)+fila1.getString(1));
+        Cursor fila1 = baseDeDatos.rawQuery("select * from "+tipoBBDD+"  order by puntuacion DESC",null);
 
-            j1 = fila1.getString(0);
-            p1 = fila1.getString(1);
-            byte[] blob1 = fila1.getBlob(2);
-            if(blob1!=null) {
-                ByteArrayInputStream bais1 = new ByteArrayInputStream(blob1);
-                bitmap1 = BitmapFactory.decodeStream(bais1);
+        int i = 1;
+        for(fila1.moveToFirst();!fila1.isAfterLast();fila1.moveToNext()){
+            switch (i) {
+                case 1:
+                    j1 = fila1.getString(0);
+                    p1 = fila1.getString(1);
+                    imageAvatar1.setVisibility(View.VISIBLE);
+                    imageAvatar1.setImageBitmap(mostrarTop5Aux(fila1));
+                    num1.setVisibility(View.VISIBLE);
+                    break;
+                case 2:
+                    j2 = fila1.getString(0);
+                    p2 = fila1.getString(1);
+                    imageAvatar2.setVisibility(View.VISIBLE);
+                    imageAvatar2.setImageBitmap(mostrarTop5Aux(fila1));
+                    num2.setVisibility(View.VISIBLE);
+                    break;
+                case 3:
+                    j3 = fila1.getString(0);
+                    p3 = fila1.getString(1);
+                    imageAvatar3.setVisibility(View.VISIBLE);
+                    imageAvatar3.setImageBitmap(mostrarTop5Aux(fila1));
+                    num3.setVisibility(View.VISIBLE);
+                    break;
+                case 4:
+                    j4 = fila1.getString(0);
+                    p4 = fila1.getString(1);
+                    imageAvatar4.setVisibility(View.VISIBLE);
+                    imageAvatar4.setImageBitmap(mostrarTop5Aux(fila1));
+                    num4.setVisibility(View.VISIBLE);
+                    break;
+                case 5:
+                    j5 = fila1.getString(0);
+                    p5 = fila1.getString(1);
+                    imageAvatar5.setVisibility(View.VISIBLE);
+                    imageAvatar5.setImageBitmap(mostrarTop5Aux(fila1));
+                    num5.setVisibility(View.VISIBLE);
+                    break;
+                case 6:
+                    j6 = fila1.getString(0);
+                    p6 = fila1.getString(1);
+                    imageAvatar6.setVisibility(View.VISIBLE);
+                    imageAvatar6.setImageBitmap(mostrarTop5Aux(fila1));
+                    num6.setVisibility(View.VISIBLE);
+                    break;
+                default:
+                    break;
             }
-            imageAvatar1.setVisibility(View.VISIBLE);
-            num_1.setVisibility(View.VISIBLE);
-            if (fila1.moveToNext()) {
-                j2 = fila1.getString(0);
-                p2 = fila1.getString(1);
-                byte[] blob2 = fila1.getBlob(2);
-                if(blob2!=null) {
-                    ByteArrayInputStream bais2 = new ByteArrayInputStream(blob2);
-                    bitmap2 = BitmapFactory.decodeStream(bais2);
-                }
-                imageAvatar2.setVisibility(View.VISIBLE);
-                num_2.setVisibility(View.VISIBLE);
-            }
-            if (fila1.moveToNext()) {
-                j3 = fila1.getString(0);
-                p3 = fila1.getString(1);
-                byte[] blob3 = fila1.getBlob(2);
-                if(blob3!=null) {
-                    ByteArrayInputStream bais3 = new ByteArrayInputStream(blob3);
-                    bitmap3 = BitmapFactory.decodeStream(bais3);
-                }
-                imageAvatar3.setVisibility(View.VISIBLE);
-                num_3.setVisibility(View.VISIBLE);
-            }
-            if (fila1.moveToNext()) {
-                j4 = fila1.getString(0);
-                p4 = fila1.getString(1);
-                byte[] blob4 = fila1.getBlob(2);
-                if(blob4!=null) {
-                    ByteArrayInputStream bais4 = new ByteArrayInputStream(blob4);
-                    bitmap4 = BitmapFactory.decodeStream(bais4);
-                }
-                imageAvatar4.setVisibility(View.VISIBLE);
-                num_4.setVisibility(View.VISIBLE);
-            }
-            if (fila1.moveToNext()) {
-                j5 = fila1.getString(0);
-                p5 = fila1.getString(1);
-                byte[] blob5 = fila1.getBlob(2);
-                if(blob5!=null) {
-                    ByteArrayInputStream bais5 = new ByteArrayInputStream(blob5);
-                    bitmap5 = BitmapFactory.decodeStream(bais5);
-                }
-                imageAvatar5.setVisibility(View.VISIBLE);
-                num_5.setVisibility(View.VISIBLE);
-            }
-            if (fila1.moveToNext()) {
-                j6 = fila1.getString(0);
-                p6= fila1.getString(1);
-                byte[] blob6 = fila1.getBlob(2);
-                if(blob6!=null) {
-                    ByteArrayInputStream bais6 = new ByteArrayInputStream(blob6);
-                    bitmap6 = BitmapFactory.decodeStream(bais6);
-                }
-                imageAvatar6.setVisibility(View.VISIBLE);
-                num_6.setVisibility(View.VISIBLE);
-            }
-
-
-        }else {
-
-            j1="";
-            j2="";
-            j3="";
-            j4="";
-            j5="";
-            j6="";
-            p1="";
-            p2="";
-            p3="";
-            p4="";
-            p5="";
-            p6="";
+            i++;
         }
 
         textoRanking1.setText(j1);
@@ -198,47 +193,37 @@ public class Rankings extends AppCompatActivity {
         mostrarPunt5.setText(p5);
         mostrarPunt6.setText(p6);
 
-        if(bitmap1!=null)
-        imageAvatar1.setImageBitmap(bitmap1);
-        if(bitmap2!=null)
-        imageAvatar2.setImageBitmap(bitmap2);
-        if(bitmap3!=null)
-        imageAvatar3.setImageBitmap(bitmap3);
-        if(bitmap4!=null)
-        imageAvatar4.setImageBitmap(bitmap4);
-        if(bitmap5!=null)
-        imageAvatar5.setImageBitmap(bitmap5);
-        if(bitmap6!=null)
-        imageAvatar6.setImageBitmap(bitmap6);
+        baseDeDatos.close();
+    }
 
-        BaseDeDatos.close();
+    public Bitmap mostrarTop5Aux(Cursor fila1){
+        byte[] blob = fila1.getBlob(2);
+        if(blob!=null) {
+            ByteArrayInputStream bais = new ByteArrayInputStream(blob);
+            return BitmapFactory.decodeStream(bais);
+        }
+        return null;
     }
 
     public void restablecerEstadiaticas (View view){
-        BaseDeDatos = BBDD.getWritableDatabase();
+        baseDeDatos = bbdd.getWritableDatabase();
 
-        if(modo==0){
-            tipoBBDD = "rankingNormal";
-        }else{
-            tipoBBDD = "rankingHard";
-        }
-        BaseDeDatos.execSQL("DELETE FROM "+tipoBBDD);
+        baseDeDatos.execSQL("DELETE FROM "+tipoBBDD);
         Toast.makeText(this, "Estadisticas restablecidas", Toast.LENGTH_SHORT).show();
-        BaseDeDatos.close();
+        baseDeDatos.close();
 
         imageAvatar1.setVisibility(View.INVISIBLE);
-        num_1.setVisibility(View.INVISIBLE);
+        num1.setVisibility(View.INVISIBLE);
         imageAvatar2.setVisibility(View.INVISIBLE);
-        num_2.setVisibility(View.INVISIBLE);
+        num2.setVisibility(View.INVISIBLE);
         imageAvatar3.setVisibility(View.INVISIBLE);
-        num_3.setVisibility(View.INVISIBLE);
+        num3.setVisibility(View.INVISIBLE);
         imageAvatar4.setVisibility(View.INVISIBLE);
-        num_4.setVisibility(View.INVISIBLE);
+        num4.setVisibility(View.INVISIBLE);
         imageAvatar5.setVisibility(View.INVISIBLE);
-        num_5.setVisibility(View.INVISIBLE);
+        num5.setVisibility(View.INVISIBLE);
         imageAvatar6.setVisibility(View.INVISIBLE);
-        num_6.setVisibility(View.INVISIBLE);
-
+        num6.setVisibility(View.INVISIBLE);
 
         mostrarTop5();
     }
