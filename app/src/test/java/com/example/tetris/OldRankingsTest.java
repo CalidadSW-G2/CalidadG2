@@ -9,7 +9,7 @@ import java.util.Collections;
 
 import static org.junit.Assert.*;
 
-public class RankingsTest {
+public class OldRankingsTest {
 
     private BBDDSimulator fila1;
 
