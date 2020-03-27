@@ -4,7 +4,7 @@
             "outputFile": "C:\\Users\\Marcos\\Desktop\\Carrera\\3 Curso\\Segundo Cuatrimestre\\Calidad del Software\\ProyectoCalidad\\CalidadG2\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-watch-v21\\values-watch-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Marcos\\.gradle\\caches\\transforms-2\\files-2.1\\35635f35a7ba0b1c01b82e0f6ebceef9\\appcompat-1.0.2\\res\\values-watch-v21\\values-watch-v21.xml",
+                    "source": "C:\\Users\\Marcos\\.gradle\\caches\\transforms-2\\files-2.1\\b7b23e1493e81561b03c52000804cbc3\\appcompat-1.1.0\\res\\values-watch-v21\\values-watch-v21.xml",
                     "from": {
                         "startLines": "2,6,10",
                         "startColumns": "4,4,4",
