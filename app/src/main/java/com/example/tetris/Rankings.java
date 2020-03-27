@@ -205,6 +205,10 @@ public class Rankings extends AppCompatActivity {
         return null;
     }
 
+    private void rellenerBBDD_Testeable(){
+        //to be done
+    }
+
     public void restablecerEstadiaticas (View view){
         baseDeDatos = bbdd.getWritableDatabase();
 
