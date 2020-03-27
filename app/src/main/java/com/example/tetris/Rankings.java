@@ -2,6 +2,7 @@ package com.example.tetris;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -89,6 +90,7 @@ public class Rankings extends AppCompatActivity {
             tipoBBDD = "rankingHard";
         }
 
+        rellenerBBDD_Testeable();
         mostrarTop5();
 
         restEstadisticas.setOnClickListener(new View.OnClickListener() {
@@ -206,7 +208,37 @@ public class Rankings extends AppCompatActivity {
     }
 
     private void rellenerBBDD_Testeable(){
-        //to be done
+        baseDeDatos = bbdd.getWritableDatabase();
+        ContentValues registro1 = new ContentValues();
+        registro1.put("nombre", "Primero");
+        registro1.put("puntuacion", 600);
+
+        ContentValues registro2 = new ContentValues();
+        registro2.put("nombre", "Segundo");
+        registro2.put("puntuacion", 500);
+
+        ContentValues registro3 = new ContentValues();
+        registro3.put("nombre", "Tercero");
+        registro3.put("puntuacion", 400);
+
+        ContentValues registro4 = new ContentValues();
+        registro4.put("nombre", "Cuarto");
+        registro4.put("puntuacion", 300);
+
+        ContentValues registro5 = new ContentValues();
+        registro5.put("nombre", "Quinto");
+        registro5.put("puntuacion", 200);
+
+        ContentValues registro6 = new ContentValues();
+        registro6.put("nombre", "Sexto");
+        registro6.put("puntuacion", 100);
+        baseDeDatos.insert("rankingNormal", null, registro1);
+        baseDeDatos.insert("rankingNormal", null, registro2);
+        baseDeDatos.insert("rankingNormal", null, registro3);
+        baseDeDatos.insert("rankingNormal", null, registro4);
+        baseDeDatos.insert("rankingNormal", null, registro5);
+        baseDeDatos.insert("rankingNormal", null, registro6);
+        baseDeDatos.close();
     }
 
     public void restablecerEstadiaticas (View view){

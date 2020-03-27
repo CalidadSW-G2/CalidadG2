@@ -1,5 +1,7 @@
 package com.example.tetris;
 
+import androidx.annotation.Nullable;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,39 +13,53 @@ import static org.junit.Assert.*;
 
 public class TDD_RankingPorDefecto {
 
-    private BBDDSimulator simulatedBBDD;
+    private static BBDDSimulator baseDeDatos;
 
-    public static class BBDDRow implements Comparable<BBDDRow>{
+    public static class ContentValues implements Comparable<ContentValues>{
         private String name;
-        private String score;
+        private int score;
 
-        public BBDDRow(String name, String score) {
-            this.name = name;
-            this.score = score;
+        public ContentValues() {
+        }
+
+        public void put(String _, String value) {
+            this.name = value;
+        }
+        public void put(String _, int value) {
+            this.score = value;
         }
 
         @Override
-        public int compareTo(BBDDRow o) {
-            return Integer.compare(Integer.parseInt(o.score), Integer.parseInt(score));
+        public int compareTo(ContentValues o) {
+            return Integer.compare(o.score, score);
         }
     }
     public static class BBDDSimulator {
-        private ArrayList<BBDDRow> bbdd = new ArrayList<>();
+        private ArrayList<ContentValues> bbdd;
         private int currentRow;
 
-        public BBDDSimulator(ArrayList<BBDDRow> bbdd) {
+        public BBDDSimulator(ArrayList<ContentValues> bbdd) {
             this.bbdd = bbdd;
         }
         public boolean moveToFirst() {
             currentRow = 0;
             return true;
         }
+        public boolean isAfterLast() {
+            return currentRow > 5;
+        }
         public boolean moveToNext() {
-            if (currentRow < 6 && !(bbdd.get(currentRow + 1).name.isEmpty())) {
+            if (currentRow < 6 && !(bbdd.get(currentRow).name.isEmpty())) {
                 currentRow++;
                 return true;
             }
             return false;
+        }
+        public void getWritableDatabase() {
+            //fake function
+        }
+        public void insert(String _, @Nullable String __, ContentValues row) {
+            baseDeDatos.bbdd.add(row);
         }
         public String getString (int index) {
             switch (index) {
@@ -51,7 +67,7 @@ public class TDD_RankingPorDefecto {
                     return bbdd.get(currentRow).name;
                 }
                 case 1: {
-                    return bbdd.get(currentRow).score;
+                    return Integer.toString(bbdd.get(currentRow).score);
                 }
             }
             return "";
@@ -63,38 +79,106 @@ public class TDD_RankingPorDefecto {
 
     @Before
     public void setUp() throws Exception {
-        ArrayList<BBDDRow> bbdd = new ArrayList<>();
-        BBDDRow filax1 = new BBDDRow("", "");
-        bbdd.add(filax1);
-        BBDDRow fila2 = new BBDDRow("", "");
-        bbdd.add(fila2);
-        BBDDRow fila3 = new BBDDRow("", "");
-        bbdd.add(fila3);
-        BBDDRow fila4 = new BBDDRow("", "");
-        bbdd.add(fila4);
-        BBDDRow fila5 = new BBDDRow("", "");
-        bbdd.add(fila5);
-        BBDDRow fila6 = new BBDDRow("", "");
-        bbdd.add(fila6);
-        simulatedBBDD = new BBDDSimulator(bbdd);
+        ArrayList<ContentValues> bbdd = new ArrayList<>();
+        baseDeDatos = new BBDDSimulator(bbdd);
     }
 
     @After
     public void tearDown() throws Exception {
-        simulatedBBDD.bbdd = new ArrayList<>();
-        simulatedBBDD.currentRow = 0;
+        baseDeDatos.bbdd = new ArrayList<>();
+        baseDeDatos.currentRow = 0;
+    }
+
+    private String leerBBDD(){
+        String j1="";
+        String j2="";
+        String j3="";
+        String j4="";
+        String j5="";
+        String j6="";
+        String p1="";
+        String p2="";
+        String p3="";
+        String p4="";
+        String p5="";
+        String p6="";
+
+        int i = 1;
+        for(baseDeDatos.moveToFirst();!baseDeDatos.isAfterLast();baseDeDatos.moveToNext()){
+            switch (i) {
+                case 1:
+                    j1 = baseDeDatos.getString(0);
+                    p1 = baseDeDatos.getString(1);
+                    break;
+                case 2:
+                    j2 = baseDeDatos.getString(0);
+                    p2 = baseDeDatos.getString(1);
+                    break;
+                case 3:
+                    j3 = baseDeDatos.getString(0);
+                    p3 = baseDeDatos.getString(1);
+                    break;
+                case 4:
+                    j4 = baseDeDatos.getString(0);
+                    p4 = baseDeDatos.getString(1);
+                    break;
+                case 5:
+                    j5 = baseDeDatos.getString(0);
+                    p5 = baseDeDatos.getString(1);
+                    break;
+                case 6:
+                    j6 = baseDeDatos.getString(0);
+                    p6 = baseDeDatos.getString(1);
+                    break;
+                default:
+                    break;
+            }
+            i++;
+        }
+
+        return j1 + p1 + j2 + p2 + j3 + p3 + j4 + p4 + j5 + p5 + j6 + p6;
     }
 
     private void rellenerBBDD_Testeable(){
-        //to be done
+        //baseDeDatos = bbdd.getWritableDatabase();
+        baseDeDatos.getWritableDatabase();
+
+        ContentValues registro1 = new ContentValues();
+        registro1.put("nombre", "Primero");
+        registro1.put("puntuacion", 600);
+
+        ContentValues registro2 = new ContentValues();
+        registro2.put("nombre", "Segundo");
+        registro2.put("puntuacion", 500);
+
+        ContentValues registro3 = new ContentValues();
+        registro3.put("nombre", "Tercero");
+        registro3.put("puntuacion", 400);
+
+        ContentValues registro4 = new ContentValues();
+        registro4.put("nombre", "Cuarto");
+        registro4.put("puntuacion", 300);
+
+        ContentValues registro5 = new ContentValues();
+        registro5.put("nombre", "Quinto");
+        registro5.put("puntuacion", 200);
+
+        ContentValues registro6 = new ContentValues();
+        registro6.put("nombre", "Sexto");
+        registro6.put("puntuacion", 100);
+        baseDeDatos.insert("rankingNormal", null, registro1);
+        baseDeDatos.insert("rankingNormal", null, registro2);
+        baseDeDatos.insert("rankingNormal", null, registro3);
+        baseDeDatos.insert("rankingNormal", null, registro4);
+        baseDeDatos.insert("rankingNormal", null, registro5);
+        baseDeDatos.insert("rankingNormal", null, registro6);
     }
 
     @Test
     public void testRellenar() {
-        String expected = "Primero 600 Segundo 500 Tercero 400 Cuarto 300 Quinto 200 Sexto 100";
-        String obtained = "";
-
+        String expected = "Primero600Segundo500Tercero400Cuarto300Quinto200Sexto100";
         rellenerBBDD_Testeable();
+        String obtained = leerBBDD();
 
         assertEquals("Cheking BBDD default data", expected, obtained);
     }
