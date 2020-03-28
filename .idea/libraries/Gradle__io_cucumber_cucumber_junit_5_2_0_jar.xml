@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: io.cucumber:cucumber-junit:5.2.0@jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.cucumber/cucumber-junit/5.2.0/5ad4bff5af0f7c5d392a82810491ae333aaa9977/cucumber-junit-5.2.0.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.cucumber/cucumber-junit/5.2.0/4dbb78174c32d1d5143aedce2a926c38fa4046cf/cucumber-junit-5.2.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.cucumber/cucumber-junit/5.2.0/5e3576e8320c1e8ed277d9158b8fc277f1e28a7f/cucumber-junit-5.2.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
