@@ -1,4 +1,4 @@
-#Sat Mar 28 10:36:25 CET 2020
+#Sat Mar 28 17:13:33 CET 2020
 base.0=C\:\\Users\\Marcos\\Desktop\\Carrera\\3 Curso\\Segundo Cuatrimestre\\Calidad del Software\\ProyectoCalidad\\CalidadG2\\app\\build\\intermediates\\dex\\debug\\out\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

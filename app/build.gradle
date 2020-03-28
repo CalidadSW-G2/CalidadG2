@@ -22,6 +22,11 @@ android {
         }
     }
 }
+configurations {
+    cucumberRuntime {
+        extendsFrom testImplementation
+    }
+}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -32,11 +37,9 @@ dependencies {
 
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    androidTestImplementation "io.cucumber:cucumber-junit:5.2.0"
-    androidTestImplementation "io.cucumber:cucumber-java:5.2.0"
-    androidTestImplementation "io.cucumber:cucumber-java8:5.2.0"
-    androidTestImplementation "io.cucumber:cucumber-core:5.2.0"
-    //androidTestImplementation 'info.cukes:cucumber-android:1.2.5'
-    //androidTestImplementation 'info.cukes:cucumber-picocontainer:1.2.5'
+    androidTestImplementation group: 'io.cucumber', name: 'cucumber-java', version: '5.2.0'
+    androidTestImplementation group: 'io.cucumber', name: 'cucumber-junit', version: '5.5.0'
+    androidTestImplementation group: 'io.cucumber', name: 'cucumber-android', version: '4.2.5'
+    androidTestImplementation group: 'io.cucumber', name: 'cucumber-picocontainer', version: '5.5.0'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.7'
 }
