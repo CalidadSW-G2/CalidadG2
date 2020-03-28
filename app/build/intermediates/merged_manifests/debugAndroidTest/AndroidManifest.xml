@@ -7,7 +7,7 @@
         android:targetSdkVersion="29" />
 
     <instrumentation
-        android:name="androidx.test.runner.AndroidJUnitRunner"
+        android:name="com.example.tetris.test.Instrumentation"
         android:functionalTest="false"
         android:handleProfiling="false"
         android:label="Tests for com.example.tetris"

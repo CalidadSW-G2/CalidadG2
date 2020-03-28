@@ -41,6 +41,7 @@
         android:layout_height="120dp"
         android:text="@string/text_go_creditos"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
