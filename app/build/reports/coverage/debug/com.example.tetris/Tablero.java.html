@@ -1,0 +1,632 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Tablero.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=0;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">debugAndroidTest</a> &gt; <a href="index.source.html" class="el_package">com.example.tetris</a> &gt; <span class="el_source">Tablero.java</span></div><h1>Tablero.java</h1><pre class="source lang-java linenums">package com.example.tetris;
+
+import android.graphics.Color;
+import android.graphics.Point;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
+
+
+public class Tablero {
+
+<span class="nc" id="L14">    private final int alturaTablero = 20;</span>
+<span class="nc" id="L15">    private final int anchuraTablero = 10;</span>
+<span class="nc" id="L16">    public int tab[][] = new int[anchuraTablero][alturaTablero];</span>
+<span class="nc" id="L17">    private final Random random = new Random();</span>
+<span class="nc" id="L18">    public ArrayList&lt;Pieza&gt; listaPiezas = new ArrayList&lt;Pieza&gt;();</span>
+<span class="nc" id="L19">    private final int numeroPiezas = 7;</span>
+<span class="nc" id="L20">    private static int colorCuadrado = 1;</span>
+<span class="nc" id="L21">    private static int colorZPieza = 2;</span>
+<span class="nc" id="L22">    private static int colorIPieza = 3;</span>
+<span class="nc" id="L23">    private static int colorTPieza = 4;</span>
+<span class="nc" id="L24">    private static int colorSPieza = 5;</span>
+<span class="nc" id="L25">    private static int colorLPieza = 6;</span>
+<span class="nc" id="L26">    private static int colorJPieza = 7;</span>
+    private Pieza auxTroll;
+
+<span class="nc" id="L29">    public Tablero() {</span>
+<span class="nc" id="L30">        listaPiezas.add(new Pieza(random.nextInt(numeroPiezas) + 1, 0));</span>
+<span class="nc" id="L31">        listaPiezas.add(new Pieza(random.nextInt(numeroPiezas) + 1, 0));</span>
+<span class="nc" id="L32">    }</span>
+
+    public void generarPieza(int altura) {
+<span class="nc" id="L35">        listaPiezas.add(new Pieza(random.nextInt(numeroPiezas) + 1, altura));</span>
+<span class="nc" id="L36">    }</span>
+
+    public void borrarPieza() {
+<span class="nc" id="L39">        listaPiezas.remove(0);</span>
+<span class="nc" id="L40">    }</span>
+    //transforma numeros de matriz a color
+
+
+    public static void setColorCuadrado(int colorCuadrado) {
+<span class="nc" id="L45">        Tablero.colorCuadrado = colorCuadrado;</span>
+<span class="nc" id="L46">    }</span>
+
+    public static void setColorZPieza(int colorZPieza) {
+<span class="nc" id="L49">        Tablero.colorZPieza = colorZPieza;</span>
+<span class="nc" id="L50">    }</span>
+
+    public static void setColorIPieza(int colorIPieza) {
+<span class="nc" id="L53">        Tablero.colorIPieza = colorIPieza;</span>
+<span class="nc" id="L54">    }</span>
+
+    public static void setColorTPieza(int colorTPieza) {
+<span class="nc" id="L57">        Tablero.colorTPieza = colorTPieza;</span>
+<span class="nc" id="L58">    }</span>
+
+    public static void setColorSPieza(int colorSPieza) {
+<span class="nc" id="L61">        Tablero.colorSPieza = colorSPieza;</span>
+<span class="nc" id="L62">    }</span>
+
+    public static void setColorLPieza(int colorLPieza) {
+<span class="nc" id="L65">        Tablero.colorLPieza = colorLPieza;</span>
+<span class="nc" id="L66">    }</span>
+
+    public static void setColorJPieza(int colorJPieza) {
+<span class="nc" id="L69">        Tablero.colorJPieza = colorJPieza;</span>
+<span class="nc" id="L70">    }</span>
+
+    public static int getColorCuadrado() {
+<span class="nc" id="L73">        return colorCuadrado;</span>
+    }
+
+    public static int getColorZPieza() {
+<span class="nc" id="L77">        return colorZPieza;</span>
+    }
+
+    public static int getColorIPieza() {
+<span class="nc" id="L81">        return colorIPieza;</span>
+    }
+
+    public static int getColorTPieza() {
+<span class="nc" id="L85">        return colorTPieza;</span>
+    }
+
+    public static int getColorSPieza() {
+<span class="nc" id="L89">        return colorSPieza;</span>
+    }
+
+    public static int getColorLPieza() {
+<span class="nc" id="L93">        return colorLPieza;</span>
+    }
+
+    public static int getColorJPieza() {
+<span class="nc" id="L97">        return colorJPieza;</span>
+    }
+
+    public int parseaColor(int x, int y) {
+<span class="nc bnc" id="L101" title="All 2 branches missed.">        if (tab[x][y] == 0) return Color.parseColor(&quot;#001c21&quot;);// azul oscuro fondo</span>
+<span class="nc bnc" id="L102" title="All 2 branches missed.">        if (tab[x][y] == 1) return Color.parseColor(&quot;#f000ff&quot;); //rosa</span>
+<span class="nc bnc" id="L103" title="All 2 branches missed.">        if (tab[x][y] == 2) return Color.parseColor(&quot;#4deeea&quot;); //azul claro</span>
+<span class="nc bnc" id="L104" title="All 2 branches missed.">        if (tab[x][y] == 3) return Color.parseColor(&quot;#001eff&quot;); //azul oscuro</span>
+<span class="nc bnc" id="L105" title="All 2 branches missed.">        if (tab[x][y] == 4) return Color.parseColor(&quot;#74ee15&quot;); //verde</span>
+<span class="nc bnc" id="L106" title="All 2 branches missed.">        if (tab[x][y] == 5) return Color.parseColor(&quot;#FF8000&quot;); //naranja</span>
+<span class="nc bnc" id="L107" title="All 2 branches missed.">        if (tab[x][y] == 6) return Color.parseColor(&quot;#ffe700&quot;); //amarillo</span>
+<span class="nc bnc" id="L108" title="All 2 branches missed.">        if (tab[x][y] == 7) return Color.parseColor(&quot;#FF0000&quot;); //rojo</span>
+<span class="nc bnc" id="L109" title="All 2 branches missed.">        if (tab[x][y] == 8) return Color.parseColor(&quot;#acacac&quot;); //gris pieza bloqueo</span>
+<span class="nc bnc" id="L110" title="All 2 branches missed.">        if (tab[x][y] == 9) return Color.parseColor(&quot;#FFFFFF&quot;); //pieza troll</span>
+<span class="nc bnc" id="L111" title="All 2 branches missed.">        if (tab[x][y] == 10) return Color.parseColor(&quot;#FFFFFF&quot;); //pieza troll</span>
+
+<span class="nc" id="L113">        return -1;</span>
+    }
+
+
+
+    public void CambiarColores1Linea() {
+<span class="nc" id="L119">        int aux = random.nextInt(numeroPiezas) + 1;</span>
+<span class="nc bnc" id="L120" title="All 2 branches missed.">        for (int y = 19; y &gt; 0; y--) {</span>
+<span class="nc bnc" id="L121" title="All 2 branches missed.">            for (int x = 0; x &lt; 10; x++) {</span>
+<span class="nc bnc" id="L122" title="All 8 branches missed.">                if (tab[x][y] != 0 &amp;&amp; tab[x][y] != 8 &amp;&amp; tab[x][y] != 9 &amp;&amp; tab[x][y] != 10) {</span>
+<span class="nc" id="L123">                    tab[x][y] = aux;</span>
+                }
+            }
+        }
+<span class="nc" id="L127">    }</span>
+
+    public void CambiarColoresMultiLinea() {
+<span class="nc bnc" id="L130" title="All 2 branches missed.">        for (int y = 19; y &gt; 0; y--) {</span>
+<span class="nc bnc" id="L131" title="All 2 branches missed.">            for (int x = 0; x &lt; 10; x++) {</span>
+<span class="nc bnc" id="L132" title="All 8 branches missed.">                if (tab[x][y] != 0 &amp;&amp; tab[x][y] != 8 &amp;&amp; tab[x][y] != 9 &amp;&amp; tab[x][y] != 10) {</span>
+<span class="nc" id="L133">                    tab[x][y] = random.nextInt(numeroPiezas) + 1;</span>
+                }
+            }
+        }
+<span class="nc" id="L137">    }</span>
+
+    public boolean puedePonerse(Pieza pieza) {
+<span class="nc bnc" id="L140" title="All 2 branches missed.">        if(pieza!=null){</span>
+<span class="nc" id="L141">            Point xy1 = new Point(pieza.x1, pieza.y1);</span>
+<span class="nc" id="L142">            Point xy2 = new Point(pieza.x2, pieza.y2);</span>
+<span class="nc" id="L143">            Point xy3 = new Point(pieza.x3, pieza.y3);</span>
+<span class="nc" id="L144">            Point xy4 = new Point(pieza.x4, pieza.y4);</span>
+
+<span class="nc" id="L146">            ArrayList&lt;Point&gt; puntos = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L147">            puntos.add(xy1);</span>
+<span class="nc" id="L148">            puntos.add(xy2);</span>
+<span class="nc" id="L149">            puntos.add(xy3);</span>
+<span class="nc" id="L150">            puntos.add(xy4);</span>
+<span class="nc" id="L151">            int contador = 0;</span>
+<span class="nc bnc" id="L152" title="All 2 branches missed.">            for (Point a : puntos) {</span>
+<span class="nc bnc" id="L153" title="All 2 branches missed.">                if (this.tab[a.x][a.y] == 0) {</span>
+<span class="nc" id="L154">                    contador++;</span>
+<span class="nc bnc" id="L155" title="All 8 branches missed.">                }else if (a.equals(xy1) || a.equals(xy2) || a.equals(xy3) || a.equals(xy4)) {</span>
+<span class="nc" id="L156">                    contador++;</span>
+                }
+<span class="nc" id="L158">            }</span>
+<span class="nc bnc" id="L159" title="All 2 branches missed.">            if(contador==4){</span>
+<span class="nc" id="L160">                return true;</span>
+            }else{
+<span class="nc" id="L162">                return false;</span>
+            }
+        }
+        else{
+<span class="nc" id="L166">            return false;</span>
+        }
+    }
+
+
+    public void comerTablero(int y) {
+        //y=0 sustituir mas tarde por altura variada
+<span class="nc bnc" id="L173" title="All 2 branches missed.">        for (int j = 0; j &lt; y; j++) {</span>
+<span class="nc bnc" id="L174" title="All 2 branches missed.">            for (int x = 0; x &lt; getAnchoTablero(); x++) {</span>
+<span class="nc" id="L175">                tab[x][j] = 8;</span>
+            }
+        }
+<span class="nc" id="L178">    }</span>
+
+    public void elDestructor(int fila) {
+<span class="nc" id="L181">        ponerFila0(fila);</span>
+<span class="nc bnc" id="L182" title="All 2 branches missed.">        for (int y = fila; y &gt;= 1; y--) {</span>
+<span class="nc bnc" id="L183" title="All 2 branches missed.">            for (int x = 0; x &lt; getAnchoTablero(); x++) {</span>
+<span class="nc" id="L184">                this.tab[x][y] = this.tab[x][y - 1];</span>
+            }
+        }
+<span class="nc" id="L187">    }</span>
+
+    public void ponerFila0(int y) {
+<span class="nc bnc" id="L190" title="All 2 branches missed.">        for (int x = 0; x &lt; 10; x++) {</span>
+<span class="nc" id="L191">            tab[x][y] = 0;</span>
+        }
+<span class="nc" id="L193">    }</span>
+
+    public List&lt;Integer&gt; detectarFilas(Pieza troll) {
+<span class="nc" id="L196">        int contador = 0;</span>
+<span class="nc" id="L197">        List&lt;Integer&gt; l = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L198" title="All 2 branches missed.">        for (int y = 19; y &gt;= 0; y--) {</span>
+<span class="nc" id="L199">            contador = 0;</span>
+<span class="nc bnc" id="L200" title="All 2 branches missed.">            for (int x = 0; x &lt; getAnchoTablero(); x++) {</span>
+<span class="nc bnc" id="L201" title="All 4 branches missed.">                if (tab[x][y] != 0 &amp;&amp; tab[x][y] != 8) {</span>
+<span class="nc" id="L202">                    contador++;</span>
+                }
+            }
+<span class="nc bnc" id="L205" title="All 2 branches missed.">            if (contador == 10) {</span>
+<span class="nc bnc" id="L206" title="All 2 branches missed.">                if (troll != null) {</span>
+<span class="nc" id="L207">                    obtenerPosTroll(troll);</span>
+<span class="nc" id="L208">                    borrarPieza(troll);</span>
+                }
+<span class="nc" id="L210">                l.add(y);</span>
+<span class="nc" id="L211">                elDestructor(y);</span>
+<span class="nc" id="L212">                y++;</span>
+            }
+        }
+<span class="nc bnc" id="L215" title="All 4 branches missed.">        if (troll != null &amp;&amp; auxTroll != null) ponerPieza(auxTroll);</span>
+<span class="nc" id="L216">        return l;</span>
+    }
+
+    private void obtenerPosTroll(Pieza troll) {
+<span class="nc" id="L220">        auxTroll = new Pieza(troll.id, troll.getAltura());</span>
+<span class="nc" id="L221">        auxTroll.copiarPieza(troll);</span>
+<span class="nc" id="L222">    }</span>
+
+
+    //todas las posiciones a 0 para Thanos
+    public void limpiarTablero() {
+<span class="nc bnc" id="L227" title="All 2 branches missed.">        for (int y = 0; y &lt; alturaTablero; y++) {</span>
+<span class="nc" id="L228">            ponerFila0(y);</span>
+        }
+<span class="nc" id="L230">    }</span>
+
+    public ArrayList&lt;Pieza&gt; getListaPiezas() {
+<span class="nc" id="L233">        return listaPiezas;</span>
+    }
+
+    //coge la Piezas actual
+    public Pieza getPieza() {
+<span class="nc" id="L238">        return listaPiezas.get(0);</span>
+    }
+
+
+    //crear en clase Piezas atributo entero colorCode
+    public void ponerPieza(Pieza pieza) {
+<span class="nc" id="L244">        tab[pieza.x1][pieza.y1] = pieza.idColor;</span>
+<span class="nc" id="L245">        tab[pieza.x2][pieza.y2] = pieza.idColor;</span>
+<span class="nc" id="L246">        tab[pieza.x3][pieza.y3] = pieza.idColor;</span>
+<span class="nc" id="L247">        tab[pieza.x4][pieza.y4] = pieza.idColor;</span>
+<span class="nc" id="L248">    }</span>
+
+    public void borrarPieza(Pieza pieza) {
+<span class="nc" id="L251">        tab[pieza.x1][pieza.y1] = 0;</span>
+<span class="nc" id="L252">        tab[pieza.x2][pieza.y2] = 0;</span>
+<span class="nc" id="L253">        tab[pieza.x3][pieza.y3] = 0;</span>
+<span class="nc" id="L254">        tab[pieza.x4][pieza.y4] = 0;</span>
+<span class="nc" id="L255">    }</span>
+
+
+    /*Este metodo por favor no lo toqueis ni borreis porque os crujo
+    servira para hacer las rotaciones en un futuro no muy lejano
+     */
+
+    //añadir el cambio de la posicion de la pieza
+
+    public void alfredo(Pieza p) {
+<span class="nc bnc" id="L265" title="All 8 branches missed.">        switch (p.id) {</span>
+
+            case 1:
+                //Cuadrado uso salpicadura
+                //No tuvo ningun efecto
+<span class="nc" id="L270">                break;</span>
+
+            case 2:
+<span class="nc bnc" id="L273" title="All 3 branches missed.">                switch (p.pos) {</span>
+                    case 0:
+<span class="nc" id="L275">                        p.x1 = p.x1 + 1;</span>
+<span class="nc" id="L276">                        p.y1 = p.y1 + 0;</span>
+<span class="nc" id="L277">                        p.x2 = p.x2 + 0;</span>
+<span class="nc" id="L278">                        p.y2 = p.y2 + 1;</span>
+<span class="nc" id="L279">                        p.x3 = p.x3 - 1;</span>
+<span class="nc" id="L280">                        p.y3 = p.y3 + 0;</span>
+<span class="nc" id="L281">                        p.x4 = p.x4 - 2;</span>
+<span class="nc" id="L282">                        p.y4 = p.y4 + 1;</span>
+<span class="nc" id="L283">                        break;</span>
+
+                    case 1:
+<span class="nc" id="L286">                        p.x1 = p.x1 - 1;</span>
+<span class="nc" id="L287">                        p.y1 = p.y1 + 0;</span>
+<span class="nc" id="L288">                        p.x2 = p.x2 + 0;</span>
+<span class="nc" id="L289">                        p.y2 = p.y2 - 1;</span>
+<span class="nc" id="L290">                        p.x3 = p.x3 + 1;</span>
+<span class="nc" id="L291">                        p.y3 = p.y3 + 0;</span>
+<span class="nc" id="L292">                        p.x4 = p.x4 + 2;</span>
+<span class="nc" id="L293">                        p.y4 = p.y4 - 1;</span>
+                        break;
+                }
+<span class="nc bnc" id="L296" title="All 2 branches missed.">                if (p.pos == 1) {</span>
+<span class="nc" id="L297">                    p.pos = 0;</span>
+                } else {
+<span class="nc" id="L299">                    p.pos++;</span>
+                }
+
+<span class="nc" id="L302">                break;</span>
+
+            case 3://
+<span class="nc bnc" id="L305" title="All 3 branches missed.">                switch (p.pos) {</span>
+                    case 0:
+<span class="nc" id="L307">                        p.x1 = p.x1 + 0;</span>
+<span class="nc" id="L308">                        p.y1 = p.y1 + 0;</span>
+<span class="nc" id="L309">                        p.x2 = p.x2 + 1;</span>
+<span class="nc" id="L310">                        p.y2 = p.y2 - 1;</span>
+<span class="nc" id="L311">                        p.x3 = p.x3 + 2;</span>
+<span class="nc" id="L312">                        p.y3 = p.y3 - 2;</span>
+<span class="nc" id="L313">                        p.x4 = p.x4 + 3;</span>
+<span class="nc" id="L314">                        p.y4 = p.y4 - 3;</span>
+<span class="nc" id="L315">                        break;</span>
+
+                    case 1:
+<span class="nc" id="L318">                        p.y1 = p.y1 + 0;</span>
+<span class="nc" id="L319">                        p.x1 = p.x1 + 0;</span>
+<span class="nc" id="L320">                        p.y2 = p.y2 + 1;</span>
+<span class="nc" id="L321">                        p.x2 = p.x2 - 1;</span>
+<span class="nc" id="L322">                        p.y3 = p.y3 + 2;</span>
+<span class="nc" id="L323">                        p.x3 = p.x3 - 2;</span>
+<span class="nc" id="L324">                        p.y4 = p.y4 + 3;</span>
+<span class="nc" id="L325">                        p.x4 = p.x4 - 3;</span>
+                        break;
+                }
+<span class="nc bnc" id="L328" title="All 2 branches missed.">                if (p.pos == 1) {</span>
+<span class="nc" id="L329">                    p.pos = 0;</span>
+                } else {
+<span class="nc" id="L331">                    p.pos++;</span>
+                }
+<span class="nc" id="L333">                break;</span>
+
+            case 4:
+<span class="nc bnc" id="L336" title="All 5 branches missed.">                switch (p.pos) {</span>
+
+                    case 0:
+<span class="nc" id="L339">                        p.x1 = p.x1 + 1;</span>
+<span class="nc" id="L340">                        p.y1 = p.y1 + 0;</span>
+<span class="nc" id="L341">                        p.x2 = p.x2 + 0;</span>
+<span class="nc" id="L342">                        p.y2 = p.y2 + 1;</span>
+<span class="nc" id="L343">                        p.x3 = p.x3 - 1;</span>
+<span class="nc" id="L344">                        p.y3 = p.y3 + 2;</span>
+<span class="nc" id="L345">                        p.x4 = p.x4 - 1;</span>
+<span class="nc" id="L346">                        p.y4 = p.y4 + 0;</span>
+<span class="nc" id="L347">                        break;</span>
+
+                    case 1:
+<span class="nc" id="L350">                        p.x1 = p.x1 + 1;</span>
+<span class="nc" id="L351">                        p.y1 = p.y1 + 1;</span>
+<span class="nc" id="L352">                        p.x2 = p.x2 + 0;</span>
+<span class="nc" id="L353">                        p.y2 = p.y2 + 0;</span>
+<span class="nc" id="L354">                        p.x3 = p.x3 - 1;</span>
+<span class="nc" id="L355">                        p.y3 = p.y3 - 1;</span>
+<span class="nc" id="L356">                        p.x4 = p.x4 + 1;</span>
+<span class="nc" id="L357">                        p.y4 = p.y4 - 1;</span>
+<span class="nc" id="L358">                        break;</span>
+
+                    case 2:
+<span class="nc" id="L361">                        p.x1 = p.x1 - 2;</span>
+<span class="nc" id="L362">                        p.y1 = p.y1 + 1;</span>
+<span class="nc" id="L363">                        p.x2 = p.x2 - 1;</span>
+<span class="nc" id="L364">                        p.y2 = p.y2 + 0;</span>
+<span class="nc" id="L365">                        p.x3 = p.x3 + 0;</span>
+<span class="nc" id="L366">                        p.y3 = p.y3 - 1;</span>
+<span class="nc" id="L367">                        p.x4 = p.x4 + 0;</span>
+<span class="nc" id="L368">                        p.y4 = p.y4 + 1;</span>
+<span class="nc" id="L369">                        break;</span>
+
+                    case 3:
+<span class="nc" id="L372">                        p.x1 = p.x1 + 0;</span>
+<span class="nc" id="L373">                        p.y1 = p.y1 - 2;</span>
+<span class="nc" id="L374">                        p.x2 = p.x2 + 1;</span>
+<span class="nc" id="L375">                        p.y2 = p.y2 - 1;</span>
+<span class="nc" id="L376">                        p.x3 = p.x3 + 2;</span>
+<span class="nc" id="L377">                        p.y3 = p.y3 + 0;</span>
+<span class="nc" id="L378">                        p.x4 = p.x4 + 0;</span>
+<span class="nc" id="L379">                        p.y4 = p.y4 + 0;</span>
+                        break;
+
+
+                }
+<span class="nc bnc" id="L384" title="All 2 branches missed.">                if (p.pos == 3) {</span>
+<span class="nc" id="L385">                    p.pos = 0;</span>
+                } else {
+<span class="nc" id="L387">                    p.pos++;</span>
+                }
+<span class="nc" id="L389">                break;</span>
+
+            case 5:
+<span class="nc bnc" id="L392" title="All 3 branches missed.">                switch (p.pos) {</span>
+                    case 0:
+<span class="nc" id="L394">                        p.x1 = p.x1 + 0;</span>
+<span class="nc" id="L395">                        p.y1 = p.y1 + 1;</span>
+<span class="nc" id="L396">                        p.x2 = p.x2 - 1;</span>
+<span class="nc" id="L397">                        p.y2 = p.y2 + 2;</span>
+<span class="nc" id="L398">                        p.x3 = p.x3 - 1;</span>
+<span class="nc" id="L399">                        p.y3 = p.y3 + 0;</span>
+<span class="nc" id="L400">                        p.x4 = p.x4 + 0;</span>
+<span class="nc" id="L401">                        p.y4 = p.y4 - 1;</span>
+<span class="nc" id="L402">                        break;</span>
+
+                    case 1:
+<span class="nc" id="L405">                        p.x1 = p.x1 + 0;</span>
+<span class="nc" id="L406">                        p.y1 = p.y1 - 1;</span>
+<span class="nc" id="L407">                        p.x2 = p.x2 + 1;</span>
+<span class="nc" id="L408">                        p.y2 = p.y2 - 2;</span>
+<span class="nc" id="L409">                        p.x3 = p.x3 + 1;</span>
+<span class="nc" id="L410">                        p.y3 = p.y3 + 0;</span>
+<span class="nc" id="L411">                        p.x4 = p.x4 + 0;</span>
+<span class="nc" id="L412">                        p.y4 = p.y4 + 1;</span>
+                        break;
+                }
+<span class="nc bnc" id="L415" title="All 2 branches missed.">                if (p.pos == 1) {</span>
+<span class="nc" id="L416">                    p.pos = 0;</span>
+                } else {
+<span class="nc" id="L418">                    p.pos++;</span>
+                }
+<span class="nc" id="L420">                break;</span>
+
+            case 6:
+<span class="nc bnc" id="L423" title="All 5 branches missed.">                switch (p.pos) {</span>
+                    case 0:
+<span class="nc" id="L425">                        p.x1 = p.x1 + 1;</span>
+<span class="nc" id="L426">                        p.y1 = p.y1 + 0;</span>
+<span class="nc" id="L427">                        p.x2 = p.x2 + 0;</span>
+<span class="nc" id="L428">                        p.y2 = p.y2 + 1;</span>
+<span class="nc" id="L429">                        p.x3 = p.x3 - 1;</span>
+<span class="nc" id="L430">                        p.y3 = p.y3 + 0;</span>
+<span class="nc" id="L431">                        p.x4 = p.x4 - 2;</span>
+<span class="nc" id="L432">                        p.y4 = p.y4 - 1;</span>
+<span class="nc" id="L433">                        break;</span>
+
+                    case 1:
+<span class="nc" id="L436">                        p.x1 = p.x1 + 0;</span>
+<span class="nc" id="L437">                        p.y1 = p.y1 + 2;</span>
+<span class="nc" id="L438">                        p.x2 = p.x2 - 1;</span>
+<span class="nc" id="L439">                        p.y2 = p.y2 + 1;</span>
+<span class="nc" id="L440">                        p.x3 = p.x3 + 0;</span>
+<span class="nc" id="L441">                        p.y3 = p.y3 + 0;</span>
+<span class="nc" id="L442">                        p.x4 = p.x4 + 1;</span>
+<span class="nc" id="L443">                        p.y4 = p.y4 - 1;</span>
+<span class="nc" id="L444">                        break;</span>
+
+                    case 2:
+<span class="nc" id="L447">                        p.x1 = p.x1 - 2;</span>
+<span class="nc" id="L448">                        p.y1 = p.y1 - 1;</span>
+<span class="nc" id="L449">                        p.x2 = p.x2 - 1;</span>
+<span class="nc" id="L450">                        p.y2 = p.y2 - 2;</span>
+<span class="nc" id="L451">                        p.x3 = p.x3 + 0;</span>
+<span class="nc" id="L452">                        p.y3 = p.y3 - 1;</span>
+<span class="nc" id="L453">                        p.x4 = p.x4 + 1;</span>
+<span class="nc" id="L454">                        p.y4 = p.y4 + 0;</span>
+<span class="nc" id="L455">                        break;</span>
+
+                    case 3:
+<span class="nc" id="L458">                        p.x1 = p.x1 + 1;</span>
+<span class="nc" id="L459">                        p.y1 = p.y1 - 1;</span>
+<span class="nc" id="L460">                        p.x2 = p.x2 + 2;</span>
+<span class="nc" id="L461">                        p.y2 = p.y2 + 0;</span>
+<span class="nc" id="L462">                        p.x3 = p.x3 + 1;</span>
+<span class="nc" id="L463">                        p.y3 = p.y3 + 1;</span>
+<span class="nc" id="L464">                        p.x4 = p.x4 + 0;</span>
+<span class="nc" id="L465">                        p.y4 = p.y4 + 2;</span>
+                        break;
+
+                }
+<span class="nc bnc" id="L469" title="All 2 branches missed.">                if (p.pos == 3) {</span>
+<span class="nc" id="L470">                    p.pos = 0;</span>
+                } else {
+<span class="nc" id="L472">                    p.pos++;</span>
+                }
+<span class="nc" id="L474">                break;</span>
+
+            case 7:
+<span class="nc bnc" id="L477" title="All 5 branches missed.">                switch (p.pos) {</span>
+                    case 0:
+<span class="nc" id="L479">                        p.x1 = p.x1 + 2;</span>
+<span class="nc" id="L480">                        p.y1 = p.y1 + 1;</span>
+<span class="nc" id="L481">                        p.x2 = p.x2 + 1;</span>
+<span class="nc" id="L482">                        p.y2 = p.y2 + 2;</span>
+<span class="nc" id="L483">                        p.x3 = p.x3 + 1;</span>
+<span class="nc" id="L484">                        p.y3 = p.y3 + 0;</span>
+<span class="nc" id="L485">                        p.x4 = p.x4 + 0;</span>
+<span class="nc" id="L486">                        p.y4 = p.y4 - 1;</span>
+<span class="nc" id="L487">                        break;</span>
+
+                    case 1:
+<span class="nc" id="L490">                        p.x1 = p.x1 - 1;</span>
+<span class="nc" id="L491">                        p.y1 = p.y1 + 1;</span>
+<span class="nc" id="L492">                        p.x2 = p.x2 - 2;</span>
+<span class="nc" id="L493">                        p.y2 = p.y2 + 0;</span>
+<span class="nc" id="L494">                        p.x3 = p.x3 + 0;</span>
+<span class="nc" id="L495">                        p.y3 = p.y3 + 0;</span>
+<span class="nc" id="L496">                        p.x4 = p.x4 + 1;</span>
+<span class="nc" id="L497">                        p.y4 = p.y4 - 1;</span>
+<span class="nc" id="L498">                        break;</span>
+
+                    case 2:
+<span class="nc" id="L501">                        p.x1 = p.x1 - 1;</span>
+<span class="nc" id="L502">                        p.y1 = p.y1 + 0;</span>
+<span class="nc" id="L503">                        p.x2 = p.x2 + 0;</span>
+<span class="nc" id="L504">                        p.y2 = p.y2 - 1;</span>
+<span class="nc" id="L505">                        p.x3 = p.x3 + 0;</span>
+<span class="nc" id="L506">                        p.y3 = p.y3 + 1;</span>
+<span class="nc" id="L507">                        p.x4 = p.x4 + 1;</span>
+<span class="nc" id="L508">                        p.y4 = p.y4 + 2;</span>
+<span class="nc" id="L509">                        break;</span>
+
+                    case 3:
+<span class="nc" id="L512">                        p.x1 = p.x1 + 0;</span>
+<span class="nc" id="L513">                        p.y1 = p.y1 - 2;</span>
+<span class="nc" id="L514">                        p.x2 = p.x2 + 1;</span>
+<span class="nc" id="L515">                        p.y2 = p.y2 - 1;</span>
+<span class="nc" id="L516">                        p.x3 = p.x3 - 1;</span>
+<span class="nc" id="L517">                        p.y3 = p.y3 - 1;</span>
+<span class="nc" id="L518">                        p.x4 = p.x4 - 2;</span>
+<span class="nc" id="L519">                        p.y4 = p.y4 + 0;</span>
+                        break;
+
+                }
+<span class="nc bnc" id="L523" title="All 2 branches missed.">                if (p.pos == 3) {</span>
+<span class="nc" id="L524">                    p.pos = 0;</span>
+                } else {
+<span class="nc" id="L526">                    p.pos++;</span>
+                }
+                break;
+        }
+<span class="nc" id="L530">    }</span>
+
+    /*este metodo mueve la pieza despues de comprobarlo abajo,izquierda o derecha segun el char
+    que le pasen, para ello usamos comprueba y el tipo de movimiento y en comprueba hay que
+    comprobar que la PIEZA  no se salga del tablero y que no choque con otras.
+    Puede salirse la matriz auxiiar de rangos pero nunca se puede salir la pieza
+     */
+    public void moverPiezas(Pieza pieza, char x) {
+<span class="nc bnc" id="L538" title="All 2 branches missed.">        if (pieza != null) {</span>
+<span class="nc bnc" id="L539" title="All 4 branches missed.">            switch (x) {</span>
+                case 'i':
+<span class="nc bnc" id="L541" title="All 2 branches missed.">                    if (puedeMoverse(pieza, -1, 0, false)) {</span>
+<span class="nc" id="L542">                        borrarPieza(pieza);</span>
+<span class="nc" id="L543">                        pieza.mover(-1, 0);</span>
+<span class="nc" id="L544">                        ponerPieza(pieza);</span>
+                    }
+                    break;
+                case 'd':
+<span class="nc bnc" id="L548" title="All 2 branches missed.">                    if (puedeMoverse(pieza, 1, 0, false)) {</span>
+<span class="nc" id="L549">                        borrarPieza(pieza);</span>
+<span class="nc" id="L550">                        pieza.mover(1, 0);</span>
+<span class="nc" id="L551">                        ponerPieza(pieza);</span>
+                    }
+                    break;
+                case 'a':
+<span class="nc bnc" id="L555" title="All 2 branches missed.">                    if (puedeMoverse(pieza, 0, 1, false)) {</span>
+<span class="nc" id="L556">                        borrarPieza(pieza);</span>
+<span class="nc" id="L557">                        pieza.mover(0, 1);</span>
+<span class="nc" id="L558">                        ponerPieza(pieza);</span>
+                    }
+                    break;
+            }
+        }
+
+<span class="nc" id="L564">    }</span>
+
+    public boolean puedeMoverse(Pieza pieza, int x, int y, boolean vengoDeRotar) {
+<span class="nc" id="L567">        int n = 0; //contador para saber si la pieza entera puede moverse</span>
+<span class="nc bnc" id="L568" title="All 2 branches missed.">        if (pieza == null) {</span>
+<span class="nc" id="L569">            return true;</span>
+        }
+<span class="nc" id="L571">        Point xy1 = new Point(pieza.x1, pieza.y1);</span>
+<span class="nc" id="L572">        Point xy2 = new Point(pieza.x2, pieza.y2);</span>
+<span class="nc" id="L573">        Point xy3 = new Point(pieza.x3, pieza.y3);</span>
+<span class="nc" id="L574">        Point xy4 = new Point(pieza.x4, pieza.y4);</span>
+
+<span class="nc" id="L576">        Point aux1 = new Point(pieza.x1 + x, pieza.y1 + y);</span>
+<span class="nc" id="L577">        Point aux2 = new Point(pieza.x2 + x, pieza.y2 + y);</span>
+<span class="nc" id="L578">        Point aux3 = new Point(pieza.x3 + x, pieza.y3 + y);</span>
+<span class="nc" id="L579">        Point aux4 = new Point(pieza.x4 + x, pieza.y4 + y);</span>
+
+        //Creamos un array con los puntos posibles donde se puede mover
+<span class="nc" id="L582">        ArrayList&lt;Point&gt; puntos = new ArrayList&lt;Point&gt;();</span>
+<span class="nc" id="L583">        puntos.add(aux1);</span>
+<span class="nc" id="L584">        puntos.add(aux2);</span>
+<span class="nc" id="L585">        puntos.add(aux3);</span>
+<span class="nc" id="L586">        puntos.add(aux4);</span>
+
+        //Recorremos el array de los posibles puntos y controlamos que estamos dentro del tablero o si está ocupada la posicion o no
+<span class="nc bnc" id="L589" title="All 2 branches missed.">        for (Point a : puntos) {</span>
+<span class="nc bnc" id="L590" title="All 12 branches missed.">            if (a.x &lt; anchuraTablero &amp;&amp; a.x &gt;= 0 &amp;&amp; a.y &gt;= 0 &amp;&amp; a.y &lt; alturaTablero &amp;&amp; (tab[a.x][a.y] == 0 || tab[a.x][a.y] == 8)) {</span>
+<span class="nc" id="L591">                n++;</span>
+<span class="nc bnc" id="L592" title="All 8 branches missed.">            } else if (a.equals(xy1) || a.equals(xy2) || a.equals(xy3) || a.equals(xy4)) {</span>
+<span class="nc bnc" id="L593" title="All 2 branches missed.">                if (!vengoDeRotar) {</span>
+<span class="nc" id="L594">                    n++;</span>
+                }
+            }
+<span class="nc" id="L597">        }</span>
+<span class="nc bnc" id="L598" title="All 2 branches missed.">        if (n == 4) {</span>
+<span class="nc" id="L599">            return true;</span>
+        }
+
+<span class="nc" id="L602">        return false;</span>
+    }
+
+    public int getAlturaTablero() {
+<span class="nc" id="L606">        return this.alturaTablero;</span>
+    }
+
+    public int getAnchoTablero() {
+<span class="nc" id="L610">        return this.anchuraTablero;</span>
+    }
+
+    public void comprobarRotar(Pieza p) {
+<span class="nc" id="L614">        Pieza aux = new Pieza(p.id, 0);</span>
+
+<span class="nc" id="L616">        aux.pos = p.pos;</span>
+<span class="nc" id="L617">        aux.x1 = p.x1;</span>
+<span class="nc" id="L618">        aux.y1 = p.y1;</span>
+<span class="nc" id="L619">        aux.x2 = p.x2;</span>
+<span class="nc" id="L620">        aux.y2 = p.y2;</span>
+<span class="nc" id="L621">        aux.x3 = p.x3;</span>
+<span class="nc" id="L622">        aux.y3 = p.y3;</span>
+<span class="nc" id="L623">        aux.x4 = p.x4;</span>
+<span class="nc" id="L624">        aux.y4 = p.y4;</span>
+
+<span class="nc" id="L626">        alfredo(aux);</span>
+<span class="nc bnc" id="L627" title="All 2 branches missed.">        if (puedeMoverse(aux, 0, 0, true)) {</span>
+<span class="nc" id="L628">            alfredo(p);</span>
+        }
+<span class="nc" id="L630">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>Generated by the Android Gradle plugin 3.6.1</div></body></html>

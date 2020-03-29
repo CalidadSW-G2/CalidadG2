@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Juego.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=0;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">debugAndroidTest</a> &gt; <a href="index.source.html" class="el_package">com.example.tetris</a> &gt; <span class="el_source">Juego.java</span></div><h1>Juego.java</h1><pre class="source lang-java linenums">package com.example.tetris;
+
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import pl.droidsonroids.gif.GifImageView;
+
+
+public class Juego extends View implements View.OnClickListener {
+
+    private ImageButton botonDcha, botonBajar, botonIzda, botonRotar, snap;
+    private TextView puntuacion, nivel;
+    private MainActivity mainActivity;
+    private Tablero tablero;
+    private ArrayList&lt;Pieza&gt; listaPiezas;
+<span class="nc" id="L29">    private Random random = new Random();</span>
+<span class="nc" id="L30">    private static int puntos = 0;</span>
+<span class="nc" id="L31">    public int nivelActual = 0;</span>
+<span class="nc" id="L32">    private int nivelvar = 1;</span>
+<span class="nc" id="L33">    private Timer timer = new Timer();</span>
+<span class="nc" id="L34">    private Timer chrono = new Timer();</span>
+    private List&lt;Integer&gt; filasPorBorrar;
+<span class="nc" id="L36">    private int timerPeriod = 1000;</span>
+    private VentanaNext ventana;
+<span class="nc" id="L38">    private int contadorRomper = 0;</span>
+    private int restoContador;
+<span class="nc" id="L40">    private int restoSnap = 0;</span>
+<span class="nc" id="L41">    private int puntosSnap = 100;</span>
+    private int alturaVariable;
+    private int modo;
+    private Pieza troll;
+    private int restoPieza;
+<span class="nc" id="L46">    private int chasquido = 0;</span>
+    private AudioService as;
+    private AudioService newas;
+<span class="nc" id="L49">    int cronometro = 0;</span>
+
+    public Juego(Context context, Tablero tablero, VentanaNext ventana, int modo, AudioService as) {
+<span class="nc" id="L52">        super(context);</span>
+<span class="nc" id="L53">        this.mainActivity = (MainActivity) context;</span>
+<span class="nc" id="L54">        this.tablero = tablero;</span>
+<span class="nc" id="L55">        this.ventana = ventana;</span>
+<span class="nc" id="L56">        this.modo = modo;</span>
+<span class="nc" id="L57">        this.as = as;</span>
+<span class="nc" id="L58">        this.listaPiezas = tablero.getListaPiezas();</span>
+<span class="nc" id="L59">        botonRotar = mainActivity.getBotonRotar();</span>
+<span class="nc" id="L60">        botonDcha = mainActivity.getBotonDcha();</span>
+<span class="nc" id="L61">        botonBajar = mainActivity.getBotonBajar();</span>
+<span class="nc" id="L62">        botonIzda = mainActivity.getBotonIzda();</span>
+<span class="nc" id="L63">        snap = mainActivity.getSnap();</span>
+<span class="nc" id="L64">        puntuacion = mainActivity.getPuntos();</span>
+<span class="nc" id="L65">        nivel = mainActivity.getNivel();</span>
+
+<span class="nc" id="L67">        puntuacion.append(&quot; 0&quot;);</span>
+<span class="nc" id="L68">        nivel.append(&quot; 0&quot;);</span>
+
+<span class="nc" id="L70">        botonDcha.setOnClickListener(this);</span>
+<span class="nc" id="L71">        botonBajar.setOnClickListener(this);</span>
+<span class="nc" id="L72">        botonIzda.setOnClickListener(this);</span>
+<span class="nc" id="L73">        botonRotar.setOnClickListener(this);</span>
+<span class="nc" id="L74">        snap.setOnClickListener(this);</span>
+
+<span class="nc" id="L76">        Cronometro();</span>
+<span class="nc bnc" id="L77" title="All 2 branches missed.">        if (modo == 0) {</span>
+<span class="nc" id="L78">            loopClasico();</span>
+        } else {
+<span class="nc" id="L80">            gameLoop();</span>
+        }
+<span class="nc" id="L82">    }</span>
+
+    public void Cronometro() {
+<span class="nc" id="L85">        chrono.schedule(new TimerTask() {</span>
+            @Override
+            public void run() {
+<span class="nc" id="L88">                mainActivity.runOnUiThread(new TimerTask() {</span>
+
+                    @Override
+                    public void run() {
+<span class="nc" id="L92">                     cronometro++;</span>
+<span class="nc" id="L93">                    }</span>
+                });
+<span class="nc" id="L95">            }</span>
+        }, 1000, timerPeriod);
+
+<span class="nc" id="L98">    }</span>
+    public void loopClasico() {
+<span class="nc" id="L100">        ventana.runVentanaNext(listaPiezas.get(1));</span>
+<span class="nc" id="L101">        timer.schedule(new TimerTask() {</span>
+
+            @Override
+            public void run() {
+<span class="nc" id="L105">                mainActivity.runOnUiThread(new TimerTask() {</span>
+
+                    @Override
+                    public void run() {
+<span class="nc" id="L109">                        tablero.ponerPieza(tablero.getPieza());</span>
+<span class="nc bnc" id="L110" title="All 4 branches missed.">                        if (!tablero.puedeMoverse(tablero.getPieza(), 0, 1, false) &amp;&amp; tablero.getPieza().getAltura() == 0) {</span>
+<span class="nc" id="L111">                            timer.cancel();</span>
+<span class="nc bnc" id="L112" title="All 2 branches missed.">                            if(newas!=null)newas.pause();</span>
+<span class="nc" id="L113">                            mainActivity.gameOver(puntos, modo);</span>
+                        } else {
+<span class="nc bnc" id="L115" title="All 2 branches missed.">                            if (tablero.puedeMoverse(tablero.getPieza(), 0, 1, false)) {</span>
+<span class="nc" id="L116">                                tablero.moverPiezas(tablero.getPieza(), 'a');</span>
+<span class="nc" id="L117">                                timer.cancel();</span>
+<span class="nc" id="L118">                                timer = new Timer();</span>
+<span class="nc" id="L119">                                loopClasico();</span>
+                            } else {
+<span class="nc" id="L121">                                filasPorBorrar = tablero.detectarFilas(null);</span>
+<span class="nc" id="L122">                                tablero.borrarPieza();</span>
+<span class="nc" id="L123">                                setPuntos(filasPorBorrar.size() * 30);</span>
+<span class="nc" id="L124">                                puntuacion.setText(&quot;&quot; + puntos);</span>
+<span class="nc" id="L125">                                setNivel();</span>
+<span class="nc" id="L126">                                nivel.setText(&quot;&quot; + nivelvar);</span>
+<span class="nc bnc" id="L127" title="All 2 branches missed.">                                if(getNivel() &gt; nivelActual){</span>
+<span class="nc" id="L128">                                    nivelActual = getNivel();</span>
+<span class="nc" id="L129">                                    timerPeriod = timerPeriod - (getNivel());</span>
+                                }
+<span class="nc" id="L131">                                cambiarColorLinea(filasPorBorrar.size());</span>
+<span class="nc" id="L132">                                tablero.ponerPieza(tablero.getPieza());</span>
+<span class="nc" id="L133">                                tablero.generarPieza(0);</span>
+<span class="nc" id="L134">                                ventana.runVentanaNext(listaPiezas.get(1));</span>
+<span class="nc" id="L135">                                ventana.invalidate();</span>
+                            }
+<span class="nc" id="L137">                            invalidate();</span>
+<span class="nc bnc" id="L138" title="All 2 branches missed.">                            if(cronometro % 20 == 0){</span>
+<span class="nc" id="L139">                                cambiarCancion20s();</span>
+                            }
+                        }
+<span class="nc" id="L142">                    }</span>
+                });
+<span class="nc" id="L144">            }</span>
+        }, 1000, timerPeriod);
+<span class="nc" id="L146">    }</span>
+
+    public void gameLoop() {
+<span class="nc" id="L149">        ventana.runVentanaNext(listaPiezas.get(1));</span>
+<span class="nc" id="L150">        timer.schedule(new TimerTask() {</span>
+            @Override
+            public void run() {
+<span class="nc" id="L153">                mainActivity.runOnUiThread(new TimerTask() {</span>
+
+                    @Override
+                    public void run() {
+<span class="nc" id="L157">                        tablero.ponerPieza(tablero.getPieza());</span>
+<span class="nc" id="L158">                        checkComerTablero();</span>
+<span class="nc" id="L159">                        tablero.comerTablero(alturaVariable);</span>
+<span class="nc bnc" id="L160" title="All 4 branches missed.">                        if (!tablero.puedeMoverse(tablero.getPieza(), 0, 1, false) &amp;&amp; tablero.getPieza().getAltura() - 2 &lt;= alturaVariable) {</span>
+<span class="nc" id="L161">                            timer.cancel();</span>
+<span class="nc" id="L162">                            mainActivity.gameOver(puntos, modo);</span>
+                        } else {
+<span class="nc" id="L164">                            checkContador();</span>
+<span class="nc bnc" id="L165" title="All 2 branches missed.">                            if (tablero.puedeMoverse(tablero.getPieza(), 0, 1, false)) {</span>
+<span class="nc" id="L166">                                tablero.moverPiezas(tablero.getPieza(), 'a');</span>
+<span class="nc bnc" id="L167" title="All 2 branches missed.">                                if ((tablero.puedeMoverse(troll, 0, 1, false))) {</span>
+<span class="nc" id="L168">                                    tablero.moverPiezas(troll, 'a');</span>
+                                } else {
+<span class="nc" id="L170">                                    troll = null;</span>
+                                }
+<span class="nc" id="L172">                                checkComerTablero();</span>
+<span class="nc" id="L173">                                timer.cancel();</span>
+<span class="nc" id="L174">                                timer = new Timer();</span>
+<span class="nc" id="L175">                                gameLoop();</span>
+                            } else {
+<span class="nc" id="L177">                                filasPorBorrar = tablero.detectarFilas(troll);</span>
+<span class="nc" id="L178">                                tablero.borrarPieza();</span>
+<span class="nc" id="L179">                                setPuntos(filasPorBorrar.size() * 30);</span>
+<span class="nc bnc" id="L180" title="All 2 branches missed.">                                if(puntos&gt;puntosSnap){</span>
+<span class="nc" id="L181">                                    snap.setVisibility(View.VISIBLE);</span>
+<span class="nc" id="L182">                                    chasquido++;</span>
+<span class="nc" id="L183">                                    puntosSnap+=100;</span>
+                                }
+<span class="nc" id="L185">                                puntuacion.setText(&quot;&quot; + puntos);</span>
+<span class="nc" id="L186">                                setNivel();</span>
+<span class="nc" id="L187">                                nivel.setText(&quot;&quot; + nivelvar);</span>
+<span class="nc bnc" id="L188" title="All 2 branches missed.">                                if(getNivel() &gt; nivelActual){</span>
+<span class="nc" id="L189">                                    nivelActual = getNivel();</span>
+<span class="nc" id="L190">                                    timerPeriod = timerPeriod - (getNivel());}</span>
+<span class="nc" id="L191">                                cambiarColorLinea(filasPorBorrar.size());</span>
+<span class="nc" id="L192">                                checkSiguienteCont();</span>
+<span class="nc" id="L193">                                checkComerTablero();</span>
+<span class="nc" id="L194">                                ventana.runVentanaNext(listaPiezas.get(1));</span>
+<span class="nc" id="L195">                                ventana.invalidate();</span>
+                            }
+<span class="nc" id="L197">                            invalidate();</span>
+<span class="nc bnc" id="L198" title="All 2 branches missed.">                            if(cronometro % 20 == 0){</span>
+<span class="nc" id="L199">                                cambiarCancion20s();</span>
+                            }
+                        }
+<span class="nc" id="L202">                    }</span>
+                });
+<span class="nc" id="L204">            }</span>
+        }, 1000, timerPeriod);
+<span class="nc" id="L206">    }</span>
+    public void checkContador(){
+<span class="nc" id="L208">        contadorRomper++;</span>
+<span class="nc" id="L209">        restoContador = contadorRomper % 50;</span>
+<span class="nc" id="L210">        restoPieza = contadorRomper % 30;</span>
+<span class="nc bnc" id="L211" title="All 2 branches missed.">        if (restoContador == 0) {</span>
+<span class="nc" id="L212">            alturaVariable += 2;</span>
+        }
+<span class="nc bnc" id="L214" title="All 2 branches missed.">        if (restoPieza == 0) {</span>
+<span class="nc" id="L215">            piezaTroll(alturaVariable);</span>
+        }
+<span class="nc" id="L217">    }</span>
+    public void piezaTroll(int altura) {
+<span class="nc" id="L219">        int n = (int) (Math.random() * 2);</span>
+<span class="nc bnc" id="L220" title="All 2 branches missed.">        if (n == 1) {</span>
+<span class="nc" id="L221">            troll = new Pieza(10, altura);</span>
+<span class="nc bnc" id="L222" title="All 2 branches missed.">        } else if (n == 0) {</span>
+<span class="nc" id="L223">            troll = new Pieza(9, altura);</span>
+        }
+<span class="nc" id="L225">        tablero.ponerPieza(troll);</span>
+<span class="nc" id="L226">    }</span>
+
+    public void checkComerTablero() {
+<span class="nc bnc" id="L229" title="All 2 branches missed.">        if (restoContador == 0) {</span>
+<span class="nc bnc" id="L230" title="All 4 branches missed.">            while ((tablero.getPieza().getAltura() &lt; alturaVariable) &amp;&amp; (troll.getAltura() &lt; alturaVariable)) {</span>
+<span class="nc" id="L231">                tablero.moverPiezas(tablero.getPieza(), 'a');</span>
+<span class="nc" id="L232">                tablero.moverPiezas(troll, 'a');</span>
+            }
+        }
+<span class="nc" id="L235">    }</span>
+
+    public void cambiarCancion20s(){
+<span class="nc" id="L238">        int n = (int) (Math.random() * 5);</span>
+<span class="nc" id="L239">        as.pause();</span>
+<span class="nc bnc" id="L240" title="All 2 branches missed.">        if(newas!=null) newas.pause();</span>
+<span class="nc" id="L241">        newas = new AudioService();</span>
+<span class="nc bnc" id="L242" title="All 6 branches missed.">        switch (n){</span>
+            case 0:
+<span class="nc" id="L244">                newas.start(mainActivity,R.raw.tetrisoriginal);</span>
+<span class="nc" id="L245">                break;</span>
+            case 1:
+<span class="nc" id="L247">                newas.start(mainActivity,R.raw.acdcbackinblack);</span>
+<span class="nc" id="L248">                break;</span>
+            case 2:
+<span class="nc" id="L250">                newas.start(mainActivity,R.raw.inmigrant);</span>
+<span class="nc" id="L251">                break;</span>
+            case 3:
+<span class="nc" id="L253">                newas.start(mainActivity,R.raw.thunderstruck);</span>
+<span class="nc" id="L254">                break;</span>
+            case 4:
+<span class="nc" id="L256">                newas.start(mainActivity,R.raw.cumbiaavengers);</span>
+                break;
+        }
+<span class="nc" id="L259">    }</span>
+
+    public void checkSiguienteCont() {
+<span class="nc bnc" id="L262" title="All 2 branches missed.">        if ((contadorRomper + 1) % 10 == 0) {</span>
+<span class="nc" id="L263">            tablero.generarPieza(alturaVariable + 2);</span>
+        } else {
+<span class="nc" id="L265">            tablero.generarPieza(alturaVariable+1);</span>
+        }
+<span class="nc" id="L267">    }</span>
+
+    public void cambiarColorLinea(int i) {
+<span class="nc bnc" id="L270" title="All 2 branches missed.">        if (i != 0) {</span>
+<span class="nc bnc" id="L271" title="All 2 branches missed.">            if (i == 1) {</span>
+<span class="nc" id="L272">                tablero.CambiarColores1Linea();</span>
+            } else {
+<span class="nc" id="L274">                tablero.CambiarColoresMultiLinea();</span>
+            }
+<span class="nc" id="L276">            filasPorBorrar.clear();</span>
+        }
+<span class="nc" id="L278">    }</span>
+
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+<span class="nc" id="L283">        super.onDraw(canvas);</span>
+
+        //Pintamos el tablero back
+<span class="nc" id="L286">        Paint pincel = new Paint();</span>
+
+<span class="nc bnc" id="L288" title="All 2 branches missed.">        for (int x = 0; x &lt; tablero.getAnchoTablero(); x++) {</span>
+<span class="nc bnc" id="L289" title="All 2 branches missed.">            for (int y = 0; y &lt; tablero.getAlturaTablero(); y++) {</span>
+
+<span class="nc" id="L291">                int color = tablero.parseaColor(x, y);</span>
+<span class="nc" id="L292">                pincel.setColor(color);</span>
+<span class="nc" id="L293">                canvas.drawRect(x * getMeasuredWidth() / 10, y * getMeasuredHeight() / 20, x * getMeasuredWidth() + getMeasuredWidth() / 10,</span>
+<span class="nc" id="L294">                        y * getMeasuredHeight() + getMeasuredHeight() / 20, pincel);</span>
+            }
+        }
+
+        //Pintamos el tablero front
+<span class="nc" id="L299">        Paint pBorde = new Paint();</span>
+<span class="nc" id="L300">        pBorde.setStyle(Paint.Style.STROKE);</span>
+<span class="nc" id="L301">        pBorde.setColor(Color.BLACK);</span>
+<span class="nc" id="L302">        pBorde.setStrokeWidth(2);</span>
+<span class="nc bnc" id="L303" title="All 2 branches missed.">        for (int x = 0; x &lt; 10; x++) {</span>
+<span class="nc bnc" id="L304" title="All 2 branches missed.">            for (int y = 0; y &lt; 20; y++) {</span>
+<span class="nc" id="L305">                canvas.drawLine((x + 1) * getMeasuredWidth() / tablero.getAnchoTablero(), 0, (x + 1) * getMeasuredWidth() / tablero.getAnchoTablero(), getMeasuredHeight(), pBorde);</span>
+<span class="nc" id="L306">                canvas.drawLine(0, (y + 1) * getMeasuredHeight() / tablero.getAlturaTablero(), getMeasuredWidth(), (y + 1) * getMeasuredHeight() / tablero.getAlturaTablero(), pBorde);</span>
+            }
+        }
+<span class="nc" id="L309">    }</span>
+
+    @Override
+    public void onClick(View v) {
+
+<span class="nc bnc" id="L314" title="All 6 branches missed.">        switch (v.getId()) {</span>
+            case R.id.botonDcha:
+<span class="nc" id="L316">                tablero.moverPiezas(tablero.getPieza(), 'd');</span>
+<span class="nc" id="L317">                invalidate();</span>
+<span class="nc" id="L318">                break;</span>
+            case R.id.botonBajar:
+<span class="nc" id="L320">                tablero.moverPiezas(tablero.getPieza(), 'a');</span>
+<span class="nc" id="L321">                tablero.moverPiezas(troll, 'a');</span>
+<span class="nc" id="L322">                setPuntos(1);</span>
+<span class="nc" id="L323">                puntuacion.setText(&quot;&quot; + puntos);</span>
+<span class="nc" id="L324">                invalidate();</span>
+<span class="nc" id="L325">                break;</span>
+            case R.id.botonIzda:
+<span class="nc" id="L327">                tablero.moverPiezas(tablero.getPieza(), 'i');</span>
+<span class="nc" id="L328">                invalidate();</span>
+<span class="nc" id="L329">                break;</span>
+            case R.id.botonRotar:
+<span class="nc" id="L331">                Pieza p = tablero.getPieza();</span>
+<span class="nc bnc" id="L332" title="All 2 branches missed.">                if (p.idColor != 1) {</span>
+<span class="nc" id="L333">                    tablero.borrarPieza(p);</span>
+<span class="nc" id="L334">                    tablero.comprobarRotar(p);</span>
+<span class="nc" id="L335">                    tablero.ponerPieza(p);</span>
+                }
+<span class="nc" id="L337">                invalidate();</span>
+<span class="nc" id="L338">                break;</span>
+            case R.id.snap:
+<span class="nc bnc" id="L340" title="All 2 branches missed.">                if(chasquido&gt;0){</span>
+<span class="nc" id="L341">                    Toast toast = new Toast(mainActivity.getApplicationContext());</span>
+<span class="nc" id="L342">                    GifImageView view = new GifImageView(mainActivity.getApplicationContext());</span>
+<span class="nc" id="L343">                    view.setImageResource(R.drawable.thanos);</span>
+<span class="nc" id="L344">                    toast.setGravity(Gravity.FILL, 0, 0);</span>
+<span class="nc" id="L345">                    toast.setView(view);</span>
+<span class="nc" id="L346">                    toast.show();</span>
+<span class="nc" id="L347">                    tablero.limpiarTablero();</span>
+<span class="nc" id="L348">                    alturaVariable=0;</span>
+<span class="nc" id="L349">                    chasquido--;</span>
+<span class="nc bnc" id="L350" title="All 2 branches missed.">                    if(chasquido&lt;=0){</span>
+<span class="nc" id="L351">                        snap.setVisibility(View.GONE);</span>
+                    }
+                }
+        }
+<span class="nc" id="L355">    }</span>
+
+
+<span class="nc" id="L358">    public AudioService getNewAS(){return newas;}</span>
+
+<span class="nc" id="L360">    public  void setPuntos(int nuevosPuntos) { puntos = puntos + nuevosPuntos; }</span>
+
+    public static int getPuntos() {
+<span class="nc" id="L363">        return puntos;</span>
+    }
+
+    public static void reiniciarPuntos() {
+<span class="nc" id="L367">        puntos = 0;</span>
+<span class="nc" id="L368">    }</span>
+
+    public int getNivel() {
+<span class="nc" id="L371">        return this.nivelvar;</span>
+    }
+
+    public void setNivel() {
+
+<span class="nc bnc" id="L376" title="All 2 branches missed.">        if(puntos&gt;=100) {</span>
+<span class="nc" id="L377">            this.nivelvar = 1;</span>
+        }
+
+<span class="nc bnc" id="L380" title="All 2 branches missed.">        if(puntos&gt;=200) {</span>
+<span class="nc" id="L381">            this.nivelvar = 2;</span>
+        }
+
+<span class="nc bnc" id="L384" title="All 2 branches missed.">        if(puntos&gt;=300) {</span>
+<span class="nc" id="L385">            this.nivelvar = 3;</span>
+        }
+
+<span class="nc bnc" id="L388" title="All 2 branches missed.">        if(puntos&gt;=400) {</span>
+<span class="nc" id="L389">            this.nivelvar = 4;</span>
+        }
+
+<span class="nc bnc" id="L392" title="All 2 branches missed.">        if(puntos&gt;=500) {</span>
+<span class="nc" id="L393">            this.nivelvar = 5;</span>
+        }
+
+<span class="nc bnc" id="L396" title="All 2 branches missed.">        if(puntos&gt;=600) {</span>
+<span class="nc" id="L397">            this.nivelvar = 6;</span>
+        }
+
+<span class="nc bnc" id="L400" title="All 2 branches missed.">        if(puntos&gt;=700) {</span>
+<span class="nc" id="L401">            this.nivelvar = 7;</span>
+        }
+
+<span class="nc bnc" id="L404" title="All 2 branches missed.">        if(puntos&gt;=800) {</span>
+<span class="nc" id="L405">            this.nivelvar = 8;</span>
+        }
+
+<span class="nc bnc" id="L408" title="All 2 branches missed.">        if(puntos&gt;=900) {</span>
+<span class="nc" id="L409">            this.nivelvar = 9;</span>
+        }
+
+<span class="nc bnc" id="L412" title="All 2 branches missed.">        if(puntos&gt;=1000) {</span>
+<span class="nc" id="L413">            this.nivelvar = 10;</span>
+        }
+<span class="nc" id="L415">    }</span>
+}
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>Generated by the Android Gradle plugin 3.6.1</div></body></html>

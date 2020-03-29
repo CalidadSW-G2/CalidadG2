@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Exit.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=0;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">debugAndroidTest</a> &gt; <a href="index.source.html" class="el_package">com.example.tetris</a> &gt; <span class="el_source">Exit.java</span></div><h1>Exit.java</h1><pre class="source lang-java linenums">package com.example.tetris;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
+
+import android.Manifest;
+import android.content.ContentValues;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOError;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+<span class="nc" id="L32">public class Exit extends AppCompatActivity {</span>
+    private EditText et_nombre;
+    //private Button registrar;
+
+    private SQLiteDatabase BaseDeDatos;
+    private AdminSQLiteOpenHelper BBDD;
+    private boolean registrado;
+    private int puntosFinal;
+    private int modo;
+    private String tipoBBDD;
+    private TextView textPuntActual;
+    private ImageView img;
+    private Bitmap imageBitmap;
+    private byte[] blob;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
+<span class="nc" id="L50">        Bundle p = this.getIntent().getExtras();</span>
+<span class="nc" id="L51">        puntosFinal = p.getInt(&quot;puntuacionFinal&quot;);</span>
+<span class="nc" id="L52">        modo = p.getInt(&quot;Modo&quot;);</span>
+
+<span class="nc" id="L54">        BBDD = new AdminSQLiteOpenHelper(this, &quot;RankingJugadores&quot;, null, 1);</span>
+<span class="nc" id="L55">        super.onCreate(savedInstanceState);</span>
+<span class="nc" id="L56">        setContentView(R.layout.activity_exit);</span>
+<span class="nc" id="L57">        Button again = findViewById(R.id.Again);</span>
+<span class="nc" id="L58">        Button registrar = findViewById(R.id.registrar_puntuacion);</span>
+<span class="nc" id="L59">        Button rankings = findViewById(R.id.ShowRankings);</span>
+
+        //TextView nombre = findViewById(R.id.nombre_jugador);
+<span class="nc" id="L62">        registrado=false;</span>
+
+<span class="nc" id="L64">        et_nombre = (EditText)findViewById(R.id.nombre_jugador);</span>
+<span class="nc" id="L65">        textPuntActual= findViewById(R.id.text_puntuacionActual);</span>
+<span class="nc" id="L66">        textPuntActual.setText(Integer.toString(puntosFinal));</span>
+
+<span class="nc" id="L68">        again.setOnClickListener(new View.OnClickListener() {</span>
+            @Override
+            public void onClick(View view) {
+<span class="nc" id="L71">                fin();</span>
+<span class="nc" id="L72">                Intent intent = new Intent(Exit.this, Inicio.class);</span>
+<span class="nc" id="L73">                startActivity(intent);</span>
+
+<span class="nc" id="L75">            }</span>
+        });
+<span class="nc" id="L77">        rankings.setOnClickListener(new View.OnClickListener() {</span>
+            @Override
+            public void onClick(View view) {
+<span class="nc" id="L80">                Intent intentRankings = new Intent(Exit.this, Rankings.class);</span>
+<span class="nc" id="L81">                intentRankings.putExtra(&quot;modo&quot;,modo);</span>
+<span class="nc" id="L82">                startActivity(intentRankings);</span>
+<span class="nc" id="L83">            }</span>
+        });
+<span class="nc" id="L85">        registrar.setOnClickListener(new View.OnClickListener() {</span>
+            @Override
+            public void onClick(View view) {
+<span class="nc" id="L88">                Registrar(view);</span>
+<span class="nc" id="L89">            }</span>
+        });
+
+<span class="nc" id="L92">        img = (ImageView)findViewById(R.id. NewPhoto);</span>
+
+<span class="nc bnc" id="L94" title="All 4 branches missed.">        if (ContextCompat.checkSelfPermission(Exit.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED &amp;&amp; ActivityCompat.checkSelfPermission(Exit.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {</span>
+<span class="nc" id="L95">            ActivityCompat.requestPermissions(Exit.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, 1000);</span>
+        }
+
+<span class="nc" id="L98">    }</span>
+    void fin(){
+<span class="nc" id="L100">        this.finish();</span>
+<span class="nc" id="L101">    }</span>
+    @Override
+    public void onBackPressed() {
+<span class="nc" id="L104">        Toast.makeText(this, &quot;Para volver a jugar pulsa MENU&quot;, Toast.LENGTH_SHORT).show();</span>
+<span class="nc" id="L105">    }</span>
+    public void Registrar(View view){
+        //abrir la base de datos modo escritura y lectura
+<span class="nc" id="L108">        BaseDeDatos = BBDD.getWritableDatabase();</span>
+<span class="nc" id="L109">        et_nombre = (EditText)findViewById(R.id.nombre_jugador);</span>
+<span class="nc" id="L110">        String nombre = et_nombre.getText().toString();</span>
+<span class="nc bnc" id="L111" title="All 2 branches missed.">        if(imageBitmap!=null) {</span>
+<span class="nc" id="L112">            guardarImagen(imageBitmap);</span>
+        }
+
+
+<span class="nc bnc" id="L116" title="All 6 branches missed.">        if (!nombre.isEmpty() &amp; !registrado){</span>
+            //permite almacenar las columnas del registro en pares clave-valor
+<span class="nc" id="L118">            ContentValues registro = new ContentValues();</span>
+            //Añade los pares
+<span class="nc" id="L120">            registro.put(&quot;nombre&quot;, nombre);</span>
+<span class="nc" id="L121">            registro.put(&quot;puntuacion&quot;, puntosFinal);</span>
+<span class="nc bnc" id="L122" title="All 2 branches missed.">            if(blob!=null) {</span>
+<span class="nc" id="L123">                registro.put(&quot;foto&quot;, blob);</span>
+            }
+
+
+                //insertar valores en la tabla ranking
+<span class="nc bnc" id="L128" title="All 2 branches missed.">                if(modo==0){</span>
+<span class="nc" id="L129">                    BaseDeDatos.insert(&quot;rankingNormal&quot;, null, registro);</span>
+                }else{
+<span class="nc" id="L131">                    BaseDeDatos.insert(&quot;rankingHard&quot;, null, registro);</span>
+            }
+<span class="nc" id="L133">            BaseDeDatos.close();</span>
+
+<span class="nc" id="L135">            et_nombre.setText(&quot;&quot;);</span>
+<span class="nc" id="L136">            blob = null;</span>
+<span class="nc" id="L137">            registrado=true;</span>
+
+
+<span class="nc" id="L140">        }else{</span>
+<span class="nc bnc" id="L141" title="All 2 branches missed.">            if (nombre.isEmpty()) {</span>
+<span class="nc" id="L142">                Toast.makeText(this, &quot;Debes rellenar el nombre&quot;, Toast.LENGTH_SHORT).show();</span>
+            }
+<span class="nc bnc" id="L144" title="All 2 branches missed.">            if (registrado){</span>
+<span class="nc" id="L145">                Toast.makeText(this, &quot;Ya te has registrado&quot;, Toast.LENGTH_SHORT).show();</span>
+            }
+        }
+<span class="nc" id="L148">    }</span>
+
+    String currentPhotoPath;
+    private File createImageFile() throws IOException {
+        // Create an image file name
+<span class="nc" id="L153">        String timeStamp = new SimpleDateFormat(&quot;yyyyMMdd_HHmmss&quot;).format(new Date());</span>
+<span class="nc" id="L154">        String imageFileName = &quot;Backup_&quot; + timeStamp + &quot;_&quot;;</span>
+<span class="nc" id="L155">        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);</span>
+<span class="nc" id="L156">        File image = File.createTempFile(</span>
+                imageFileName,  /* prefix */
+                &quot;.jpg&quot;,         /* suffix */
+                storageDir      /* directory */
+        );
+
+        // Save a file: path for use with ACTION_VIEW intents
+<span class="nc" id="L163">        currentPhotoPath = image.getAbsolutePath();</span>
+<span class="nc" id="L164">        return image;</span>
+    }
+
+
+    static final int REQUEST_TAKE_PHOTO = 1;
+    public void tomarFoto(View view) {
+<span class="nc" id="L170">        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);</span>
+        // Ensure that there's a camera activity to handle the intent
+<span class="nc bnc" id="L172" title="All 2 branches missed.">        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {</span>
+            // Create the File where the photo should go
+<span class="nc" id="L174">            File photoFile = null;</span>
+            try {
+<span class="nc" id="L176">                photoFile = createImageFile();</span>
+<span class="nc" id="L177">            } catch (IOException ex) {</span>
+                // Error occurred while creating the File
+<span class="nc" id="L179">                ex.printStackTrace();</span>
+<span class="nc" id="L180">            }</span>
+            // Continue only if the File was successfully created
+<span class="nc bnc" id="L182" title="All 2 branches missed.">            if (photoFile != null) {</span>
+<span class="nc" id="L183">                Uri photoURI = FileProvider.getUriForFile(this,</span>
+                        &quot;com.example.android.fileprovider&quot;,
+                        photoFile);
+<span class="nc" id="L186">                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI.toString());</span>
+<span class="nc" id="L187">                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);</span>
+            }
+        }
+<span class="nc" id="L190">    }</span>
+
+    static final int REQUEST_IMAGE_CAPTURE = 1;
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+<span class="nc bnc" id="L195" title="All 4 branches missed.">        if (requestCode == REQUEST_IMAGE_CAPTURE &amp;&amp; resultCode == RESULT_OK) {</span>
+<span class="nc" id="L196">            Bundle extras = data.getExtras();</span>
+<span class="nc" id="L197">            imageBitmap = (Bitmap) extras.get(&quot;data&quot;);</span>
+<span class="nc" id="L198">            img.setImageBitmap(imageBitmap);</span>
+        }
+<span class="nc" id="L200">    }</span>
+    public void guardarImagen(Bitmap bitmap){
+        // tamaño del baos depende del tamaño de tus imagenes en promedio
+<span class="nc" id="L203">        ByteArrayOutputStream baos = new ByteArrayOutputStream(20480);</span>
+<span class="nc" id="L204">        bitmap.compress(Bitmap.CompressFormat.PNG, 0 , baos);</span>
+<span class="nc" id="L205">        blob = baos.toByteArray();</span>
+        // aqui tenemos el byte[] con el imagen comprimido, ahora lo guardemos en SQLite
+
+<span class="nc" id="L208">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>Generated by the Android Gradle plugin 3.6.1</div></body></html>

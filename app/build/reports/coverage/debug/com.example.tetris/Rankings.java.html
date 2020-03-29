@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Rankings.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=0;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">debugAndroidTest</a> &gt; <a href="index.source.html" class="el_package">com.example.tetris</a> &gt; <span class="el_source">Rankings.java</span></div><h1>Rankings.java</h1><pre class="source lang-java linenums">package com.example.tetris;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.ContentValues;
+import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.ByteArrayInputStream;
+
+<span class="nc" id="L20">public class Rankings extends AppCompatActivity {</span>
+    private TextView textoRanking1;
+    private TextView textoRanking2;
+    private TextView textoRanking3;
+    private TextView textoRanking4;
+    private TextView textoRanking5;
+    private TextView textoRanking6;
+    private TextView mostrarPunt1;
+    private TextView mostrarPunt2;
+    private TextView mostrarPunt3;
+    private TextView mostrarPunt4;
+    private TextView mostrarPunt5;
+    private TextView mostrarPunt6;
+    private TextView num1;
+    private TextView num2;
+    private TextView num3;
+    private TextView num4;
+    private TextView num5;
+    private TextView num6;
+    private ImageView imageAvatar1;
+    private ImageView imageAvatar2;
+    private ImageView imageAvatar3;
+    private ImageView imageAvatar4;
+    private ImageView imageAvatar5;
+    private ImageView imageAvatar6;
+    private SQLiteDatabase baseDeDatos;
+    private AdminSQLiteOpenHelper bbdd;
+<span class="nc" id="L47">    private String tipoBBDD = &quot;rankingNormal&quot;;</span>
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
+<span class="nc" id="L52">        Bundle p = this.getIntent().getExtras();</span>
+<span class="nc" id="L53">        int modo = p.getInt(&quot;modo&quot;);</span>
+<span class="nc" id="L54">        bbdd = new AdminSQLiteOpenHelper(this, &quot;RankingJugadores&quot;, null, 1);</span>
+<span class="nc" id="L55">        super.onCreate(savedInstanceState);</span>
+<span class="nc" id="L56">        setContentView(R.layout.activity_rankings);</span>
+
+<span class="nc" id="L58">        Button restEstadisticas =  findViewById(R.id.restablecerEstadisticas);</span>
+<span class="nc" id="L59">        Button menu= findViewById(R.id.goMenu);</span>
+
+<span class="nc" id="L61">        num1 = findViewById(R.id.primero);</span>
+<span class="nc" id="L62">        num2 = findViewById(R.id.segundo);</span>
+<span class="nc" id="L63">        num3 = findViewById(R.id.tercero);</span>
+<span class="nc" id="L64">        num4 = findViewById(R.id.cuarto);</span>
+<span class="nc" id="L65">        num5 = findViewById(R.id.quinto);</span>
+<span class="nc" id="L66">        num6 = findViewById(R.id.sexto);</span>
+
+<span class="nc" id="L68">        textoRanking1 = findViewById(R.id.mostrarRanking1);</span>
+<span class="nc" id="L69">        textoRanking2 = findViewById(R.id.mostrarRanking2);</span>
+<span class="nc" id="L70">        textoRanking3 = findViewById(R.id.mostrarRanking3);</span>
+<span class="nc" id="L71">        textoRanking4 = findViewById(R.id.mostrarRanking4);</span>
+<span class="nc" id="L72">        textoRanking5 = findViewById(R.id.mostrarRanking5);</span>
+<span class="nc" id="L73">        textoRanking6 = findViewById(R.id.mostrarRanking6);</span>
+
+<span class="nc" id="L75">        mostrarPunt1= findViewById(R.id.textpunt1);</span>
+<span class="nc" id="L76">        mostrarPunt2= findViewById(R.id.textpunt2);</span>
+<span class="nc" id="L77">        mostrarPunt3= findViewById(R.id.textpunt3);</span>
+<span class="nc" id="L78">        mostrarPunt4= findViewById(R.id.textpunt4);</span>
+<span class="nc" id="L79">        mostrarPunt5= findViewById(R.id.textpunt5);</span>
+<span class="nc" id="L80">        mostrarPunt6= findViewById(R.id.textpunt6);</span>
+
+<span class="nc" id="L82">        imageAvatar1 = findViewById(R.id.imageJ1);</span>
+<span class="nc" id="L83">        imageAvatar2 = findViewById(R.id.imageJ2);</span>
+<span class="nc" id="L84">        imageAvatar3 = findViewById(R.id.imageJ3);</span>
+<span class="nc" id="L85">        imageAvatar4 = findViewById(R.id.imageJ4);</span>
+<span class="nc" id="L86">        imageAvatar5 = findViewById(R.id.imageJ5);</span>
+<span class="nc" id="L87">        imageAvatar6 = findViewById(R.id.imageJ6);</span>
+
+<span class="nc bnc" id="L89" title="All 2 branches missed.">        if(modo != 0){</span>
+<span class="nc" id="L90">            tipoBBDD = &quot;rankingHard&quot;;</span>
+        }
+
+<span class="nc" id="L93">        rellenerBBDD_Testeable();</span>
+<span class="nc" id="L94">        mostrarTop5();</span>
+
+<span class="nc" id="L96">        restEstadisticas.setOnClickListener(new View.OnClickListener() {</span>
+            @Override
+            public void onClick(View v) {
+<span class="nc" id="L99">                restablecerEstadiaticas(v);</span>
+<span class="nc" id="L100">            }</span>
+        });
+
+<span class="nc" id="L103">        menu.setOnClickListener(new View.OnClickListener() {</span>
+            @Override
+            public void onClick(View v) {
+<span class="nc" id="L106">                Intent intentMenu = new Intent(Rankings.this, Inicio.class);</span>
+<span class="nc" id="L107">                startActivity(intentMenu);</span>
+<span class="nc" id="L108">            }</span>
+        });
+
+<span class="nc" id="L111">    }</span>
+
+    public void mostrarTop5 (){
+
+<span class="nc" id="L115">        baseDeDatos = bbdd.getWritableDatabase();</span>
+<span class="nc" id="L116">        String j1=&quot;&quot;;</span>
+<span class="nc" id="L117">        String j2=&quot;&quot;;</span>
+<span class="nc" id="L118">        String j3=&quot;&quot;;</span>
+<span class="nc" id="L119">        String j4=&quot;&quot;;</span>
+<span class="nc" id="L120">        String j5=&quot;&quot;;</span>
+<span class="nc" id="L121">        String j6=&quot;&quot;;</span>
+<span class="nc" id="L122">        String p1=&quot;&quot;;</span>
+<span class="nc" id="L123">        String p2=&quot;&quot;;</span>
+<span class="nc" id="L124">        String p3=&quot;&quot;;</span>
+<span class="nc" id="L125">        String p4=&quot;&quot;;</span>
+<span class="nc" id="L126">        String p5=&quot;&quot;;</span>
+<span class="nc" id="L127">        String p6=&quot;&quot;;</span>
+
+        //********************** BOTH WORKS
+
+<span class="nc" id="L131">        Cursor fila1 = baseDeDatos.rawQuery(&quot;select * from &quot;+tipoBBDD+&quot;  order by puntuacion DESC&quot;,null);</span>
+
+<span class="nc" id="L133">        int i = 1;</span>
+<span class="nc bnc" id="L134" title="All 2 branches missed.">        for(fila1.moveToFirst();!fila1.isAfterLast();fila1.moveToNext()){</span>
+<span class="nc bnc" id="L135" title="All 7 branches missed.">            switch (i) {</span>
+                case 1:
+<span class="nc" id="L137">                    j1 = fila1.getString(0);</span>
+<span class="nc" id="L138">                    p1 = fila1.getString(1);</span>
+<span class="nc" id="L139">                    imageAvatar1.setVisibility(View.VISIBLE);</span>
+<span class="nc" id="L140">                    imageAvatar1.setImageBitmap(mostrarTop5Aux(fila1));</span>
+<span class="nc" id="L141">                    num1.setVisibility(View.VISIBLE);</span>
+<span class="nc" id="L142">                    break;</span>
+                case 2:
+<span class="nc" id="L144">                    j2 = fila1.getString(0);</span>
+<span class="nc" id="L145">                    p2 = fila1.getString(1);</span>
+<span class="nc" id="L146">                    imageAvatar2.setVisibility(View.VISIBLE);</span>
+<span class="nc" id="L147">                    imageAvatar2.setImageBitmap(mostrarTop5Aux(fila1));</span>
+<span class="nc" id="L148">                    num2.setVisibility(View.VISIBLE);</span>
+<span class="nc" id="L149">                    break;</span>
+                case 3:
+<span class="nc" id="L151">                    j3 = fila1.getString(0);</span>
+<span class="nc" id="L152">                    p3 = fila1.getString(1);</span>
+<span class="nc" id="L153">                    imageAvatar3.setVisibility(View.VISIBLE);</span>
+<span class="nc" id="L154">                    imageAvatar3.setImageBitmap(mostrarTop5Aux(fila1));</span>
+<span class="nc" id="L155">                    num3.setVisibility(View.VISIBLE);</span>
+<span class="nc" id="L156">                    break;</span>
+                case 4:
+<span class="nc" id="L158">                    j4 = fila1.getString(0);</span>
+<span class="nc" id="L159">                    p4 = fila1.getString(1);</span>
+<span class="nc" id="L160">                    imageAvatar4.setVisibility(View.VISIBLE);</span>
+<span class="nc" id="L161">                    imageAvatar4.setImageBitmap(mostrarTop5Aux(fila1));</span>
+<span class="nc" id="L162">                    num4.setVisibility(View.VISIBLE);</span>
+<span class="nc" id="L163">                    break;</span>
+                case 5:
+<span class="nc" id="L165">                    j5 = fila1.getString(0);</span>
+<span class="nc" id="L166">                    p5 = fila1.getString(1);</span>
+<span class="nc" id="L167">                    imageAvatar5.setVisibility(View.VISIBLE);</span>
+<span class="nc" id="L168">                    imageAvatar5.setImageBitmap(mostrarTop5Aux(fila1));</span>
+<span class="nc" id="L169">                    num5.setVisibility(View.VISIBLE);</span>
+<span class="nc" id="L170">                    break;</span>
+                case 6:
+<span class="nc" id="L172">                    j6 = fila1.getString(0);</span>
+<span class="nc" id="L173">                    p6 = fila1.getString(1);</span>
+<span class="nc" id="L174">                    imageAvatar6.setVisibility(View.VISIBLE);</span>
+<span class="nc" id="L175">                    imageAvatar6.setImageBitmap(mostrarTop5Aux(fila1));</span>
+<span class="nc" id="L176">                    num6.setVisibility(View.VISIBLE);</span>
+<span class="nc" id="L177">                    break;</span>
+                default:
+                    break;
+            }
+<span class="nc" id="L181">            i++;</span>
+        }
+
+<span class="nc" id="L184">        textoRanking1.setText(j1);</span>
+<span class="nc" id="L185">        textoRanking2.setText(j2);</span>
+<span class="nc" id="L186">        textoRanking3.setText(j3);</span>
+<span class="nc" id="L187">        textoRanking4.setText(j4);</span>
+<span class="nc" id="L188">        textoRanking5.setText(j5);</span>
+<span class="nc" id="L189">        textoRanking6.setText(j6);</span>
+
+<span class="nc" id="L191">        mostrarPunt1.setText(p1);</span>
+<span class="nc" id="L192">        mostrarPunt2.setText(p2);</span>
+<span class="nc" id="L193">        mostrarPunt3.setText(p3);</span>
+<span class="nc" id="L194">        mostrarPunt4.setText(p4);</span>
+<span class="nc" id="L195">        mostrarPunt5.setText(p5);</span>
+<span class="nc" id="L196">        mostrarPunt6.setText(p6);</span>
+
+<span class="nc" id="L198">        baseDeDatos.close();</span>
+<span class="nc" id="L199">    }</span>
+
+    public Bitmap mostrarTop5Aux(Cursor fila1){
+<span class="nc" id="L202">        byte[] blob = fila1.getBlob(2);</span>
+<span class="nc bnc" id="L203" title="All 2 branches missed.">        if(blob!=null) {</span>
+<span class="nc" id="L204">            ByteArrayInputStream bais = new ByteArrayInputStream(blob);</span>
+<span class="nc" id="L205">            return BitmapFactory.decodeStream(bais);</span>
+        }
+<span class="nc" id="L207">        return null;</span>
+    }
+
+    private void rellenerBBDD_Testeable(){
+<span class="nc" id="L211">        baseDeDatos = bbdd.getWritableDatabase();</span>
+<span class="nc" id="L212">        ContentValues registro1 = new ContentValues();</span>
+<span class="nc" id="L213">        registro1.put(&quot;nombre&quot;, &quot;Primero&quot;);</span>
+<span class="nc" id="L214">        registro1.put(&quot;puntuacion&quot;, 600);</span>
+
+<span class="nc" id="L216">        ContentValues registro2 = new ContentValues();</span>
+<span class="nc" id="L217">        registro2.put(&quot;nombre&quot;, &quot;Segundo&quot;);</span>
+<span class="nc" id="L218">        registro2.put(&quot;puntuacion&quot;, 500);</span>
+
+<span class="nc" id="L220">        ContentValues registro3 = new ContentValues();</span>
+<span class="nc" id="L221">        registro3.put(&quot;nombre&quot;, &quot;Tercero&quot;);</span>
+<span class="nc" id="L222">        registro3.put(&quot;puntuacion&quot;, 400);</span>
+
+<span class="nc" id="L224">        ContentValues registro4 = new ContentValues();</span>
+<span class="nc" id="L225">        registro4.put(&quot;nombre&quot;, &quot;Cuarto&quot;);</span>
+<span class="nc" id="L226">        registro4.put(&quot;puntuacion&quot;, 300);</span>
+
+<span class="nc" id="L228">        ContentValues registro5 = new ContentValues();</span>
+<span class="nc" id="L229">        registro5.put(&quot;nombre&quot;, &quot;Quinto&quot;);</span>
+<span class="nc" id="L230">        registro5.put(&quot;puntuacion&quot;, 200);</span>
+
+<span class="nc" id="L232">        ContentValues registro6 = new ContentValues();</span>
+<span class="nc" id="L233">        registro6.put(&quot;nombre&quot;, &quot;Sexto&quot;);</span>
+<span class="nc" id="L234">        registro6.put(&quot;puntuacion&quot;, 100);</span>
+<span class="nc" id="L235">        baseDeDatos.insert(&quot;rankingNormal&quot;, null, registro1);</span>
+<span class="nc" id="L236">        baseDeDatos.insert(&quot;rankingNormal&quot;, null, registro2);</span>
+<span class="nc" id="L237">        baseDeDatos.insert(&quot;rankingNormal&quot;, null, registro3);</span>
+<span class="nc" id="L238">        baseDeDatos.insert(&quot;rankingNormal&quot;, null, registro4);</span>
+<span class="nc" id="L239">        baseDeDatos.insert(&quot;rankingNormal&quot;, null, registro5);</span>
+<span class="nc" id="L240">        baseDeDatos.insert(&quot;rankingNormal&quot;, null, registro6);</span>
+<span class="nc" id="L241">        baseDeDatos.close();</span>
+<span class="nc" id="L242">    }</span>
+
+    public void restablecerEstadiaticas (View view){
+<span class="nc" id="L245">        baseDeDatos = bbdd.getWritableDatabase();</span>
+
+<span class="nc" id="L247">        baseDeDatos.execSQL(&quot;DELETE FROM &quot;+tipoBBDD);</span>
+<span class="nc" id="L248">        Toast.makeText(this, &quot;Estadisticas restablecidas&quot;, Toast.LENGTH_SHORT).show();</span>
+<span class="nc" id="L249">        baseDeDatos.close();</span>
+
+<span class="nc" id="L251">        imageAvatar1.setVisibility(View.INVISIBLE);</span>
+<span class="nc" id="L252">        num1.setVisibility(View.INVISIBLE);</span>
+<span class="nc" id="L253">        imageAvatar2.setVisibility(View.INVISIBLE);</span>
+<span class="nc" id="L254">        num2.setVisibility(View.INVISIBLE);</span>
+<span class="nc" id="L255">        imageAvatar3.setVisibility(View.INVISIBLE);</span>
+<span class="nc" id="L256">        num3.setVisibility(View.INVISIBLE);</span>
+<span class="nc" id="L257">        imageAvatar4.setVisibility(View.INVISIBLE);</span>
+<span class="nc" id="L258">        num4.setVisibility(View.INVISIBLE);</span>
+<span class="nc" id="L259">        imageAvatar5.setVisibility(View.INVISIBLE);</span>
+<span class="nc" id="L260">        num5.setVisibility(View.INVISIBLE);</span>
+<span class="nc" id="L261">        imageAvatar6.setVisibility(View.INVISIBLE);</span>
+<span class="nc" id="L262">        num6.setVisibility(View.INVISIBLE);</span>
+
+<span class="nc" id="L264">        mostrarTop5();</span>
+<span class="nc" id="L265">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>Generated by the Android Gradle plugin 3.6.1</div></body></html>

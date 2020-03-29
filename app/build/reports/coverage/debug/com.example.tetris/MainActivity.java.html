@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MainActivity.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=0;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">debugAndroidTest</a> &gt; <a href="index.source.html" class="el_package">com.example.tetris</a> &gt; <span class="el_source">MainActivity.java</span></div><h1>MainActivity.java</h1><pre class="source lang-java linenums">package com.example.tetris;
+
+import androidx.annotation.RawRes;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Color;
+import android.media.MediaPlayer;
+import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
+
+<span class="nc" id="L23">public class MainActivity extends AppCompatActivity {</span>
+    private ImageButton botonDcha, botonBajar, botonIzda, botonRotar;
+    private TextView puntosTextView, nivelTextView;
+    private Activity myActivity;
+    private Juego juego;
+<span class="nc" id="L28">    private Tablero tablero = new Tablero();</span>
+<span class="nc" id="L29">    private Tablero ventana = new Tablero();</span>
+    private Button menu;
+    private MediaPlayer mediaPlayer;
+    AudioService as;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+<span class="nc" id="L36">        super.onCreate(savedInstanceState);</span>
+<span class="nc" id="L37">        setContentView(R.layout.activity_main);</span>
+<span class="nc" id="L38">        as = new AudioService();</span>
+<span class="nc" id="L39">        as.start(this, R.raw.acdcbackinblack);</span>
+
+<span class="nc" id="L41">        Bundle b = this.getIntent().getExtras();</span>
+<span class="nc" id="L42">        int modo = b.getInt(&quot;MODO&quot;);</span>
+
+<span class="nc" id="L44">        Juego.reiniciarPuntos();</span>
+
+<span class="nc" id="L46">        botonDcha = (ImageButton) findViewById(R.id.botonDcha);</span>
+<span class="nc" id="L47">        botonIzda = (ImageButton) findViewById(R.id.botonIzda);</span>
+<span class="nc" id="L48">        botonBajar = (ImageButton) findViewById(R.id.botonBajar);</span>
+<span class="nc" id="L49">        botonRotar = (ImageButton) findViewById(R.id.botonRotar);</span>
+<span class="nc" id="L50">        puntosTextView = (TextView) findViewById(R.id.puntosText);</span>
+<span class="nc" id="L51">        nivelTextView = (TextView) findViewById(R.id.nivelText);</span>
+<span class="nc" id="L52">        Pieza p = new Pieza(0, 0);</span>
+
+<span class="nc" id="L54">        VentanaNext siguientePieza = new VentanaNext(this, ventana, p);</span>
+<span class="nc" id="L55">        RelativeLayout.LayoutParams params1 = new RelativeLayout.LayoutParams(400, 400);</span>
+<span class="nc" id="L56">        siguientePieza.setLayoutParams(params1);</span>
+<span class="nc" id="L57">        params1.topMargin = 50;</span>
+<span class="nc" id="L58">        RelativeLayout relativeNext = (RelativeLayout) findViewById(R.id.ventanaSig);</span>
+<span class="nc" id="L59">        relativeNext.setBackgroundColor(findViewById(R.id.layoutprincipal).getSolidColor());</span>
+<span class="nc" id="L60">        relativeNext.setHorizontalGravity(1);</span>
+<span class="nc" id="L61">        relativeNext.addView(siguientePieza);</span>
+
+<span class="nc" id="L63">        final Juego juego = new Juego(this, tablero, siguientePieza, modo, as);</span>
+<span class="nc" id="L64">        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);</span>
+<span class="nc" id="L65">        juego.setLayoutParams(params);</span>
+<span class="nc" id="L66">        RelativeLayout relativeTetris = (RelativeLayout) findViewById(R.id.layoutTablero);</span>
+<span class="nc" id="L67">        juego.setBackgroundColor(Color.LTGRAY);</span>
+<span class="nc" id="L68">        relativeTetris.addView(juego);</span>
+
+<span class="nc" id="L70">        menu = (Button)findViewById(R.id.buttonAjustes);</span>
+<span class="nc" id="L71">        menu.setOnClickListener(new View.OnClickListener() {</span>
+            @Override
+            public void onClick(View view) {
+<span class="nc" id="L74">                as.pause();</span>
+<span class="nc bnc" id="L75" title="All 2 branches missed.">                if(juego.getNewAS()!=null) juego.getNewAS().pause();</span>
+<span class="nc" id="L76">                Intent intent = new Intent(MainActivity.this, Inicio.class);</span>
+<span class="nc" id="L77">                startActivity(intent);</span>
+<span class="nc" id="L78">            }</span>
+        });
+<span class="nc" id="L80">        Button reiniciar = (Button) findViewById(R.id.restart);</span>
+<span class="nc" id="L81">        reiniciar.setOnClickListener(new View.OnClickListener() {</span>
+            @Override
+            public void onClick(View v) {
+<span class="nc bnc" id="L84" title="All 2 branches missed.">                if(Juego.getPuntos()&gt;250){</span>
+<span class="nc" id="L85">                    Intent intent = getIntent();</span>
+<span class="nc" id="L86">                    finish();</span>
+<span class="nc" id="L87">                    startActivity(intent);</span>
+<span class="nc" id="L88">                }else{</span>
+<span class="nc" id="L89">                    Toast.makeText(getApplicationContext(), &quot;Debes tener mas de 250 puntos&quot;, Toast.LENGTH_SHORT).show();</span>
+                }
+<span class="nc" id="L91">            }</span>
+        });
+<span class="nc" id="L93">    }</span>
+
+    @Override
+    public void onBackPressed() {
+<span class="nc" id="L97">        Toast.makeText(this, &quot;Para huir pulsa MENU&quot;, Toast.LENGTH_SHORT).show();</span>
+<span class="nc" id="L98">    }</span>
+
+    public ImageButton getBotonDcha() {
+<span class="nc" id="L101">        return findViewById(R.id.botonDcha);</span>
+    }
+
+    public ImageButton getBotonBajar() {
+<span class="nc" id="L105">        return findViewById(R.id.botonBajar);</span>
+    }
+
+    public ImageButton getBotonIzda() {
+<span class="nc" id="L109">        return findViewById(R.id.botonIzda);</span>
+    }
+
+    public ImageButton getBotonRotar() {
+<span class="nc" id="L113">        return findViewById(R.id.botonRotar);</span>
+    }
+
+    public ImageButton getSnap() {
+<span class="nc" id="L117">        return findViewById(R.id.snap);</span>
+    }
+
+    public TextView getPuntos() {
+<span class="nc" id="L121">        return puntosTextView;</span>
+    }
+
+    public TextView getNivel() {
+<span class="nc" id="L125">        return nivelTextView;</span>
+    }
+
+    public void gameOver(int p, int m) {
+<span class="nc" id="L129">        as.pause();</span>
+<span class="nc" id="L130">        Intent intentGameOver = new Intent(this, Exit.class);</span>
+<span class="nc" id="L131">        intentGameOver.putExtra(&quot;puntuacionFinal&quot;, p);</span>
+<span class="nc" id="L132">        intentGameOver.putExtra(&quot;Modo&quot;, m);</span>
+<span class="nc" id="L133">        startActivity(intentGameOver);</span>
+<span class="nc" id="L134">    }</span>
+
+    public AudioService getAudio(){
+<span class="nc" id="L137">        return as;</span>
+    }
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>Generated by the Android Gradle plugin 3.6.1</div></body></html>

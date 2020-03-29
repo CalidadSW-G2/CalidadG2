@@ -11,6 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 import java.util.Timer;
@@ -47,6 +49,17 @@ public class Juego extends View implements View.OnClickListener {
     private AudioService as;
     private AudioService newas;
     int cronometro = 0;
+    private static HashSet<String> songs = new HashSet<>(Arrays.asList(String.valueOf(R.raw.tetrisoriginal),
+            String.valueOf(R.raw.acdcbackinblack),
+            String.valueOf(R.raw.inmigrant),
+            String.valueOf(R.raw.thunderstruck),
+            String.valueOf(R.raw.cumbiaavengers),
+            String.valueOf(R.raw.ataudauronplay),
+            String.valueOf(R.raw.bisbalbuleria),
+            String.valueOf(R.raw.gasolina),
+            String.valueOf(R.raw.wallapop),
+            String.valueOf(R.raw.willyrex)
+    ));
 
     public Juego(Context context, Tablero tablero, VentanaNext ventana, int modo, AudioService as) {
         super(context);
@@ -235,7 +248,7 @@ public class Juego extends View implements View.OnClickListener {
     }
 
     public void cambiarCancion20s(){
-        int n = (int) (Math.random() * 5);
+        int n = (int) (Math.random() * (getNumberOfSongs()));
         as.pause();
         if(newas!=null) newas.pause();
         newas = new AudioService();
@@ -254,6 +267,21 @@ public class Juego extends View implements View.OnClickListener {
                 break;
             case 4:
                 newas.start(mainActivity,R.raw.cumbiaavengers);
+                break;
+            case 5:
+                newas.start(mainActivity,R.raw.ataudauronplay);
+                break;
+            case 6:
+                newas.start(mainActivity,R.raw.bisbalbuleria);
+                break;
+            case 7:
+                newas.start(mainActivity,R.raw.gasolina);
+                break;
+            case 8:
+                newas.start(mainActivity,R.raw.wallapop);
+                break;
+            case 9:
+                newas.start(mainActivity,R.raw.willyrex);
                 break;
         }
     }
@@ -365,6 +393,10 @@ public class Juego extends View implements View.OnClickListener {
 
     public static void reiniciarPuntos() {
         puntos = 0;
+    }
+
+    public static int getNumberOfSongs() {
+        return songs.size();
     }
 
     public int getNivel() {

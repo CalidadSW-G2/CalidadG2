@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>VentanaNext.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=0;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">debugAndroidTest</a> &gt; <a href="index.source.html" class="el_package">com.example.tetris</a> &gt; <span class="el_source">VentanaNext.java</span></div><h1>VentanaNext.java</h1><pre class="source lang-java linenums">package com.example.tetris;
+
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.util.AttributeSet;
+import android.view.View;
+
+import androidx.annotation.Nullable;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
+public class VentanaNext extends View {
+    private MainActivity mainActivity;
+    private Tablero ventana;
+
+    public VentanaNext(Context context, Tablero ventana, Pieza p) {
+<span class="nc" id="L20">        super(context);</span>
+<span class="nc" id="L21">        this.mainActivity = (MainActivity) context;</span>
+<span class="nc" id="L22">        this.ventana = ventana;</span>
+<span class="nc" id="L23">    }</span>
+
+    public void runVentanaNext(Pieza p) {
+<span class="nc" id="L26">        limpiarVentana();</span>
+<span class="nc" id="L27">        Pieza aux = new Pieza(p.id, 0);</span>
+<span class="nc" id="L28">        getPieza(aux);</span>
+<span class="nc" id="L29">        ventana.ponerPieza(aux);</span>
+<span class="nc" id="L30">    }</span>
+
+    public void limpiarVentana() {
+<span class="nc bnc" id="L33" title="All 2 branches missed.">        for (int i = 0; i &lt; 4; i++) {</span>
+<span class="nc bnc" id="L34" title="All 2 branches missed.">            for (int j = 0; j &lt; 4; j++) {</span>
+<span class="nc" id="L35">                ventana.tab[i][j] = 0;</span>
+            }
+        }
+<span class="nc" id="L38">    }</span>
+
+    public Pieza getPieza(Pieza aux) {
+
+<span class="nc bnc" id="L42" title="All 8 branches missed.">        switch (aux.id) { // Cuadrado</span>
+            case 1:
+<span class="nc" id="L44">                aux.x1 = 1;</span>
+<span class="nc" id="L45">                aux.y1 = 1;</span>
+<span class="nc" id="L46">                aux.x2 = 2;</span>
+<span class="nc" id="L47">                aux.y2 = 1;</span>
+<span class="nc" id="L48">                aux.x3 = 1;</span>
+<span class="nc" id="L49">                aux.y3 = 2;</span>
+<span class="nc" id="L50">                aux.x4 = 2;</span>
+<span class="nc" id="L51">                aux.y4 = 2;</span>
+
+
+<span class="nc" id="L54">                aux.idColor = Tablero.getColorCuadrado();</span>
+<span class="nc" id="L55">                aux.pos = 0;</span>
+<span class="nc" id="L56">                break;</span>
+
+            case 2:    // Z auxieza
+<span class="nc" id="L59">                aux.x1 = 0;</span>
+<span class="nc" id="L60">                aux.y1 = 1;</span>
+<span class="nc" id="L61">                aux.x2 = 1;</span>
+<span class="nc" id="L62">                aux.y2 = 1;</span>
+<span class="nc" id="L63">                aux.x3 = 1;</span>
+<span class="nc" id="L64">                aux.y3 = 2;</span>
+<span class="nc" id="L65">                aux.x4 = 2;</span>
+<span class="nc" id="L66">                aux.y4 = 2;</span>
+
+<span class="nc" id="L68">                aux.idColor = Tablero.getColorZPieza();</span>
+<span class="nc" id="L69">                aux.pos = 0;</span>
+<span class="nc" id="L70">                break;</span>
+
+            case 3: // I auxieza
+<span class="nc" id="L73">                aux.x1 = 1;</span>
+<span class="nc" id="L74">                aux.y1 = 0;</span>
+<span class="nc" id="L75">                aux.x2 = 1;</span>
+<span class="nc" id="L76">                aux.y2 = 1;</span>
+<span class="nc" id="L77">                aux.x3 = 1;</span>
+<span class="nc" id="L78">                aux.y3 = 2;</span>
+<span class="nc" id="L79">                aux.x4 = 1;</span>
+<span class="nc" id="L80">                aux.y4 = 3;</span>
+
+<span class="nc" id="L82">                aux.idColor = Tablero.getColorIPieza();</span>
+<span class="nc" id="L83">                aux.pos = 0;</span>
+<span class="nc" id="L84">                break;</span>
+
+            case 4: // T auxieza
+<span class="nc" id="L87">                aux.x1 = 1;</span>
+<span class="nc" id="L88">                aux.y1 = 1;</span>
+<span class="nc" id="L89">                aux.x2 = 0;</span>
+<span class="nc" id="L90">                aux.y2 = 2;</span>
+<span class="nc" id="L91">                aux.x3 = 1;</span>
+<span class="nc" id="L92">                aux.y3 = 2;</span>
+<span class="nc" id="L93">                aux.x4 = 2;</span>
+<span class="nc" id="L94">                aux.y4 = 2;</span>
+
+<span class="nc" id="L96">                aux.idColor = Tablero.getColorTPieza();</span>
+<span class="nc" id="L97">                aux.pos = 0;</span>
+<span class="nc" id="L98">                break;</span>
+
+            case 5: // S auxieza
+<span class="nc" id="L101">                aux.x1 = 1;</span>
+<span class="nc" id="L102">                aux.y1 = 1;</span>
+<span class="nc" id="L103">                aux.x2 = 2;</span>
+<span class="nc" id="L104">                aux.y2 = 1;</span>
+<span class="nc" id="L105">                aux.x3 = 0;</span>
+<span class="nc" id="L106">                aux.y3 = 2;</span>
+<span class="nc" id="L107">                aux.x4 = 1;</span>
+<span class="nc" id="L108">                aux.y4 = 2;</span>
+
+<span class="nc" id="L110">                aux.idColor = Tablero.getColorSPieza();</span>
+<span class="nc" id="L111">                aux.pos = 0;</span>
+<span class="nc" id="L112">                break;</span>
+
+            case 6:  // J auxieza
+
+<span class="nc" id="L116">                aux.x1 = 1;</span>
+<span class="nc" id="L117">                aux.y1 = 1;</span>
+<span class="nc" id="L118">                aux.x2 = 1;</span>
+<span class="nc" id="L119">                aux.y2 = 2;</span>
+<span class="nc" id="L120">                aux.x3 = 1;</span>
+<span class="nc" id="L121">                aux.y3 = 3;</span>
+<span class="nc" id="L122">                aux.x4 = 2;</span>
+<span class="nc" id="L123">                aux.y4 = 3;</span>
+
+<span class="nc" id="L125">                aux.idColor = Tablero.getColorLPieza();</span>
+<span class="nc" id="L126">                aux.pos = 0;</span>
+<span class="nc" id="L127">                break;</span>
+            case 7:  // L auxieza
+<span class="nc" id="L129">                aux.x1 = 2;</span>
+<span class="nc" id="L130">                aux.y1 = 1;</span>
+<span class="nc" id="L131">                aux.x2 = 2;</span>
+<span class="nc" id="L132">                aux.y2 = 2;</span>
+<span class="nc" id="L133">                aux.x3 = 1;</span>
+<span class="nc" id="L134">                aux.y3 = 3;</span>
+<span class="nc" id="L135">                aux.x4 = 2;</span>
+<span class="nc" id="L136">                aux.y4 = 3;</span>
+
+<span class="nc" id="L138">                aux.idColor = Tablero.getColorJPieza();</span>
+<span class="nc" id="L139">                aux.pos = 0;</span>
+                break;
+        }
+<span class="nc" id="L142">        return aux;</span>
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+<span class="nc" id="L147">        super.onDraw(canvas);</span>
+<span class="nc" id="L148">        Paint pincel = new Paint();</span>
+<span class="nc bnc" id="L149" title="All 2 branches missed.">        for (int x = 0; x &lt; 4; x++) {</span>
+<span class="nc bnc" id="L150" title="All 2 branches missed.">            for (int y = 0; y &lt; 4; y++) {</span>
+
+<span class="nc" id="L152">                int color = ventana.parseaColor(x, y);</span>
+<span class="nc bnc" id="L153" title="All 2 branches missed.">                if (color == Color.parseColor(&quot;#001c21&quot;)) {</span>
+<span class="nc" id="L154">                    color = Color.parseColor(&quot;#423F3F&quot;);</span>
+                }
+<span class="nc" id="L156">                pincel.setColor(color);</span>
+<span class="nc" id="L157">                canvas.drawRect(x * getMeasuredWidth() / 4, y * getMeasuredHeight() / 4, x * getMeasuredWidth() + getMeasuredWidth() / 4,</span>
+<span class="nc" id="L158">                        y * getMeasuredHeight() + getMeasuredHeight() / 4, pincel);</span>
+            }
+        }
+
+
+<span class="nc" id="L163">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>Generated by the Android Gradle plugin 3.6.1</div></body></html>

@@ -1908,10 +1908,15 @@ mipmap snapthanos
 mipmap tetris1
 plurals mtrl_badge_content_description
 raw acdcbackinblack
+raw ataudauronplay
+raw bisbalbuleria
 raw cumbiaavengers
+raw gasolina
 raw inmigrant
 raw tetrisoriginal
 raw thunderstruck
+raw wallapop
+raw willyrex
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description

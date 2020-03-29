@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Pieza.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=0;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">debugAndroidTest</a> &gt; <a href="index.source.html" class="el_package">com.example.tetris</a> &gt; <span class="el_source">Pieza.java</span></div><h1>Pieza.java</h1><pre class="source lang-java linenums">package com.example.tetris;
+
+import com.google.android.material.tabs.TabLayout;
+
+public class Pieza {
+
+    public int idColor;
+    public int id;
+    public int x1, y1;
+    public int x2, y2;
+    public int x3, y3;
+    public int x4, y4;
+    private Pieza pieza;
+    public int pos;
+
+<span class="nc" id="L16">    public Pieza() {</span>
+<span class="nc" id="L17">    }</span>
+
+<span class="nc" id="L19">    public Pieza(Pieza pieza) {</span>
+<span class="nc" id="L20">        this.pieza = pieza;</span>
+<span class="nc" id="L21">        this.x1 = pieza.x1;</span>
+<span class="nc" id="L22">        this.x2 = pieza.x2;</span>
+<span class="nc" id="L23">        this.x3 = pieza.x3;</span>
+<span class="nc" id="L24">        this.x4 = pieza.x4;</span>
+<span class="nc" id="L25">        this.y1 = pieza.y1;</span>
+<span class="nc" id="L26">        this.y2 = pieza.y2;</span>
+<span class="nc" id="L27">        this.y3 = pieza.y3;</span>
+<span class="nc" id="L28">        this.y4 = pieza.y4;</span>
+<span class="nc" id="L29">    }</span>
+
+<span class="nc" id="L31">    public Pieza(int f, int a) {</span>
+<span class="nc bnc" id="L32" title="All 10 branches missed.">        switch (f) { // Cuadrado</span>
+            case 1:
+<span class="nc" id="L34">                x1 = 4;</span>
+<span class="nc" id="L35">                y1 = 0 + a;</span>
+<span class="nc" id="L36">                x2 = 5;</span>
+<span class="nc" id="L37">                y2 = 0 + a;</span>
+<span class="nc" id="L38">                x3 = 4;</span>
+<span class="nc" id="L39">                y3 = 1 + a;</span>
+<span class="nc" id="L40">                x4 = 5;</span>
+<span class="nc" id="L41">                y4 = 1 + a;</span>
+
+<span class="nc" id="L43">                idColor = Tablero.getColorCuadrado();</span>
+<span class="nc" id="L44">                id = 1;</span>
+<span class="nc" id="L45">                pos = 0;</span>
+
+<span class="nc" id="L47">                break;</span>
+
+            case 2:    // Z Pieza
+<span class="nc" id="L50">                x1 = 5;</span>
+<span class="nc" id="L51">                y1 = 0 + a;</span>
+<span class="nc" id="L52">                x2 = 6;</span>
+<span class="nc" id="L53">                y2 = 0 + a;</span>
+<span class="nc" id="L54">                x3 = 6;</span>
+<span class="nc" id="L55">                y3 = 1 + a;</span>
+<span class="nc" id="L56">                x4 = 7;</span>
+<span class="nc" id="L57">                y4 = 1 + a;</span>
+
+<span class="nc" id="L59">                idColor = Tablero.getColorZPieza();</span>
+<span class="nc" id="L60">                id = 2;</span>
+<span class="nc" id="L61">                pos = 0;</span>
+
+<span class="nc" id="L63">                break;</span>
+
+            case 3: // I Pieza
+<span class="nc" id="L66">                x1 = 5;</span>
+<span class="nc" id="L67">                y1 = 0 + a;</span>
+<span class="nc" id="L68">                x2 = 5;</span>
+<span class="nc" id="L69">                y2 = 1 + a;</span>
+<span class="nc" id="L70">                x3 = 5;</span>
+<span class="nc" id="L71">                y3 = 2 + a;</span>
+<span class="nc" id="L72">                x4 = 5;</span>
+<span class="nc" id="L73">                y4 = 3 + a;</span>
+
+<span class="nc" id="L75">                idColor = Tablero.getColorIPieza();</span>
+<span class="nc" id="L76">                id = 3;</span>
+<span class="nc" id="L77">                pos = 0;</span>
+
+<span class="nc" id="L79">                break;</span>
+
+            case 4: // T Pieza
+<span class="nc" id="L82">                x1 = 4;</span>
+<span class="nc" id="L83">                y1 = 0 + a;</span>
+<span class="nc" id="L84">                x2 = 5;</span>
+<span class="nc" id="L85">                y2 = 0 + a;</span>
+<span class="nc" id="L86">                x3 = 6;</span>
+<span class="nc" id="L87">                y3 = 0 + a;</span>
+<span class="nc" id="L88">                x4 = 5;</span>
+<span class="nc" id="L89">                y4 = 1 + a;</span>
+
+<span class="nc" id="L91">                idColor = Tablero.getColorTPieza();</span>
+<span class="nc" id="L92">                id = 4;</span>
+<span class="nc" id="L93">                pos = 0;</span>
+
+<span class="nc" id="L95">                break;</span>
+
+            case 5: // S Pieza
+<span class="nc" id="L98">                x1 = 5;</span>
+<span class="nc" id="L99">                y1 = 0 + a;</span>
+<span class="nc" id="L100">                x2 = 6;</span>
+<span class="nc" id="L101">                y2 = 0 + a;</span>
+<span class="nc" id="L102">                x3 = 5;</span>
+<span class="nc" id="L103">                y3 = 1 + a;</span>
+<span class="nc" id="L104">                x4 = 4;</span>
+<span class="nc" id="L105">                y4 = 1 + a;</span>
+
+<span class="nc" id="L107">                idColor = Tablero.getColorSPieza();</span>
+<span class="nc" id="L108">                id = 5;</span>
+<span class="nc" id="L109">                pos = 0;</span>
+
+<span class="nc" id="L111">                break;</span>
+
+            case 6:  // L Pieza
+<span class="nc" id="L114">                x1 = 4;</span>
+<span class="nc" id="L115">                y1 = 0 + a;</span>
+<span class="nc" id="L116">                x2 = 5;</span>
+<span class="nc" id="L117">                y2 = 0 + a;</span>
+<span class="nc" id="L118">                x3 = 5;</span>
+<span class="nc" id="L119">                y3 = 1 + a;</span>
+<span class="nc" id="L120">                x4 = 5;</span>
+<span class="nc" id="L121">                y4 = 2 + a;</span>
+
+<span class="nc" id="L123">                idColor = Tablero.getColorLPieza();</span>
+<span class="nc" id="L124">                id = 6;</span>
+<span class="nc" id="L125">                pos = 0;</span>
+
+<span class="nc" id="L127">                break;</span>
+
+            case 7:  // J Pieza
+<span class="nc" id="L130">                x1 = 4;</span>
+<span class="nc" id="L131">                y1 = 0 + a;</span>
+<span class="nc" id="L132">                x2 = 5;</span>
+<span class="nc" id="L133">                y2 = 0 + a;</span>
+<span class="nc" id="L134">                x3 = 4;</span>
+<span class="nc" id="L135">                y3 = 1 + a;</span>
+<span class="nc" id="L136">                x4 = 4;</span>
+<span class="nc" id="L137">                y4 = 2 + a;</span>
+
+<span class="nc" id="L139">                idColor = Tablero.getColorJPieza();</span>
+<span class="nc" id="L140">                id = 7;</span>
+<span class="nc" id="L141">                pos = 0;</span>
+<span class="nc" id="L142">                break;</span>
+
+            case 9: // Pieza Troll
+<span class="nc" id="L145">                x1 = 1;</span>
+<span class="nc" id="L146">                y1 = 0 + a;</span>
+<span class="nc" id="L147">                x2 = 0;</span>
+<span class="nc" id="L148">                y2 = 1 + a;</span>
+<span class="nc" id="L149">                x3 = 2;</span>
+<span class="nc" id="L150">                y3 = 1 + a;</span>
+<span class="nc" id="L151">                x4 = 1;</span>
+<span class="nc" id="L152">                y4 = 2 + a;</span>
+
+<span class="nc" id="L154">                idColor = 9;</span>
+<span class="nc" id="L155">                pos = 0;</span>
+<span class="nc" id="L156">                break;</span>
+            case 10: // Pieza Troll
+<span class="nc" id="L158">                x1 = 8;</span>
+<span class="nc" id="L159">                y1 = 0 + a;</span>
+<span class="nc" id="L160">                x2 = 7;</span>
+<span class="nc" id="L161">                y2 = 1 + a;</span>
+<span class="nc" id="L162">                x3 = 9;</span>
+<span class="nc" id="L163">                y3 = 1 + a;</span>
+<span class="nc" id="L164">                x4 = 8;</span>
+<span class="nc" id="L165">                y4 = 2 + a;</span>
+
+<span class="nc" id="L167">                idColor = 10;</span>
+<span class="nc" id="L168">                pos = 0;</span>
+                break;
+        }
+<span class="nc" id="L171">    }</span>
+
+
+    public void mover(int x, int y) {
+<span class="nc" id="L175">        x1 = x1 + x;</span>
+<span class="nc" id="L176">        y1 = y1 + y;</span>
+<span class="nc" id="L177">        x2 = x2 + x;</span>
+<span class="nc" id="L178">        y2 = y2 + y;</span>
+<span class="nc" id="L179">        x3 = x3 + x;</span>
+<span class="nc" id="L180">        y3 = y3 + y;</span>
+<span class="nc" id="L181">        x4 = x4 + x;</span>
+<span class="nc" id="L182">        y4 = y4 + y;</span>
+<span class="nc" id="L183">    }</span>
+
+    public int getAltura() {
+<span class="nc" id="L186">        return this.y1;</span>
+    }
+
+    public void setAltura(int y) {
+<span class="nc" id="L190">        this.pieza.y1 += y;</span>
+<span class="nc" id="L191">        this.pieza.y2 += y;</span>
+<span class="nc" id="L192">        this.pieza.y3 += y;</span>
+<span class="nc" id="L193">        this.pieza.y4 += y;</span>
+<span class="nc" id="L194">    }</span>
+
+    public void copiarPieza(Pieza pieza2) {
+<span class="nc" id="L197">        this.x1 = pieza2.x1;</span>
+<span class="nc" id="L198">        this.x2 = pieza2.x2;</span>
+<span class="nc" id="L199">        this.x3 = pieza2.x3;</span>
+<span class="nc" id="L200">        this.x4 = pieza2.x4;</span>
+
+<span class="nc" id="L202">        this.y1 = pieza2.y1;</span>
+<span class="nc" id="L203">        this.y2 = pieza2.y2;</span>
+<span class="nc" id="L204">        this.y3 = pieza2.y3;</span>
+<span class="nc" id="L205">        this.y4 = pieza2.y4;</span>
+
+
+<span class="nc" id="L208">        this.pos = pieza2.pos;</span>
+
+<span class="nc" id="L210">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>Generated by the Android Gradle plugin 3.6.1</div></body></html>
