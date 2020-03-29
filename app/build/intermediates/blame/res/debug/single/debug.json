@@ -104,12 +104,12 @@
         "source": "C:\\Users\\Marcos\\Desktop\\Carrera\\3 Curso\\Segundo Cuatrimestre\\Calidad del Software\\ProyectoCalidad\\CalidadG2\\app\\src\\main\\res\\raw\\willyrex.mp3"
     },
     {
-        "merged": "C:\\Users\\Marcos\\Desktop\\Carrera\\3 Curso\\Segundo Cuatrimestre\\Calidad del Software\\ProyectoCalidad\\CalidadG2\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\Marcos\\Desktop\\Carrera\\3 Curso\\Segundo Cuatrimestre\\Calidad del Software\\ProyectoCalidad\\CalidadG2\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
-    },
-    {
         "merged": "C:\\Users\\Marcos\\Desktop\\Carrera\\3 Curso\\Segundo Cuatrimestre\\Calidad del Software\\ProyectoCalidad\\CalidadG2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher_background.png.flat",
         "source": "C:\\Users\\Marcos\\Desktop\\Carrera\\3 Curso\\Segundo Cuatrimestre\\Calidad del Software\\ProyectoCalidad\\CalidadG2\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "C:\\Users\\Marcos\\Desktop\\Carrera\\3 Curso\\Segundo Cuatrimestre\\Calidad del Software\\ProyectoCalidad\\CalidadG2\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Marcos\\Desktop\\Carrera\\3 Curso\\Segundo Cuatrimestre\\Calidad del Software\\ProyectoCalidad\\CalidadG2\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
     },
     {
         "merged": "C:\\Users\\Marcos\\Desktop\\Carrera\\3 Curso\\Segundo Cuatrimestre\\Calidad del Software\\ProyectoCalidad\\CalidadG2\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",

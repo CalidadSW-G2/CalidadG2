@@ -1,4 +1,4 @@
-#Sun Mar 29 12:55:27 CEST 2020
+#Sun Mar 29 15:31:51 CEST 2020
 base.0=C\:\\Users\\Marcos\\Desktop\\Carrera\\3 Curso\\Segundo Cuatrimestre\\Calidad del Software\\ProyectoCalidad\\CalidadG2\\app\\build\\intermediates\\dex\\debugAndroidTest\\out\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

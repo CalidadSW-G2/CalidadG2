@@ -181,7 +181,6 @@ public class ColoresActivity extends AppCompatActivity {
         if (seleccionJ.equals("Yellow")) {
             Tablero.setColorJPieza(6); }
 
-
     }
 
 }

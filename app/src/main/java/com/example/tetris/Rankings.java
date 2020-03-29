@@ -110,8 +110,19 @@ public class Rankings extends AppCompatActivity {
 
     }
 
-    public void mostrarTop5 (){
+    public void aumentarDificultad(){
+        baseDeDatos = bbdd.getWritableDatabase();
+        Cursor fila0 = baseDeDatos.rawQuery("select * from "+tipoBBDD+"  order by puntuacion DESC",null);
+        fila0.moveToFirst();
+        ContentValues againnew = new ContentValues();
+        againnew.put("puntuacion", fila0.getInt(1)+10);
+        String whereArgs[] = {fila0.getString(0)};
+        baseDeDatos.update(tipoBBDD,againnew,"nombre=?",whereArgs);
+        baseDeDatos.close();
+    }
 
+    public void mostrarTop5 (){
+        aumentarDificultad();
         baseDeDatos = bbdd.getWritableDatabase();
         String j1="";
         String j2="";
