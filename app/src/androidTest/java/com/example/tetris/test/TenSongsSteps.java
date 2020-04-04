@@ -22,7 +22,7 @@ public class TenSongsSteps {
         numCanciones = Juego.getNumberOfSongs();
     }
 
-        @Then("^HayAlMenosDiez$")
+    @Then("^HayAlMenosDiez$")
     public void hayalmenosdiez() {
         Assert.assertTrue(numCanciones >= 10);
     }

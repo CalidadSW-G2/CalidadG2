@@ -29,112 +29,131 @@ import java.util.List;
 <span class="nc" id="L29">    private Tablero ventana = new Tablero();</span>
     private Button menu;
     private MediaPlayer mediaPlayer;
+    private Button sencond10;
+    private Button sencond20;
     AudioService as;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-<span class="nc" id="L36">        super.onCreate(savedInstanceState);</span>
-<span class="nc" id="L37">        setContentView(R.layout.activity_main);</span>
-<span class="nc" id="L38">        as = new AudioService();</span>
-<span class="nc" id="L39">        as.start(this, R.raw.acdcbackinblack);</span>
+<span class="nc" id="L38">        super.onCreate(savedInstanceState);</span>
+<span class="nc" id="L39">        setContentView(R.layout.activity_main);</span>
+<span class="nc" id="L40">        as = new AudioService();</span>
+<span class="nc" id="L41">        as.start(this, R.raw.acdcbackinblack);</span>
 
-<span class="nc" id="L41">        Bundle b = this.getIntent().getExtras();</span>
-<span class="nc" id="L42">        int modo = b.getInt(&quot;MODO&quot;);</span>
+<span class="nc" id="L43">        Bundle b = this.getIntent().getExtras();</span>
+<span class="nc" id="L44">        int modo = b.getInt(&quot;MODO&quot;);</span>
 
-<span class="nc" id="L44">        Juego.reiniciarPuntos();</span>
+<span class="nc" id="L46">        Juego.reiniciarPuntos();</span>
 
-<span class="nc" id="L46">        botonDcha = (ImageButton) findViewById(R.id.botonDcha);</span>
-<span class="nc" id="L47">        botonIzda = (ImageButton) findViewById(R.id.botonIzda);</span>
-<span class="nc" id="L48">        botonBajar = (ImageButton) findViewById(R.id.botonBajar);</span>
-<span class="nc" id="L49">        botonRotar = (ImageButton) findViewById(R.id.botonRotar);</span>
-<span class="nc" id="L50">        puntosTextView = (TextView) findViewById(R.id.puntosText);</span>
-<span class="nc" id="L51">        nivelTextView = (TextView) findViewById(R.id.nivelText);</span>
-<span class="nc" id="L52">        Pieza p = new Pieza(0, 0);</span>
+<span class="nc" id="L48">        botonDcha = (ImageButton) findViewById(R.id.botonDcha);</span>
+<span class="nc" id="L49">        botonIzda = (ImageButton) findViewById(R.id.botonIzda);</span>
+<span class="nc" id="L50">        botonBajar = (ImageButton) findViewById(R.id.botonBajar);</span>
+<span class="nc" id="L51">        botonRotar = (ImageButton) findViewById(R.id.botonRotar);</span>
+<span class="nc" id="L52">        puntosTextView = (TextView) findViewById(R.id.puntosText);</span>
+<span class="nc" id="L53">        nivelTextView = (TextView) findViewById(R.id.nivelText);</span>
+<span class="nc" id="L54">        Pieza p = new Pieza(0, 0);</span>
 
-<span class="nc" id="L54">        VentanaNext siguientePieza = new VentanaNext(this, ventana, p);</span>
-<span class="nc" id="L55">        RelativeLayout.LayoutParams params1 = new RelativeLayout.LayoutParams(400, 400);</span>
-<span class="nc" id="L56">        siguientePieza.setLayoutParams(params1);</span>
-<span class="nc" id="L57">        params1.topMargin = 50;</span>
-<span class="nc" id="L58">        RelativeLayout relativeNext = (RelativeLayout) findViewById(R.id.ventanaSig);</span>
-<span class="nc" id="L59">        relativeNext.setBackgroundColor(findViewById(R.id.layoutprincipal).getSolidColor());</span>
-<span class="nc" id="L60">        relativeNext.setHorizontalGravity(1);</span>
-<span class="nc" id="L61">        relativeNext.addView(siguientePieza);</span>
+<span class="nc" id="L56">        VentanaNext siguientePieza = new VentanaNext(this, ventana, p);</span>
+<span class="nc" id="L57">        RelativeLayout.LayoutParams params1 = new RelativeLayout.LayoutParams(400, 400);</span>
+<span class="nc" id="L58">        siguientePieza.setLayoutParams(params1);</span>
+<span class="nc" id="L59">        params1.topMargin = 50;</span>
+<span class="nc" id="L60">        RelativeLayout relativeNext = (RelativeLayout) findViewById(R.id.ventanaSig);</span>
+<span class="nc" id="L61">        relativeNext.setBackgroundColor(findViewById(R.id.layoutprincipal).getSolidColor());</span>
+<span class="nc" id="L62">        relativeNext.setHorizontalGravity(1);</span>
+<span class="nc" id="L63">        relativeNext.addView(siguientePieza);</span>
 
-<span class="nc" id="L63">        final Juego juego = new Juego(this, tablero, siguientePieza, modo, as);</span>
-<span class="nc" id="L64">        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);</span>
-<span class="nc" id="L65">        juego.setLayoutParams(params);</span>
-<span class="nc" id="L66">        RelativeLayout relativeTetris = (RelativeLayout) findViewById(R.id.layoutTablero);</span>
-<span class="nc" id="L67">        juego.setBackgroundColor(Color.LTGRAY);</span>
-<span class="nc" id="L68">        relativeTetris.addView(juego);</span>
+<span class="nc" id="L65">        final Juego juego = new Juego(this, tablero, siguientePieza, modo, as);</span>
+<span class="nc" id="L66">        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);</span>
+<span class="nc" id="L67">        juego.setLayoutParams(params);</span>
+<span class="nc" id="L68">        RelativeLayout relativeTetris = (RelativeLayout) findViewById(R.id.layoutTablero);</span>
+<span class="nc" id="L69">        juego.setBackgroundColor(Color.LTGRAY);</span>
+<span class="nc" id="L70">        relativeTetris.addView(juego);</span>
 
-<span class="nc" id="L70">        menu = (Button)findViewById(R.id.buttonAjustes);</span>
-<span class="nc" id="L71">        menu.setOnClickListener(new View.OnClickListener() {</span>
-            @Override
-            public void onClick(View view) {
-<span class="nc" id="L74">                as.pause();</span>
-<span class="nc bnc" id="L75" title="All 2 branches missed.">                if(juego.getNewAS()!=null) juego.getNewAS().pause();</span>
-<span class="nc" id="L76">                Intent intent = new Intent(MainActivity.this, Inicio.class);</span>
-<span class="nc" id="L77">                startActivity(intent);</span>
-<span class="nc" id="L78">            }</span>
-        });
-<span class="nc" id="L80">        Button reiniciar = (Button) findViewById(R.id.restart);</span>
-<span class="nc" id="L81">        reiniciar.setOnClickListener(new View.OnClickListener() {</span>
+<span class="nc" id="L72">        sencond10 = findViewById(R.id.second10);</span>
+<span class="nc" id="L73">        sencond10.setOnClickListener(new View.OnClickListener() {</span>
             @Override
             public void onClick(View v) {
-<span class="nc bnc" id="L84" title="All 2 branches missed.">                if(Juego.getPuntos()&gt;250){</span>
-<span class="nc" id="L85">                    Intent intent = getIntent();</span>
-<span class="nc" id="L86">                    finish();</span>
-<span class="nc" id="L87">                    startActivity(intent);</span>
-<span class="nc" id="L88">                }else{</span>
-<span class="nc" id="L89">                    Toast.makeText(getApplicationContext(), &quot;Debes tener mas de 250 puntos&quot;, Toast.LENGTH_SHORT).show();</span>
-                }
-<span class="nc" id="L91">            }</span>
+<span class="nc" id="L76">                Juego.setLatency(10);</span>
+<span class="nc" id="L77">                Toast.makeText(getApplicationContext(), &quot;Has cambiado la musica a un intervalo de 10 segundos&quot;, Toast.LENGTH_SHORT).show();</span>
+<span class="nc" id="L78">            }</span>
         });
-<span class="nc" id="L93">    }</span>
+
+<span class="nc" id="L81">        sencond20 = findViewById(R.id.second20);</span>
+<span class="nc" id="L82">        sencond20.setOnClickListener(new View.OnClickListener() {</span>
+            @Override
+            public void onClick(View v) {
+<span class="nc" id="L85">                Juego.setLatency(20);</span>
+<span class="nc" id="L86">                Toast.makeText(getApplicationContext(), &quot;Has cambiado la musica a un intervalo de 20 segundos&quot;, Toast.LENGTH_SHORT).show();</span>
+<span class="nc" id="L87">            }</span>
+        });
+<span class="nc" id="L89">        menu = (Button)findViewById(R.id.buttonAjustes);</span>
+<span class="nc" id="L90">        menu.setOnClickListener(new View.OnClickListener() {</span>
+            @Override
+            public void onClick(View view) {
+<span class="nc" id="L93">                as.pause();</span>
+<span class="nc bnc" id="L94" title="All 2 branches missed.">                if(juego.getNewAS()!=null) juego.getNewAS().pause();</span>
+<span class="nc" id="L95">                Intent intent = new Intent(MainActivity.this, Inicio.class);</span>
+<span class="nc" id="L96">                startActivity(intent);</span>
+<span class="nc" id="L97">            }</span>
+        });
+<span class="nc" id="L99">        Button reiniciar = (Button) findViewById(R.id.restart);</span>
+<span class="nc" id="L100">        reiniciar.setOnClickListener(new View.OnClickListener() {</span>
+            @Override
+            public void onClick(View v) {
+<span class="nc bnc" id="L103" title="All 2 branches missed.">                if(Juego.getPuntos()&gt;250){</span>
+<span class="nc" id="L104">                    Intent intent = getIntent();</span>
+<span class="nc" id="L105">                    finish();</span>
+<span class="nc" id="L106">                    startActivity(intent);</span>
+<span class="nc" id="L107">                }else{</span>
+<span class="nc" id="L108">                    Toast.makeText(getApplicationContext(), &quot;Debes tener mas de 250 puntos&quot;, Toast.LENGTH_SHORT).show();</span>
+                }
+<span class="nc" id="L110">            }</span>
+        });
+<span class="nc" id="L112">    }</span>
 
     @Override
     public void onBackPressed() {
-<span class="nc" id="L97">        Toast.makeText(this, &quot;Para huir pulsa MENU&quot;, Toast.LENGTH_SHORT).show();</span>
-<span class="nc" id="L98">    }</span>
+<span class="nc" id="L116">        Toast.makeText(this, &quot;Para huir pulsa MENU&quot;, Toast.LENGTH_SHORT).show();</span>
+<span class="nc" id="L117">    }</span>
 
     public ImageButton getBotonDcha() {
-<span class="nc" id="L101">        return findViewById(R.id.botonDcha);</span>
+<span class="nc" id="L120">        return findViewById(R.id.botonDcha);</span>
     }
 
     public ImageButton getBotonBajar() {
-<span class="nc" id="L105">        return findViewById(R.id.botonBajar);</span>
+<span class="nc" id="L124">        return findViewById(R.id.botonBajar);</span>
     }
 
     public ImageButton getBotonIzda() {
-<span class="nc" id="L109">        return findViewById(R.id.botonIzda);</span>
+<span class="nc" id="L128">        return findViewById(R.id.botonIzda);</span>
     }
 
     public ImageButton getBotonRotar() {
-<span class="nc" id="L113">        return findViewById(R.id.botonRotar);</span>
+<span class="nc" id="L132">        return findViewById(R.id.botonRotar);</span>
     }
 
     public ImageButton getSnap() {
-<span class="nc" id="L117">        return findViewById(R.id.snap);</span>
+<span class="nc" id="L136">        return findViewById(R.id.snap);</span>
     }
 
     public TextView getPuntos() {
-<span class="nc" id="L121">        return puntosTextView;</span>
+<span class="nc" id="L140">        return puntosTextView;</span>
     }
 
     public TextView getNivel() {
-<span class="nc" id="L125">        return nivelTextView;</span>
+<span class="nc" id="L144">        return nivelTextView;</span>
     }
 
     public void gameOver(int p, int m) {
-<span class="nc" id="L129">        as.pause();</span>
-<span class="nc" id="L130">        Intent intentGameOver = new Intent(this, Exit.class);</span>
-<span class="nc" id="L131">        intentGameOver.putExtra(&quot;puntuacionFinal&quot;, p);</span>
-<span class="nc" id="L132">        intentGameOver.putExtra(&quot;Modo&quot;, m);</span>
-<span class="nc" id="L133">        startActivity(intentGameOver);</span>
-<span class="nc" id="L134">    }</span>
+<span class="nc" id="L148">        as.pause();</span>
+<span class="nc" id="L149">        Intent intentGameOver = new Intent(this, Exit.class);</span>
+<span class="nc" id="L150">        intentGameOver.putExtra(&quot;puntuacionFinal&quot;, p);</span>
+<span class="nc" id="L151">        intentGameOver.putExtra(&quot;Modo&quot;, m);</span>
+<span class="nc" id="L152">        startActivity(intentGameOver);</span>
+<span class="nc" id="L153">    }</span>
 
     public AudioService getAudio(){
-<span class="nc" id="L137">        return as;</span>
+<span class="nc" id="L156">        return as;</span>
     }
 
 

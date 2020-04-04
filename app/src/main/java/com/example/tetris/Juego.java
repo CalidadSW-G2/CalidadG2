@@ -49,6 +49,7 @@ public class Juego extends View implements View.OnClickListener {
     private AudioService as;
     private AudioService newas;
     int cronometro = 0;
+    private static int latency = 20;
     private static HashSet<String> songs = new HashSet<>(Arrays.asList(String.valueOf(R.raw.tetrisoriginal),
             String.valueOf(R.raw.acdcbackinblack),
             String.valueOf(R.raw.inmigrant),
@@ -148,7 +149,7 @@ public class Juego extends View implements View.OnClickListener {
                                 ventana.invalidate();
                             }
                             invalidate();
-                            if(cronometro % 20 == 0){
+                            if(cronometro % getLatency() == 0){
                                 cambiarCancion20s();
                             }
                         }
@@ -208,7 +209,7 @@ public class Juego extends View implements View.OnClickListener {
                                 ventana.invalidate();
                             }
                             invalidate();
-                            if(cronometro % 20 == 0){
+                            if(cronometro % getLatency() == 0){
                                 cambiarCancion20s();
                             }
                         }
@@ -389,6 +390,12 @@ public class Juego extends View implements View.OnClickListener {
 
     public static int getPuntos() {
         return puntos;
+    }
+
+    public static void setLatency(int newLatency) { latency = newLatency; }
+
+    public static int getLatency() {
+        return latency;
     }
 
     public static void reiniciarPuntos() {

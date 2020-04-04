@@ -19,7 +19,7 @@ public class ColoresActivity extends AppCompatActivity {
     private Spinner sS;
     private Spinner sL;
     private Spinner sJ;
-
+    private Button buttonCambios;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +33,7 @@ public class ColoresActivity extends AppCompatActivity {
         sL = (Spinner) findViewById(R.id.spinnerLPieza);
         sJ = (Spinner) findViewById(R.id.spinnerJPieza);
 
-        String[] opciones = {"Red", "Pink", "Light Blue", "Dark Blue", "Green", "Orange", "Yellow"};
+        String[] opciones = {"Red", "Pink", "Light Blue", "Dark Blue", "Green", "Orange", "Yellow","Random"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, opciones);
 
         sCuadrado.setAdapter(adapter);
@@ -43,6 +43,22 @@ public class ColoresActivity extends AppCompatActivity {
         sS.setAdapter(adapter);
         sL.setAdapter(adapter);
         sJ.setAdapter(adapter);
+
+        buttonCambios = findViewById(R.id.buttonCambios);
+        buttonCambios.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SetColor(v);
+            }
+        });
+    }
+
+    public static int randomColor (int own) {
+        int num;
+        do {
+            num = (int) ((Math.random() * 7) +1);
+        }while(num == own);
+        return num;
     }
 
     public void SetColor(View view) {//id:4 = verde, id:6 = amarillo, id:5 = naranja, id: 2 = azul claro, id:1 = rosa, id:3 = azul oscuro, id:7 = rojo
@@ -66,6 +82,9 @@ public class ColoresActivity extends AppCompatActivity {
             Tablero.setColorCuadrado(5); }
         if (seleccionC.equals("Yellow")) {
             Tablero.setColorCuadrado(6); }
+        if (seleccionC.equals("Random")) {
+            Tablero.setColorCuadrado(randomColor(Tablero.getColorCuadrado()));
+        }
 
         // Z Pieza
         String seleccionZ = sZ.getSelectedItem().toString();
@@ -85,6 +104,9 @@ public class ColoresActivity extends AppCompatActivity {
             Tablero.setColorZPieza(5); }
         if (seleccionZ.equals("Yellow")) {
             Tablero.setColorZPieza(6); }
+        if (seleccionZ.equals("Random")){
+            Tablero.setColorZPieza(randomColor(Tablero.getColorZPieza()));
+        }
 
         // I Pieza
         String seleccionI = sI.getSelectedItem().toString();
@@ -104,6 +126,9 @@ public class ColoresActivity extends AppCompatActivity {
             Tablero.setColorIPieza(5); }
         if (seleccionI.equals("Yellow")) {
             Tablero.setColorIPieza(6); }
+        if (seleccionI.equals("Random")){
+            Tablero.setColorIPieza(randomColor(Tablero.getColorIPieza()));
+        }
 
         // T Pieza
         String seleccionT = sT.getSelectedItem().toString();
@@ -123,6 +148,9 @@ public class ColoresActivity extends AppCompatActivity {
             Tablero.setColorTPieza(5); }
         if (seleccionT.equals("Yellow")) {
             Tablero.setColorTPieza(6); }
+        if (seleccionT.equals("Random")){
+            Tablero.setColorTPieza(randomColor(Tablero.getColorTPieza()));
+        }
 
         // S Pieza
         String seleccionS = sS.getSelectedItem().toString();
@@ -142,6 +170,9 @@ public class ColoresActivity extends AppCompatActivity {
             Tablero.setColorSPieza(5); }
         if (seleccionS.equals("Yellow")) {
             Tablero.setColorSPieza(6); }
+        if (seleccionS.equals("Random")){
+            Tablero.setColorSPieza(randomColor(Tablero.getColorSPieza()));
+        }
 
         // L Pieza
         String seleccionL = sL.getSelectedItem().toString();
@@ -161,6 +192,9 @@ public class ColoresActivity extends AppCompatActivity {
             Tablero.setColorLPieza(5); }
         if (seleccionL.equals("Yellow")) {
             Tablero.setColorLPieza(6); }
+        if (seleccionL.equals("Random")){
+            Tablero.setColorLPieza(randomColor(Tablero.getColorLPieza()));
+        }
 
         // J Pieza
         String seleccionJ = sJ.getSelectedItem().toString();
@@ -180,6 +214,9 @@ public class ColoresActivity extends AppCompatActivity {
             Tablero.setColorJPieza(5); }
         if (seleccionJ.equals("Yellow")) {
             Tablero.setColorJPieza(6); }
+        if (seleccionJ.equals("Random")){
+            Tablero.setColorJPieza(randomColor(Tablero.getColorJPieza()));
+        }
 
     }
 

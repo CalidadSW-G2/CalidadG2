@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<testsuite name="Feature ChangeMusicLatency" tests="6" failures="0" errors="0" skipped="0" time="0.0" timestamp="2020-04-03T11:10:16" hostname="localhost">
+  <properties>
+    <property name="device" value="Nexus_5_API_29(AVD) - 10" />
+    <property name="flavor" value="" />
+    <property name="project" value="app" />
+  </properties>
+  <testcase name="Scenario from20to10" classname="Feature ChangeMusicLatency" time="1.153" />
+  <testcase name="Scenario from10to20" classname="Feature ChangeMusicLatency" time="0.0" />
+  <testcase name="Scenario NewScoreWorseThanAllLeaderChange" classname="Feature EasierRanking" time="0.026" />
+  <testcase name="Scenario NewScoreWorseThanAll" classname="Feature HarderRanking" time="0.025" />
+  <testcase name="Scenario squareChangesRandomly" classname="Feature RandomColors" time="0.051" />
+  <testcase name="Scenario CheckCurrentSongs" classname="Feature TenSongs" time="0.025" />
+</testsuite>

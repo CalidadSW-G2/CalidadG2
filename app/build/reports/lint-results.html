@@ -1,0 +1,2047 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Lint Report</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+ <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.blue-indigo.min.css" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+<script defer src="https://code.getmdl.io/1.2.0/material.min.js"></script>
+<style>
+section.section--center {
+    max-width: 860px;
+}
+.mdl-card__supporting-text + .mdl-card__actions {
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+main > .mdl-layout__tab-panel {
+  padding: 8px;
+  padding-top: 48px;
+}
+
+.mdl-card__actions {
+    margin: 0;
+    padding: 4px 40px;
+    color: inherit;
+}
+.mdl-card > * {
+    height: auto;
+}
+.mdl-card__actions a {
+    color: #00BCD4;
+    margin: 0;
+}
+.error-icon {
+    color: #bb7777;
+    vertical-align: bottom;
+}
+.warning-icon {
+    vertical-align: bottom;
+}
+.mdl-layout__content section:not(:last-of-type) {
+  position: relative;
+  margin-bottom: 48px;
+}
+
+.mdl-card .mdl-card__supporting-text {
+  margin: 40px;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  padding: 0;
+  color: inherit;
+  width: calc(100% - 80px);
+}
+div.mdl-layout__drawer-button .material-icons {
+    line-height: 48px;
+}
+.mdl-card .mdl-card__supporting-text {
+    margin-top: 0px;
+}
+.chips {
+    float: right;
+    vertical-align: middle;
+}
+pre.errorlines {
+    background-color: white;
+    font-family: monospace;
+    border: 1px solid #e0e0e0;
+    line-height: 0.9rem;
+    font-size: 0.9rem;    padding: 1px 0px 1px; 1px;
+    overflow: scroll;
+}
+.prefix {
+    color: #660e7a;
+    font-weight: bold;
+}
+.attribute {
+    color: #0000ff;
+    font-weight: bold;
+}
+.value {
+    color: #008000;
+    font-weight: bold;
+}
+.tag {
+    color: #000080;
+    font-weight: bold;
+}
+.comment {
+    color: #808080;
+    font-style: italic;
+}
+.javadoc {
+    color: #808080;
+    font-style: italic;
+}
+.annotation {
+    color: #808000;
+}
+.string {
+    color: #008000;
+    font-weight: bold;
+}
+.number {
+    color: #0000ff;
+}
+.keyword {
+    color: #000080;
+    font-weight: bold;
+}
+.caretline {
+    background-color: #fffae3;
+}
+.lineno {
+    color: #999999;
+    background-color: #f0f0f0;
+}
+.error {
+    display: inline-block;
+    position:relative;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4AwCFR4T/3uLMgAAADxJREFUCNdNyLERQEAABMCjL4lQwIzcjErpguAL+C9AvgKJDbeD/PRpLdm35Hm+MU+cB+tCKaJW4L4YBy+CAiLJrFs9mgAAAABJRU5ErkJggg==) bottom repeat-x;
+}
+.warning {
+    text-decoration: none;
+    background-color: #f6ebbc;
+}
+.overview {
+    padding: 10pt;
+    width: 100%;
+    overflow: auto;
+    border-collapse:collapse;
+}
+.overview tr {
+    border-bottom: solid 1px #eeeeee;
+}
+.categoryColumn a {
+     text-decoration: none;
+     color: inherit;
+}
+.countColumn {
+    text-align: right;
+    padding-right: 20px;
+    width: 50px;
+}
+.issueColumn {
+   padding-left: 16px;
+}
+.categoryColumn {
+   position: relative;
+   left: -50px;
+   padding-top: 20px;
+   padding-bottom: 5px;
+}
+</style>
+<script language="javascript" type="text/javascript"> 
+<!--
+function reveal(id) {
+if (document.getElementById) {
+document.getElementById(id).style.display = 'block';
+document.getElementById(id+'Link').style.display = 'none';
+}
+}
+function hideid(id) {
+if (document.getElementById) {
+document.getElementById(id).style.display = 'none';
+}
+}
+//--> 
+</script>
+</head>
+<body class="mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Lint Report: 1 error and 64 warnings</span>
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation mdl-layout--large-screen-only">
+Check performed at Fri Apr 03 15:54:52 CEST 2020      </nav>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Issue Types</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="#overview"><i class="material-icons">dashboard</i>Overview</a>
+      <a class="mdl-navigation__link" href="#MissingSuperCall"><i class="material-icons error-icon">error</i>Missing Super Call (1)</a>
+      <a class="mdl-navigation__link" href="#SimpleDateFormat"><i class="material-icons warning-icon">warning</i>Implied locale in date format (1)</a>
+      <a class="mdl-navigation__link" href="#GradleDependency"><i class="material-icons warning-icon">warning</i>Obsolete Gradle Dependency (2)</a>
+      <a class="mdl-navigation__link" href="#AllowBackup"><i class="material-icons warning-icon">warning</i>AllowBackup/FullBackupContent Problems (1)</a>
+      <a class="mdl-navigation__link" href="#DrawAllocation"><i class="material-icons warning-icon">warning</i>Memory allocations within drawing code (3)</a>
+      <a class="mdl-navigation__link" href="#Recycle"><i class="material-icons warning-icon">warning</i>Missing <code>recycle()</code> calls (1)</a>
+      <a class="mdl-navigation__link" href="#Overdraw"><i class="material-icons warning-icon">warning</i>Overdraw: Painting regions more than once (4)</a>
+      <a class="mdl-navigation__link" href="#UnusedResources"><i class="material-icons warning-icon">warning</i>Unused resources (35)</a>
+      <a class="mdl-navigation__link" href="#TypographyDashes"><i class="material-icons warning-icon">warning</i>Hyphen can be replaced with dash (1)</a>
+      <a class="mdl-navigation__link" href="#GifUsage"><i class="material-icons warning-icon">warning</i>Using <code>.gif</code> format for bitmaps is discouraged (2)</a>
+      <a class="mdl-navigation__link" href="#IconDipSize"><i class="material-icons warning-icon">warning</i>Icon density-independent size validation (1)</a>
+      <a class="mdl-navigation__link" href="#IconDuplicatesConfig"><i class="material-icons warning-icon">warning</i>Identical bitmaps across various configurations (1)</a>
+      <a class="mdl-navigation__link" href="#IconLocation"><i class="material-icons warning-icon">warning</i>Image defined in density-independent drawable folder (2)</a>
+      <a class="mdl-navigation__link" href="#ViewConstructor"><i class="material-icons warning-icon">warning</i>Missing View constructors for XML inflation (2)</a>
+      <a class="mdl-navigation__link" href="#SetTextI18n"><i class="material-icons warning-icon">warning</i>TextView Internationalization (6)</a>
+      <a class="mdl-navigation__link" href="#HardcodedText"><i class="material-icons warning-icon">warning</i>Hardcoded text (2)</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="mdl-layout__tab-panel is-active">
+<a name="overview"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="OverviewCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Overview</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<table class="overview">
+<tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Correctness">Correctness</a>
+</td></tr>
+<tr>
+<td class="countColumn">1</td><td class="issueColumn"><i class="material-icons error-icon">error</i>
+<a href="#MissingSuperCall">MissingSuperCall</a>: Missing Super Call</td></tr>
+<tr>
+<td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#SimpleDateFormat">SimpleDateFormat</a>: Implied locale in date format</td></tr>
+<tr>
+<td class="countColumn">2</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#GradleDependency">GradleDependency</a>: Obsolete Gradle Dependency</td></tr>
+<tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Security">Security</a>
+</td></tr>
+<tr>
+<td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#AllowBackup">AllowBackup</a>: AllowBackup/FullBackupContent Problems</td></tr>
+<tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Performance">Performance</a>
+</td></tr>
+<tr>
+<td class="countColumn">3</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#DrawAllocation">DrawAllocation</a>: Memory allocations within drawing code</td></tr>
+<tr>
+<td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#Recycle">Recycle</a>: Missing <code>recycle()</code> calls</td></tr>
+<tr>
+<td class="countColumn">4</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#Overdraw">Overdraw</a>: Overdraw: Painting regions more than once</td></tr>
+<tr>
+<td class="countColumn">35</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#UnusedResources">UnusedResources</a>: Unused resources</td></tr>
+<tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Usability:Typography">Usability:Typography</a>
+</td></tr>
+<tr>
+<td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#TypographyDashes">TypographyDashes</a>: Hyphen can be replaced with dash</td></tr>
+<tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Usability:Icons">Usability:Icons</a>
+</td></tr>
+<tr>
+<td class="countColumn">2</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#GifUsage">GifUsage</a>: Using <code>.gif</code> format for bitmaps is discouraged</td></tr>
+<tr>
+<td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#IconDipSize">IconDipSize</a>: Icon density-independent size validation</td></tr>
+<tr>
+<td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#IconDuplicatesConfig">IconDuplicatesConfig</a>: Identical bitmaps across various configurations</td></tr>
+<tr>
+<td class="countColumn">2</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#IconLocation">IconLocation</a>: Image defined in density-independent drawable folder</td></tr>
+<tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Usability">Usability</a>
+</td></tr>
+<tr>
+<td class="countColumn">2</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#ViewConstructor">ViewConstructor</a>: Missing View constructors for XML inflation</td></tr>
+<tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Internationalization">Internationalization</a>
+</td></tr>
+<tr>
+<td class="countColumn">6</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#SetTextI18n">SetTextI18n</a>: TextView Internationalization</td></tr>
+<tr>
+<td class="countColumn">2</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#HardcodedText">HardcodedText</a>: Hardcoded text</td></tr>
+<tr><td></td><td class="categoryColumn"><a href="#MissingIssues">Disabled Checks (38)</a>
+</td></tr></table>
+<br/>              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="OverviewCardLink" onclick="hideid('OverviewCard');">
+Dismiss</button>            </div>
+            </div>
+          </section>
+<a name="Correctness"></a>
+<a name="MissingSuperCall"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="MissingSuperCallCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Missing Super Call</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../src/main/java/com/example/tetris/Exit.java">../../src/main/java/com/example/tetris/Exit.java</a>:194</span>: <span class="message">Overriding method should call <code>super.onActivityResult</code></span><br /><pre class="errorlines">
+<span class="lineno"> 191 </span>
+<span class="lineno"> 192 </span>    <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> REQUEST_IMAGE_CAPTURE = <span class="number">1</span>;
+<span class="lineno"> 193 </span>    <span class="annotation">@Override</span>
+<span class="caretline"><span class="lineno"> 194 </span>    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="error">onActivityResult</span>(<span class="keyword">int</span> requestCode, <span class="keyword">int</span> resultCode, Intent data) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 195 </span>        <span class="keyword">if</span> (requestCode == REQUEST_IMAGE_CAPTURE &amp;&amp; resultCode == RESULT_OK) {
+<span class="lineno"> 196 </span>            Bundle extras = data.getExtras();
+<span class="lineno"> 197 </span>            imageBitmap = (Bitmap) extras.get(<span class="string">"data"</span>);
+</pre>
+
+</div>
+<div class="metadata"><div class="explanation" id="explanationMissingSuperCall" style="display: none;">
+Some methods, such as <code>View#onDetachedFromWindow</code>, require that you also call the super implementation as part of your method.<br/>To suppress this error, use the issue id "MissingSuperCall" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">MissingSuperCall</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Correctness</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Error</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 9/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationMissingSuperCallLink" onclick="reveal('explanationMissingSuperCall');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="MissingSuperCallCardLink" onclick="hideid('MissingSuperCallCard');">
+Dismiss</button>            </div>
+            </div>
+          </section><a name="SimpleDateFormat"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="SimpleDateFormatCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Implied locale in date format</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../src/main/java/com/example/tetris/Exit.java">../../src/main/java/com/example/tetris/Exit.java</a>:153</span>: <span class="message">To get local formatting use <code>getDateInstance()</code>, <code>getDateTimeInstance()</code>, or <code>getTimeInstance()</code>, or use <code>new SimpleDateFormat(String template, Locale locale)</code> with for example <code>Locale.US</code> for ASCII dates.</span><br /><pre class="errorlines">
+<span class="lineno"> 150 </span>    String currentPhotoPath;
+<span class="lineno"> 151 </span>    <span class="keyword">private</span> File createImageFile() <span class="keyword">throws</span> IOException {
+<span class="lineno"> 152 </span>        <span class="comment">// Create an image file name</span>
+<span class="caretline"><span class="lineno"> 153 </span>        String timeStamp = <span class="warning"><span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyyMMdd_HHmmss"</span>)</span>.format(<span class="keyword">new</span> Date());&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 154 </span>        String imageFileName = <span class="string">"Backup_"</span> + timeStamp + <span class="string">"_"</span>;
+<span class="lineno"> 155 </span>        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+<span class="lineno"> 156 </span>        File image = File.createTempFile(
+</pre>
+
+</div>
+<div class="metadata"><div class="explanation" id="explanationSimpleDateFormat" style="display: none;">
+Almost all callers should use <code>getDateInstance()</code>, <code>getDateTimeInstance()</code>, or <code>getTimeInstance()</code> to get a ready-made instance of SimpleDateFormat suitable for the user's locale. The main reason you'd create an instance this class directly is because you need to format/parse a specific machine-readable format, in which case you almost certainly want to explicitly ask for US to ensure that you get ASCII digits (rather than, say, Arabic digits).<br/>
+<br/>
+Therefore, you should either use the form of the SimpleDateFormat constructor where you pass in an explicit locale, such as Locale.US, or use one of the get instance methods, or suppress this error if really know what you are doing.<br/><div class="moreinfo">More info: <a href="http://developer.android.com/reference/java/text/SimpleDateFormat.html">http://developer.android.com/reference/java/text/SimpleDateFormat.html</a>
+</div>To suppress this error, use the issue id "SimpleDateFormat" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">SimpleDateFormat</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Correctness</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 6/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationSimpleDateFormatLink" onclick="reveal('explanationSimpleDateFormat');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="SimpleDateFormatCardLink" onclick="hideid('SimpleDateFormatCard');">
+Dismiss</button>            </div>
+            </div>
+          </section><a name="GradleDependency"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="GradleDependencyCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Obsolete Gradle Dependency</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../build.gradle">../../build.gradle</a>:65</span>: <span class="message">A newer version of com.android.support.test.espresso:espresso-core than 3.0.1 is available: 3.0.2</span><br /><pre class="errorlines">
+<span class="lineno"> 62 </span>
+<span class="lineno"> 63 </span>    implementation <span class="string">'com.android.support:appcompat-v7:29.0.0'</span>
+<span class="lineno"> 64 </span>
+<span class="caretline"><span class="lineno"> 65 </span>    <span class="warning">androidTestImplementation <span class="string">'com.android.support.test.espresso:espresso-core:3.0.1'</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 66 </span>    androidTestImplementation <span class="string">'com.android.support:support-annotations:28.0.0'</span>
+<span class="lineno"> 67 </span>    androidTestImplementation <span class="string">'info.cukes:cucumber-android:1.2.5@jar'</span>
+<span class="lineno"> 68 </span>    androidTestImplementation <span class="string">'info.cukes:cucumber-picocontainer:1.2.4'</span>
+</pre>
+
+<span class="location"><a href="../../build.gradle">../../build.gradle</a>:68</span>: <span class="message">A newer version of info.cukes:cucumber-picocontainer than 1.2.4 is available: 1.2.5</span><br /><pre class="errorlines">
+<span class="lineno"> 65 </span>    androidTestImplementation <span class="string">'com.android.support.test.espresso:espresso-core:3.0.1'</span>
+<span class="lineno"> 66 </span>    androidTestImplementation <span class="string">'com.android.support:support-annotations:28.0.0'</span>
+<span class="lineno"> 67 </span>    androidTestImplementation <span class="string">'info.cukes:cucumber-android:1.2.5@jar'</span>
+<span class="caretline"><span class="lineno"> 68 </span>    <span class="warning">androidTestImplementation <span class="string">'info.cukes:cucumber-picocontainer:1.2.4'</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 69 </span>}
+<span class="lineno"> 70 </span>
+<span class="lineno"> 71 </span><span class="keyword">def</span> getTestTags() {
+</pre>
+
+</div>
+<div class="metadata"><div class="explanation" id="explanationGradleDependency" style="display: none;">
+This detector looks for usages of libraries where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "GradleDependency" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">GradleDependency</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Correctness</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 4/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationGradleDependencyLink" onclick="reveal('explanationGradleDependency');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="GradleDependencyCardLink" onclick="hideid('GradleDependencyCard');">
+Dismiss</button>            </div>
+            </div>
+          </section>
+<a name="Security"></a>
+<a name="AllowBackup"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="AllowBackupCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">AllowBackup/FullBackupContent Problems</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../src/main/AndroidManifest.xml">../../src/main/AndroidManifest.xml</a>:9</span>: <span class="message">On SDK version 23 and up, your app data will be automatically backed up and restored on app install. Consider adding the attribute <code>android:fullBackupContent</code> to specify an <code>@xml</code> resource which configures which files to backup. More info: <a href="https://developer.android.com/training/backup/autosyncapi.html">https://developer.android.com/training/backup/autosyncapi.html</a></span><br /><pre class="errorlines">
+<span class="lineno">  6 </span>        <span class="prefix">android:</span><span class="attribute">required</span>=<span class="value">"true"</span> />
+<span class="lineno">  7 </span>    <span class="tag">&lt;uses-permission</span><span class="attribute"> </span><span class="prefix">android:</span><span class="attribute">name</span>=<span class="value">"android.permission.WRITE_EXTERNAL_STORAGE"</span>/>
+<span class="lineno">  8 </span>
+<span class="caretline"><span class="lineno">  9 </span>    <span class="tag">&lt;</span><span class="warning"><span class="tag">application</span></span><span class="attribute"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="attribute">
+</span><span class="lineno"> 10 </span><span class="attribute">        </span><span class="prefix">android:</span><span class="attribute">allowBackup</span>=<span class="value">"true"</span>
+<span class="lineno"> 11 </span>        <span class="prefix">android:</span><span class="attribute">icon</span>=<span class="value">"@mipmap/ic_launcher"</span>
+<span class="lineno"> 12 </span>        <span class="prefix">android:</span><span class="attribute">label</span>=<span class="value">"@string/app_name"</span>
+</pre>
+
+</div>
+<div class="metadata"><div class="explanation" id="explanationAllowBackup" style="display: none;">
+The <code>allowBackup</code> attribute determines if an application's data can be backed up and restored. It is documented at <a href="http://developer.android.com/reference/android/R.attr.html#allowBackup">http://developer.android.com/reference/android/R.attr.html#allowBackup</a><br/>
+<br/>
+By default, this flag is set to <code>true</code> which means application data can be backed up and restored by the OS. Setting <code>allowBackup="false"</code> opts the application out of being backed up and so users can't restore data related to it when they go through the device setup wizard.<br/>
+<br/>
+Allowing backups may have security consequences for an application. Currently <code>adb backup</code> allows users who have enabled USB debugging to copy application data off of the device. Once backed up, all application data can be read by the user. <code>adb restore</code> allows creation of application data from a source specified by the user. Following a restore, applications should not assume that the data, file permissions, and directory permissions were created by the application itself.<br/>
+<br/>
+To fix this warning, decide whether your application should support backup, and explicitly set <code>android:allowBackup=(true|false)"</code>.<br/>
+<br/>
+If not set to false, and if targeting API 23 or later, lint will also warn that you should set <code>android:fullBackupContent</code> to configure auto backup.<br/><div class="moreinfo">More info: <ul><li><a href="https://developer.android.com/training/backup/autosyncapi.html">https://developer.android.com/training/backup/autosyncapi.html</a>
+<li><a href="http://developer.android.com/reference/android/R.attr.html#allowBackup">http://developer.android.com/reference/android/R.attr.html#allowBackup</a>
+</ul></div>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "AllowBackup" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">AllowBackup</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Security</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 3/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationAllowBackupLink" onclick="reveal('explanationAllowBackup');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="AllowBackupCardLink" onclick="hideid('AllowBackupCard');">
+Dismiss</button>            </div>
+            </div>
+          </section>
+<a name="Performance"></a>
+<a name="DrawAllocation"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="DrawAllocationCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Memory allocations within drawing code</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../src/main/java/com/example/tetris/Juego.java">../../src/main/java/com/example/tetris/Juego.java</a>:315</span>: <span class="message">Avoid object allocations during draw/layout operations (preallocate and reuse instead)</span><br /><pre class="errorlines">
+<span class="lineno"> 312 </span>        <span class="keyword">super</span>.onDraw(canvas);
+<span class="lineno"> 313 </span>
+<span class="lineno"> 314 </span>        <span class="comment">//Pintamos el tablero back</span>
+<span class="caretline"><span class="lineno"> 315 </span>        Paint pincel = <span class="warning"><span class="keyword">new</span> Paint()</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 316 </span>
+<span class="lineno"> 317 </span>        <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x &lt; tablero.getAnchoTablero(); x++) {
+<span class="lineno"> 318 </span>            <span class="keyword">for</span> (<span class="keyword">int</span> y = <span class="number">0</span>; y &lt; tablero.getAlturaTablero(); y++) {
+</pre>
+
+<span class="location"><a href="../../src/main/java/com/example/tetris/Juego.java">../../src/main/java/com/example/tetris/Juego.java</a>:328</span>: <span class="message">Avoid object allocations during draw/layout operations (preallocate and reuse instead)</span><br /><pre class="errorlines">
+<span class="lineno"> 325 </span>        }
+<span class="lineno"> 326 </span>
+<span class="lineno"> 327 </span>        <span class="comment">//Pintamos el tablero front</span>
+<span class="caretline"><span class="lineno"> 328 </span>        Paint pBorde = <span class="warning"><span class="keyword">new</span> Paint()</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 329 </span>        pBorde.setStyle(Paint.Style.STROKE);
+<span class="lineno"> 330 </span>        pBorde.setColor(Color.BLACK);
+<span class="lineno"> 331 </span>        pBorde.setStrokeWidth(<span class="number">2</span>);
+</pre>
+
+<span class="location"><a href="../../src/main/java/com/example/tetris/VentanaNext.java">../../src/main/java/com/example/tetris/VentanaNext.java</a>:148</span>: <span class="message">Avoid object allocations during draw/layout operations (preallocate and reuse instead)</span><br /><pre class="errorlines">
+<span class="lineno"> 145 </span>    <span class="annotation">@Override</span>
+<span class="lineno"> 146 </span>    <span class="keyword">protected</span> <span class="keyword">void</span> onDraw(Canvas canvas) {
+<span class="lineno"> 147 </span>        <span class="keyword">super</span>.onDraw(canvas);
+<span class="caretline"><span class="lineno"> 148 </span>        Paint pincel = <span class="warning"><span class="keyword">new</span> Paint()</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 149 </span>        <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x &lt; <span class="number">4</span>; x++) {
+<span class="lineno"> 150 </span>            <span class="keyword">for</span> (<span class="keyword">int</span> y = <span class="number">0</span>; y &lt; <span class="number">4</span>; y++) {
+</pre>
+
+</div>
+<div class="metadata"><div class="explanation" id="explanationDrawAllocation" style="display: none;">
+You should avoid allocating objects during a drawing or layout operation. These are called frequently, so a smooth UI can be interrupted by garbage collection pauses caused by the object allocations.<br/>
+<br/>
+The way this is generally handled is to allocate the needed objects up front and to reuse them for each drawing operation.<br/>
+<br/>
+Some methods allocate memory on your behalf (such as <code>Bitmap.create</code>), and these should be handled in the same way.<br/>To suppress this error, use the issue id "DrawAllocation" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">DrawAllocation</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Performance</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 9/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationDrawAllocationLink" onclick="reveal('explanationDrawAllocation');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="DrawAllocationCardLink" onclick="hideid('DrawAllocationCard');">
+Dismiss</button>            </div>
+            </div>
+          </section><a name="Recycle"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="RecycleCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Missing recycle() calls</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../src/main/java/com/example/tetris/Rankings.java">../../src/main/java/com/example/tetris/Rankings.java</a>:115</span>: <span class="message">This <code>Cursor</code> should be freed up after use with <code>#close()</code></span><br /><pre class="errorlines">
+<span class="lineno"> 112 </span>
+<span class="lineno"> 113 </span>  <span class="keyword">public</span> <span class="keyword">void</span> aumentarDificultad(){
+<span class="lineno"> 114 </span>      baseDeDatos = bbdd.getWritableDatabase();
+<span class="caretline"><span class="lineno"> 115 </span>      Cursor fila0 = baseDeDatos.<span class="warning">rawQuery</span>(<span class="string">"select * from "</span>+tipoBBDD+<span class="string">"  order by puntuacion DESC"</span>,<span class="keyword">null</span>);</span>
+<span class="lineno"> 116 </span>      fila0.moveToFirst();
+<span class="lineno"> 117 </span>      ContentValues againnew = <span class="keyword">new</span> ContentValues();
+<span class="lineno"> 118 </span>      againnew.put(<span class="string">"puntuacion"</span>, fila0.getInt(<span class="number">1</span>)+<span class="number">10</span>);
+</pre>
+
+</div>
+<div class="metadata"><div class="explanation" id="explanationRecycle" style="display: none;">
+Many resources, such as TypedArrays, VelocityTrackers, etc., should be recycled (with a <code>recycle()</code> call) after use. This lint check looks for missing <code>recycle()</code> calls.<br/>To suppress this error, use the issue id "Recycle" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Recycle</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Performance</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 7/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationRecycleLink" onclick="reveal('explanationRecycle');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="RecycleCardLink" onclick="hideid('RecycleCard');">
+Dismiss</button>            </div>
+            </div>
+          </section><a name="Overdraw"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="OverdrawCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Overdraw: Painting regions more than once</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../src/main/res/layout/activity_creditos.xml">../../src/main/res/layout/activity_creditos.xml</a>:7</span>: <span class="message">Possible overdraw: Root element paints background <code>@mipmap/background_creditos</code> with a theme that also paints a background (inferred theme is <code>@style/Theme_AppCompat_NoActionBar</code>)</span><br /><pre class="errorlines">
+<span class="lineno">   4 </span>    <span class="prefix">xmlns:</span><span class="attribute">tools</span>=<span class="value">"http://schemas.android.com/tools"</span>
+<span class="lineno">   5 </span>    <span class="prefix">android:</span><span class="attribute">layout_width</span>=<span class="value">"match_parent"</span>
+<span class="lineno">   6 </span>    <span class="prefix">android:</span><span class="attribute">layout_height</span>=<span class="value">"match_parent"</span>
+<span class="caretline"><span class="lineno">   7 </span>    <span class="warning"><span class="prefix">android:</span><span class="attribute">background</span>=<span class="value">"@mipmap/background_creditos"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">   8 </span>    <span class="prefix">tools:</span><span class="attribute">context</span>=<span class="value">".CreditosActivity"</span>>
+<span class="lineno">   9 </span>
+<span class="lineno">  10 </span>    <span class="tag">&lt;TextView</span><span class="attribute">
+</span></pre>
+
+<span class="location"><a href="../../src/main/res/layout/activity_exit.xml">../../src/main/res/layout/activity_exit.xml</a>:7</span>: <span class="message">Possible overdraw: Root element paints background <code>@mipmap/gameover1</code> with a theme that also paints a background (inferred theme is <code>@style/Theme_AppCompat_NoActionBar</code>)</span><br /><pre class="errorlines">
+<span class="lineno">   4 </span>    <span class="prefix">xmlns:</span><span class="attribute">tools</span>=<span class="value">"http://schemas.android.com/tools"</span>
+<span class="lineno">   5 </span>    <span class="prefix">android:</span><span class="attribute">layout_width</span>=<span class="value">"match_parent"</span>
+<span class="lineno">   6 </span>    <span class="prefix">android:</span><span class="attribute">layout_height</span>=<span class="value">"match_parent"</span>
+<span class="caretline"><span class="lineno">   7 </span>    <span class="warning"><span class="prefix">android:</span><span class="attribute">background</span>=<span class="value">"@mipmap/gameover1"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">   8 </span>    <span class="prefix">tools:</span><span class="attribute">context</span>=<span class="value">".Exit"</span>>
+<span class="lineno">   9 </span>
+<span class="lineno">  10 </span>    <span class="tag">&lt;Button</span><span class="attribute">
+</span></pre>
+
+<span class="location"><a href="../../src/main/res/layout/activity_inicio.xml">../../src/main/res/layout/activity_inicio.xml</a>:7</span>: <span class="message">Possible overdraw: Root element paints background <code>@mipmap/tetris1</code> with a theme that also paints a background (inferred theme is <code>@style/Theme_AppCompat_NoActionBar</code>)</span><br /><pre class="errorlines">
+<span class="lineno">  4 </span>    <span class="prefix">xmlns:</span><span class="attribute">tools</span>=<span class="value">"http://schemas.android.com/tools"</span>
+<span class="lineno">  5 </span>    <span class="prefix">android:</span><span class="attribute">layout_width</span>=<span class="value">"match_parent"</span>
+<span class="lineno">  6 </span>    <span class="prefix">android:</span><span class="attribute">layout_height</span>=<span class="value">"match_parent"</span>
+<span class="caretline"><span class="lineno">  7 </span>    <span class="warning"><span class="prefix">android:</span><span class="attribute">background</span>=<span class="value">"@mipmap/tetris1"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  8 </span>    <span class="prefix">tools:</span><span class="attribute">context</span>=<span class="value">".Inicio"</span>>
+<span class="lineno">  9 </span>
+<span class="lineno"> 10 </span>    <span class="tag">&lt;Button</span><span class="attribute">
+</span></pre>
+
+<span class="location"><a href="../../src/main/res/layout/activity_rankings.xml">../../src/main/res/layout/activity_rankings.xml</a>:7</span>: <span class="message">Possible overdraw: Root element paints background <code>@mipmap/background_rankings</code> with a theme that also paints a background (inferred theme is <code>@style/Theme_AppCompat_NoActionBar</code>)</span><br /><pre class="errorlines">
+<span class="lineno">   4 </span>    <span class="prefix">xmlns:</span><span class="attribute">tools</span>=<span class="value">"http://schemas.android.com/tools"</span>
+<span class="lineno">   5 </span>    <span class="prefix">android:</span><span class="attribute">layout_width</span>=<span class="value">"match_parent"</span>
+<span class="lineno">   6 </span>    <span class="prefix">android:</span><span class="attribute">layout_height</span>=<span class="value">"match_parent"</span>
+<span class="caretline"><span class="lineno">   7 </span>    <span class="warning"><span class="prefix">android:</span><span class="attribute">background</span>=<span class="value">"@mipmap/background_rankings"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">   8 </span>    <span class="prefix">tools:</span><span class="attribute">context</span>=<span class="value">".Rankings"</span>>
+<span class="lineno">   9 </span>
+<span class="lineno">  10 </span>    <span class="tag">&lt;TextView</span><span class="attribute">
+</span></pre>
+
+</div>
+<div class="metadata"><div class="explanation" id="explanationOverdraw" style="display: none;">
+If you set a background drawable on a root view, then you should use a custom theme where the theme background is null. Otherwise, the theme background will be painted first, only to have your custom background completely cover it; this is called "overdraw".<br/>
+<br/>
+NOTE: This detector relies on figuring out which layouts are associated with which activities based on scanning the Java code, and it's currently doing that using an inexact pattern matching algorithm. Therefore, it can incorrectly conclude which activity the layout is associated with and then wrongly complain that a background-theme is hidden.<br/>
+<br/>
+If you want your custom background on multiple pages, then you should consider making a custom theme with your custom background and just using that theme instead of a root element background.<br/>
+<br/>
+Of course it's possible that your custom drawable is translucent and you want it to be mixed with the background. However, you will get better performance if you pre-mix the background with your drawable and use that resulting image or color as a custom theme background instead.<br/>To suppress this error, use the issue id "Overdraw" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Overdraw</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Performance</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 3/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationOverdrawLink" onclick="reveal('explanationOverdraw');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="OverdrawCardLink" onclick="hideid('OverdrawCard');">
+Dismiss</button>            </div>
+            </div>
+          </section><a name="UnusedResources"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="UnusedResourcesCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Unused resources</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../src/main/res/values/dimens.xml">../../src/main/res/values/dimens.xml</a>:2</span>: <span class="message">The resource <code>R.dimen.fab_margin</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno"> 1 </span><span class="tag">&lt;resources></span>
+<span class="caretline"><span class="lineno"> 2 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"fab_margin"</span></span>>16dp<span class="tag">&lt;/dimen></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 3 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> name</span>=<span class="value">"app_bar_height"</span>>180dp<span class="tag">&lt;/dimen></span>
+<span class="lineno"> 4 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> name</span>=<span class="value">"text_margin"</span>>16dp<span class="tag">&lt;/dimen></span>
+<span class="lineno"> 5 </span><span class="tag">&lt;/resources></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/dimens.xml">../../src/main/res/values/dimens.xml</a>:3</span>: <span class="message">The resource <code>R.dimen.app_bar_height</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno"> 1 </span><span class="tag">&lt;resources></span>
+<span class="lineno"> 2 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> name</span>=<span class="value">"fab_margin"</span>>16dp<span class="tag">&lt;/dimen></span>
+<span class="caretline"><span class="lineno"> 3 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"app_bar_height"</span></span>>180dp<span class="tag">&lt;/dimen></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 4 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> name</span>=<span class="value">"text_margin"</span>>16dp<span class="tag">&lt;/dimen></span>
+<span class="lineno"> 5 </span><span class="tag">&lt;/resources></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/dimens.xml">../../src/main/res/values/dimens.xml</a>:4</span>: <span class="message">The resource <code>R.dimen.text_margin</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno"> 1 </span><span class="tag">&lt;resources></span>
+<span class="lineno"> 2 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> name</span>=<span class="value">"fab_margin"</span>>16dp<span class="tag">&lt;/dimen></span>
+<span class="lineno"> 3 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> name</span>=<span class="value">"app_bar_height"</span>>180dp<span class="tag">&lt;/dimen></span>
+<span class="caretline"><span class="lineno"> 4 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"text_margin"</span></span>>16dp<span class="tag">&lt;/dimen></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 5 </span><span class="tag">&lt;/resources></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/drawable/ic_launcher_background.xml">../../src/main/res/drawable/ic_launcher_background.xml</a>:2</span>: <span class="message">The resource <code>R.drawable.ic_launcher_background</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">   1 </span><span class="prologue">&lt;?xml version="1.0" encoding="utf-8"?></span>
+<span class="caretline"><span class="lineno">   2 </span><span class="warning"><span class="tag">&lt;vector</span><span class="attribute"> </span><span class="prefix">xmlns:</span><span class="attribute">android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">   3 </span>    <span class="prefix">android:</span><span class="attribute">width</span>=<span class="value">"108dp"</span>
+<span class="lineno">   4 </span>    <span class="prefix">android:</span><span class="attribute">height</span>=<span class="value">"108dp"</span>
+<span class="lineno">   5 </span>    <span class="prefix">android:</span><span class="attribute">viewportWidth</span>=<span class="value">"108"</span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/mipmap-hdpi/icono_autoria.png">../../src/main/res/mipmap-hdpi/icono_autoria.png</a></span>: <img class="embedimage" align="right" src="../../src/main/res/mipmap-hdpi/icono_autoria.png" /><span class="message">The resource <code>R.mipmap.icono_autoria</code> appears to be unused</span><br clear="right"/>
+<button class="mdl-button mdl-js-button mdl-button--primary" id="UnusedResourcesDivLink" onclick="reveal('UnusedResourcesDiv');" />+ 30 More Occurrences...</button>
+<div id="UnusedResourcesDiv" style="display: none">
+<span class="location"><a href="../../src/main/res/mipmap-xxhdpi/snapthanos.jpg">../../src/main/res/mipmap-xxhdpi/snapthanos.jpg</a></span>: <img class="embedimage" align="right" src="../../src/main/res/mipmap-xxhdpi/snapthanos.jpg" /><span class="message">The resource <code>R.mipmap.snapthanos</code> appears to be unused</span><br clear="right"/>
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:9</span>: <span class="message">The resource <code>R.string.text_start</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">   6 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_puntos"</span>>Puntos:<span class="tag">&lt;/string></span>
+<span class="lineno">   7 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_nivel"</span>>Nivel:<span class="tag">&lt;/string></span>
+<span class="lineno">   8 </span>
+<span class="caretline"><span class="lineno">   9 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"text_start"</span></span>>START<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  10 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_go_menu"</span>>MENU<span class="tag">&lt;/string></span>
+<span class="lineno">  11 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_go_colores"</span>>COLORES<span class="tag">&lt;/string></span>
+<span class="lineno">  12 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_go_instrucciones"</span>>INSTRUCCIONES<span class="tag">&lt;/string></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:16</span>: <span class="message">The resource <code>R.string.text_exit</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  13 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_go_creditos"</span>>CREDITOS<span class="tag">&lt;/string></span>
+<span class="lineno">  14 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_reiniciar"</span>>REINICIAR<span class="tag">&lt;/string></span>
+<span class="lineno">  15 </span>
+<span class="caretline"><span class="lineno">  16 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"text_exit"</span></span>>EXIT<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  17 </span>
+<span class="lineno">  18 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_nombre_jugador"</span>>Nombre del Jugador<span class="tag">&lt;/string></span>
+<span class="lineno">  19 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_puntuacion"</span>>Puntuacion de la partida<span class="tag">&lt;/string></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:19</span>: <span class="message">The resource <code>R.string.text_puntuacion</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  16 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_exit"</span>>EXIT<span class="tag">&lt;/string></span>
+<span class="lineno">  17 </span>
+<span class="lineno">  18 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_nombre_jugador"</span>>Nombre del Jugador<span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno">  19 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"text_puntuacion"</span></span>>Puntuacion de la partida<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  20 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"boton_registrar"</span>>Registrar<span class="tag">&lt;/string></span>
+<span class="lineno">  21 </span>
+<span class="lineno">  22 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span> = <span class="value">"text_mostrar_ranking"</span>>mostrar ranking<span class="tag">&lt;/string></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:22</span>: <span class="message">The resource <code>R.string.text_mostrar_ranking</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  19 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_puntuacion"</span>>Puntuacion de la partida<span class="tag">&lt;/string></span>
+<span class="lineno">  20 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"boton_registrar"</span>>Registrar<span class="tag">&lt;/string></span>
+<span class="lineno">  21 </span>
+<span class="caretline"><span class="lineno">  22 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span> = <span class="value">"text_mostrar_ranking"</span></span>>mostrar ranking<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  23 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span> = <span class="value">"text_restablecer_estadisticas"</span>>Restablecer\nEstadisticas<span class="tag">&lt;/string></span>
+<span class="lineno">  24 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span> = <span class="value">"text_1ranking"</span>>1º<span class="tag">&lt;/string></span>
+<span class="lineno">  25 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span> = <span class="value">"text_2ranking"</span>>2º<span class="tag">&lt;/string></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:32</span>: <span class="message">The resource <code>R.string.title_activity_opciones</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  29 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span> = <span class="value">"text_6ranking"</span>>6º<span class="tag">&lt;/string></span>
+<span class="lineno">  30 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span> = <span class="value">"text_puntos_actual"</span>>Tu puntuacion:<span class="tag">&lt;/string></span>
+<span class="lineno">  31 </span>
+<span class="caretline"><span class="lineno">  32 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"title_activity_opciones"</span></span>>Colores<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  33 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_cuadrado"</span>>Cuadrado<span class="tag">&lt;/string></span>
+<span class="lineno">  34 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_ColorCuadrado"</span>>Color Cuadrado:<span class="tag">&lt;/string></span>
+<span class="lineno">  35 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_zPieza"</span>>Z Pieza<span class="tag">&lt;/string></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:33</span>: <span class="message">The resource <code>R.string.text_cuadrado</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  30 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span> = <span class="value">"text_puntos_actual"</span>>Tu puntuacion:<span class="tag">&lt;/string></span>
+<span class="lineno">  31 </span>
+<span class="lineno">  32 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"title_activity_opciones"</span>>Colores<span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno">  33 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"text_cuadrado"</span></span>>Cuadrado<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  34 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_ColorCuadrado"</span>>Color Cuadrado:<span class="tag">&lt;/string></span>
+<span class="lineno">  35 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_zPieza"</span>>Z Pieza<span class="tag">&lt;/string></span>
+<span class="lineno">  36 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_ColorZPieza"</span>>Color Z:<span class="tag">&lt;/string></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:35</span>: <span class="message">The resource <code>R.string.text_zPieza</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  32 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"title_activity_opciones"</span>>Colores<span class="tag">&lt;/string></span>
+<span class="lineno">  33 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_cuadrado"</span>>Cuadrado<span class="tag">&lt;/string></span>
+<span class="lineno">  34 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_ColorCuadrado"</span>>Color Cuadrado:<span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno">  35 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"text_zPieza"</span></span>>Z Pieza<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  36 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_ColorZPieza"</span>>Color Z:<span class="tag">&lt;/string></span>
+<span class="lineno">  37 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_iPieza"</span>>I Pieza<span class="tag">&lt;/string></span>
+<span class="lineno">  38 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_ColorIPieza"</span>>Color I:<span class="tag">&lt;/string></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:37</span>: <span class="message">The resource <code>R.string.text_iPieza</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  34 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_ColorCuadrado"</span>>Color Cuadrado:<span class="tag">&lt;/string></span>
+<span class="lineno">  35 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_zPieza"</span>>Z Pieza<span class="tag">&lt;/string></span>
+<span class="lineno">  36 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_ColorZPieza"</span>>Color Z:<span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno">  37 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"text_iPieza"</span></span>>I Pieza<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  38 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_ColorIPieza"</span>>Color I:<span class="tag">&lt;/string></span>
+<span class="lineno">  39 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_tPieza"</span>>T Pieza<span class="tag">&lt;/string></span>
+<span class="lineno">  40 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_ColorTPieza"</span>>Color T:<span class="tag">&lt;/string></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:39</span>: <span class="message">The resource <code>R.string.text_tPieza</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  36 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_ColorZPieza"</span>>Color Z:<span class="tag">&lt;/string></span>
+<span class="lineno">  37 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_iPieza"</span>>I Pieza<span class="tag">&lt;/string></span>
+<span class="lineno">  38 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_ColorIPieza"</span>>Color I:<span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno">  39 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"text_tPieza"</span></span>>T Pieza<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  40 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_ColorTPieza"</span>>Color T:<span class="tag">&lt;/string></span>
+<span class="lineno">  41 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_sPieza"</span>>S Pieza<span class="tag">&lt;/string></span>
+<span class="lineno">  42 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_ColorSPieza"</span>>Color S:<span class="tag">&lt;/string></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:41</span>: <span class="message">The resource <code>R.string.text_sPieza</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  38 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_ColorIPieza"</span>>Color I:<span class="tag">&lt;/string></span>
+<span class="lineno">  39 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_tPieza"</span>>T Pieza<span class="tag">&lt;/string></span>
+<span class="lineno">  40 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_ColorTPieza"</span>>Color T:<span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno">  41 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"text_sPieza"</span></span>>S Pieza<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  42 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_ColorSPieza"</span>>Color S:<span class="tag">&lt;/string></span>
+<span class="lineno">  43 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_lPieza"</span>>L Pieza<span class="tag">&lt;/string></span>
+<span class="lineno">  44 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_ColorLPieza"</span>>Color L:<span class="tag">&lt;/string></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:43</span>: <span class="message">The resource <code>R.string.text_lPieza</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  40 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_ColorTPieza"</span>>Color T:<span class="tag">&lt;/string></span>
+<span class="lineno">  41 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_sPieza"</span>>S Pieza<span class="tag">&lt;/string></span>
+<span class="lineno">  42 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_ColorSPieza"</span>>Color S:<span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno">  43 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"text_lPieza"</span></span>>L Pieza<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  44 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_ColorLPieza"</span>>Color L:<span class="tag">&lt;/string></span>
+<span class="lineno">  45 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_jPIeza"</span>>J Pieza<span class="tag">&lt;/string></span>
+<span class="lineno">  46 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_ColorJPIeza"</span>>Color J:<span class="tag">&lt;/string></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:45</span>: <span class="message">The resource <code>R.string.text_jPIeza</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  42 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_ColorSPieza"</span>>Color S:<span class="tag">&lt;/string></span>
+<span class="lineno">  43 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_lPieza"</span>>L Pieza<span class="tag">&lt;/string></span>
+<span class="lineno">  44 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_ColorLPieza"</span>>Color L:<span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno">  45 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"text_jPIeza"</span></span>>J Pieza<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  46 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_ColorJPIeza"</span>>Color J:<span class="tag">&lt;/string></span>
+<span class="lineno">  47 </span>
+<span class="lineno">  48 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_colorRojo"</span>>Red<span class="tag">&lt;/string></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:48</span>: <span class="message">The resource <code>R.string.text_colorRojo</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  45 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_jPIeza"</span>>J Pieza<span class="tag">&lt;/string></span>
+<span class="lineno">  46 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_ColorJPIeza"</span>>Color J:<span class="tag">&lt;/string></span>
+<span class="lineno">  47 </span>
+<span class="caretline"><span class="lineno">  48 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"text_colorRojo"</span></span>>Red<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  49 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_colorRosa"</span>>Pink<span class="tag">&lt;/string></span>
+<span class="lineno">  50 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"color_colorAzulClaro"</span>>Light Blue<span class="tag">&lt;/string></span>
+<span class="lineno">  51 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_colorAzulOscuro"</span>>Dark Blue<span class="tag">&lt;/string></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:49</span>: <span class="message">The resource <code>R.string.text_colorRosa</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  46 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_ColorJPIeza"</span>>Color J:<span class="tag">&lt;/string></span>
+<span class="lineno">  47 </span>
+<span class="lineno">  48 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_colorRojo"</span>>Red<span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno">  49 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"text_colorRosa"</span></span>>Pink<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  50 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"color_colorAzulClaro"</span>>Light Blue<span class="tag">&lt;/string></span>
+<span class="lineno">  51 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_colorAzulOscuro"</span>>Dark Blue<span class="tag">&lt;/string></span>
+<span class="lineno">  52 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_colorVerde"</span>>Green<span class="tag">&lt;/string></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:50</span>: <span class="message">The resource <code>R.string.color_colorAzulClaro</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  47 </span>
+<span class="lineno">  48 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_colorRojo"</span>>Red<span class="tag">&lt;/string></span>
+<span class="lineno">  49 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_colorRosa"</span>>Pink<span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno">  50 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"color_colorAzulClaro"</span></span>>Light Blue<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  51 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_colorAzulOscuro"</span>>Dark Blue<span class="tag">&lt;/string></span>
+<span class="lineno">  52 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_colorVerde"</span>>Green<span class="tag">&lt;/string></span>
+<span class="lineno">  53 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_colorNaranja"</span>>Orange<span class="tag">&lt;/string></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:51</span>: <span class="message">The resource <code>R.string.text_colorAzulOscuro</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  48 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_colorRojo"</span>>Red<span class="tag">&lt;/string></span>
+<span class="lineno">  49 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_colorRosa"</span>>Pink<span class="tag">&lt;/string></span>
+<span class="lineno">  50 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"color_colorAzulClaro"</span>>Light Blue<span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno">  51 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"text_colorAzulOscuro"</span></span>>Dark Blue<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  52 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_colorVerde"</span>>Green<span class="tag">&lt;/string></span>
+<span class="lineno">  53 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_colorNaranja"</span>>Orange<span class="tag">&lt;/string></span>
+<span class="lineno">  54 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_colorAmarillo"</span>>Yellow<span class="tag">&lt;/string></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:52</span>: <span class="message">The resource <code>R.string.text_colorVerde</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  49 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_colorRosa"</span>>Pink<span class="tag">&lt;/string></span>
+<span class="lineno">  50 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"color_colorAzulClaro"</span>>Light Blue<span class="tag">&lt;/string></span>
+<span class="lineno">  51 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_colorAzulOscuro"</span>>Dark Blue<span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno">  52 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"text_colorVerde"</span></span>>Green<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  53 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_colorNaranja"</span>>Orange<span class="tag">&lt;/string></span>
+<span class="lineno">  54 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_colorAmarillo"</span>>Yellow<span class="tag">&lt;/string></span>
+<span class="lineno">  55 </span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:53</span>: <span class="message">The resource <code>R.string.text_colorNaranja</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  50 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"color_colorAzulClaro"</span>>Light Blue<span class="tag">&lt;/string></span>
+<span class="lineno">  51 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_colorAzulOscuro"</span>>Dark Blue<span class="tag">&lt;/string></span>
+<span class="lineno">  52 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_colorVerde"</span>>Green<span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno">  53 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"text_colorNaranja"</span></span>>Orange<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  54 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_colorAmarillo"</span>>Yellow<span class="tag">&lt;/string></span>
+<span class="lineno">  55 </span>
+<span class="lineno">  56 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_cambios"</span>>Aplicar Cambios<span class="tag">&lt;/string></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:54</span>: <span class="message">The resource <code>R.string.text_colorAmarillo</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  51 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_colorAzulOscuro"</span>>Dark Blue<span class="tag">&lt;/string></span>
+<span class="lineno">  52 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_colorVerde"</span>>Green<span class="tag">&lt;/string></span>
+<span class="lineno">  53 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_colorNaranja"</span>>Orange<span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno">  54 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"text_colorAmarillo"</span></span>>Yellow<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  55 </span>
+<span class="lineno">  56 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_cambios"</span>>Aplicar Cambios<span class="tag">&lt;/string></span>
+<span class="lineno">  57 </span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:58</span>: <span class="message">The resource <code>R.string.text_colores</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  55 </span>
+<span class="lineno">  56 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_cambios"</span>>Aplicar Cambios<span class="tag">&lt;/string></span>
+<span class="lineno">  57 </span>
+<span class="caretline"><span class="lineno">  58 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"text_colores"</span></span>>Colores<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  59 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"imageView_Opciones"</span>>Opciones<span class="tag">&lt;/string></span>
+<span class="lineno">  60 </span>
+<span class="lineno">  61 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_atras"</span>>Atras<span class="tag">&lt;/string></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:59</span>: <span class="message">The resource <code>R.string.imageView_Opciones</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  56 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_cambios"</span>>Aplicar Cambios<span class="tag">&lt;/string></span>
+<span class="lineno">  57 </span>
+<span class="lineno">  58 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_colores"</span>>Colores<span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno">  59 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"imageView_Opciones"</span></span>>Opciones<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  60 </span>
+<span class="lineno">  61 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_atras"</span>>Atras<span class="tag">&lt;/string></span>
+<span class="lineno">  62 </span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:61</span>: <span class="message">The resource <code>R.string.text_atras</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  58 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_colores"</span>>Colores<span class="tag">&lt;/string></span>
+<span class="lineno">  59 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"imageView_Opciones"</span>>Opciones<span class="tag">&lt;/string></span>
+<span class="lineno">  60 </span>
+<span class="caretline"><span class="lineno">  61 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"text_atras"</span></span>>Atras<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  62 </span>
+<span class="lineno">  63 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_muerte_subdita"</span>>Muerte Súbita<span class="tag">&lt;/string></span>
+<span class="lineno">  64 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_modo_clasico"</span>>Modo Clásico<span class="tag">&lt;/string></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:67</span>: <span class="message">The resource <code>R.string.title_activity_colores</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  64 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_modo_clasico"</span>>Modo Clásico<span class="tag">&lt;/string></span>
+<span class="lineno">  65 </span>
+<span class="lineno">  66 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_snap"</span>>Snap<span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno">  67 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"title_activity_colores"</span></span>>ColoresActivity<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  68 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"large_text"</span>>
+<span class="lineno">  69 </span>        "Modo Clásico: \n\n"
+<span class="lineno">  70 </span>        "El modo de juego perfecto para los nostálgicos del Tetris.\n"
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:104</span>: <span class="message">The resource <code>R.string.action_settings</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno"> 101 </span>      "Sin embargo, este poder no es para siempre y disponeis un uso limitado del guantelete por partida
+<span class="lineno"> 102 </span>      por lo que un uso inteligente de este poder repercutira enormemente en vuestras puntuaciones.\n\n "
+<span class="lineno"> 103 </span>  <span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno"> 104 </span>  <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"action_settings"</span></span>>Settings<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 105 </span>
+<span class="lineno"> 106 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"creditos"</span>>CREDITOS<span class="tag">&lt;/string></span>
+<span class="lineno"> 107 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"creditos_Alicia"</span>>Alicia Merino Martínez<span class="tag">&lt;/string></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:116</span>: <span class="message">The resource <code>R.string.boton_creditos</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno"> 113 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"creditos_Alfonso"</span>>Víctor Alfonso Pajuelo Aguirre<span class="tag">&lt;/string></span>
+<span class="lineno"> 114 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"creditos_procesos_software"</span>>Procesos del Software\nGrado em Ingeniería del Software\nUniversidad Rey Juan Carlos 2019-2020<span class="tag">&lt;/string></span>
+<span class="lineno"> 115 </span>
+<span class="caretline"><span class="lineno"> 116 </span>  <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"boton_creditos"</span></span>>boton creditos<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 117 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"foto_nuevo_jugador"</span>>PHOTO<span class="tag">&lt;/string></span>
+<span class="lineno"> 118 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_hacer_foto"</span>>Hacer foto<span class="tag">&lt;/string></span>
+<span class="lineno"> 119 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"text_rankings"</span>>Ranking<span class="tag">&lt;/string></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/styles.xml">../../src/main/res/values/styles.xml</a>:11</span>: <span class="message">The resource <code>R.style.AppTheme_NoActionBar</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  8 </span>        <span class="tag">&lt;item</span><span class="attribute"> name</span>=<span class="value">"colorAccent"</span>>@color/colorAccent<span class="tag">&lt;/item></span>
+<span class="lineno">  9 </span>    <span class="tag">&lt;/style></span>
+<span class="lineno"> 10 </span>
+<span class="caretline"><span class="lineno"> 11 </span>    <span class="tag">&lt;style</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"AppTheme.NoActionBar"</span></span>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 12 </span>        <span class="tag">&lt;item</span><span class="attribute"> name</span>=<span class="value">"windowActionBar"</span>>false<span class="tag">&lt;/item></span>
+<span class="lineno"> 13 </span>        <span class="tag">&lt;item</span><span class="attribute"> name</span>=<span class="value">"windowNoTitle"</span>>true<span class="tag">&lt;/item></span>
+<span class="lineno"> 14 </span>    <span class="tag">&lt;/style></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/styles.xml">../../src/main/res/values/styles.xml</a>:16</span>: <span class="message">The resource <code>R.style.AppTheme_AppBarOverlay</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno"> 13 </span>        <span class="tag">&lt;item</span><span class="attribute"> name</span>=<span class="value">"windowNoTitle"</span>>true<span class="tag">&lt;/item></span>
+<span class="lineno"> 14 </span>    <span class="tag">&lt;/style></span>
+<span class="lineno"> 15 </span>
+<span class="caretline"><span class="lineno"> 16 </span>    <span class="tag">&lt;style</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"AppTheme.AppBarOverlay"</span></span> <span class="attribute">parent</span>=<span class="value">"ThemeOverlay.AppCompat.Dark.ActionBar"</span> />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 17 </span>
+<span class="lineno"> 18 </span>    <span class="tag">&lt;style</span><span class="attribute"> name</span>=<span class="value">"AppTheme.PopupOverlay"</span> <span class="attribute">parent</span>=<span class="value">"ThemeOverlay.AppCompat.Light"</span> />
+<span class="lineno"> 19 </span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/styles.xml">../../src/main/res/values/styles.xml</a>:18</span>: <span class="message">The resource <code>R.style.AppTheme_PopupOverlay</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno"> 15 </span>
+<span class="lineno"> 16 </span>    <span class="tag">&lt;style</span><span class="attribute"> name</span>=<span class="value">"AppTheme.AppBarOverlay"</span> <span class="attribute">parent</span>=<span class="value">"ThemeOverlay.AppCompat.Dark.ActionBar"</span> />
+<span class="lineno"> 17 </span>
+<span class="caretline"><span class="lineno"> 18 </span>    <span class="tag">&lt;style</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"AppTheme.PopupOverlay"</span></span> <span class="attribute">parent</span>=<span class="value">"ThemeOverlay.AppCompat.Light"</span> />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 19 </span>
+<span class="lineno"> 20 </span><span class="tag">&lt;/resources></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/drawable/tenor.gif">../../src/main/res/drawable/tenor.gif</a></span>: <img class="embedimage" align="right" src="../../src/main/res/drawable/tenor.gif" /><span class="message">The resource <code>R.drawable.tenor</code> appears to be unused</span><br clear="right"/>
+</div>
+</div>
+<div class="metadata"><div class="explanation" id="explanationUnusedResources" style="display: none;">
+Unused resources make applications larger and slow down builds.<br/>
+<br/>
+The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.<br/>
+<br/>
+You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "UnusedResources" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">UnusedResources</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Performance</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 3/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationUnusedResourcesLink" onclick="reveal('explanationUnusedResources');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="UnusedResourcesCardLink" onclick="hideid('UnusedResourcesCard');">
+Dismiss</button>            </div>
+            </div>
+          </section>
+<a name="Usability:Typography"></a>
+<a name="TypographyDashes"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="TypographyDashesCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Hyphen can be replaced with dash</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:114</span>: <span class="message">Replace "-" with an "en dash" character (&#8211;, &amp;#8211;) ?</span><br /><pre class="errorlines">
+<span class="lineno"> 111 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"creditos_Miguel"</span>>Miguel Rodríguez Álvarez<span class="tag">&lt;/string></span>
+<span class="lineno"> 112 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"creditos_Oscar"</span>>Óscar Rivas Melar<span class="tag">&lt;/string></span>
+<span class="lineno"> 113 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"creditos_Alfonso"</span>>Víctor Alfonso Pajuelo Aguirre<span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno"> 114 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"creditos_procesos_software"</span>><span class="warning">Procesos del Software\nGrado em Ingeniería del Software\nUniversidad Rey Juan Carlos 2019-2020</span><span class="tag">&lt;/string></span></span>
+<span class="lineno"> 115 </span>
+<span class="lineno"> 116 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"boton_creditos"</span>>boton creditos<span class="tag">&lt;/string></span>
+<span class="lineno"> 117 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"foto_nuevo_jugador"</span>>PHOTO<span class="tag">&lt;/string></span>
+</pre>
+
+</div>
+<div class="metadata"><div class="explanation" id="explanationTypographyDashes" style="display: none;">
+The "n dash" (&#8211;, &amp;#8211;) and the "m dash" (&#8212;, &amp;#8212;) characters are used for ranges (n dash) and breaks (m dash). Using these instead of plain hyphens can make text easier to read and your application will look more polished.<br/><div class="moreinfo">More info: <a href="http://en.wikipedia.org/wiki/Dash">http://en.wikipedia.org/wiki/Dash</a>
+</div>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "TypographyDashes" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">TypographyDashes</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Typography</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Usability</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 5/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationTypographyDashesLink" onclick="reveal('explanationTypographyDashes');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="TypographyDashesCardLink" onclick="hideid('TypographyDashesCard');">
+Dismiss</button>            </div>
+            </div>
+          </section>
+<a name="Usability:Icons"></a>
+<a name="GifUsage"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="GifUsageCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Using .gif format for bitmaps is discouraged</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../src/main/res/drawable/tenor.gif">../../src/main/res/drawable/tenor.gif</a></span>: <img class="embedimage" align="right" src="../../src/main/res/drawable/tenor.gif" /><span class="message">Using the <code>.gif</code> format for bitmaps is discouraged</span><br clear="right"/>
+<span class="location"><a href="../../src/main/res/drawable/thanos.gif">../../src/main/res/drawable/thanos.gif</a></span>: <img class="embedimage" align="right" src="../../src/main/res/drawable/thanos.gif" /><span class="message">Using the <code>.gif</code> format for bitmaps is discouraged</span><br clear="right"/>
+</div>
+<div class="metadata"><div class="explanation" id="explanationGifUsage" style="display: none;">
+The <code>.gif</code> file format is discouraged. Consider using <code>.png</code> (preferred) or <code>.jpg</code> (acceptable) instead.<br/><div class="moreinfo">More info: <a href="http://developer.android.com/guide/topics/resources/drawable-resource.html#Bitmap">http://developer.android.com/guide/topics/resources/drawable-resource.html#Bitmap</a>
+</div>To suppress this error, use the issue id "GifUsage" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">GifUsage</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Icons</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Usability</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 5/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationGifUsageLink" onclick="reveal('explanationGifUsage');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="GifUsageCardLink" onclick="hideid('GifUsageCard');">
+Dismiss</button>            </div>
+            </div>
+          </section><a name="IconDipSize"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="IconDipSizeCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Icon density-independent size validation</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../src/main/res/mipmap-xxxhdpi/ic_launcher.png">../../src/main/res/mipmap-xxxhdpi/ic_launcher.png</a></span>: <span class="message">The image <code>ic_launcher.png</code> varies significantly in its density-independent (dip) size across the various density versions: mipmap-hdpi\ic_launcher.png: 341x341 dp (512x512 px), mipmap-mdpi\ic_launcher.png: 512x512 dp (512x512 px), mipmap-xhdpi\ic_launcher.png: 256x256 dp (512x512 px), mipmap-xxhdpi\ic_launcher.png: 171x171 dp (512x512 px), mipmap-xxxhdpi\ic_launcher.png: 128x128 dp (512x512 px)</span><br />
+<ul></ul><button id="Location1DivLink" onclick="reveal('Location1Div');" />+ 4 Additional Locations...</button>
+<div id="Location1Div" style="display: none">
+Additional locations: <ul>
+<li> <span class="location"><a href="../../src/main/res/mipmap-xxhdpi/ic_launcher.png">../../src/main/res/mipmap-xxhdpi/ic_launcher.png</a></span>
+<li> <span class="location"><a href="../../src/main/res/mipmap-xhdpi/ic_launcher.png">../../src/main/res/mipmap-xhdpi/ic_launcher.png</a></span>
+<li> <span class="location"><a href="../../src/main/res/mipmap-hdpi/ic_launcher.png">../../src/main/res/mipmap-hdpi/ic_launcher.png</a></span>
+<li> <span class="location"><a href="../../src/main/res/mipmap-mdpi/ic_launcher.png">../../src/main/res/mipmap-mdpi/ic_launcher.png</a></span>
+</ul>
+</div><br/><br/>
+<table>
+<tr><td><a href="../../src/main/res/mipmap-mdpi/ic_launcher.png"><img border="0" align="top" src="../../src/main/res/mipmap-mdpi/ic_launcher.png" /></a>
+</td><td><a href="../../src/main/res/mipmap-hdpi/ic_launcher.png"><img border="0" align="top" src="../../src/main/res/mipmap-hdpi/ic_launcher.png" /></a>
+</td><td><a href="../../src/main/res/mipmap-xhdpi/ic_launcher.png"><img border="0" align="top" src="../../src/main/res/mipmap-xhdpi/ic_launcher.png" /></a>
+</td><td><a href="../../src/main/res/mipmap-xxhdpi/ic_launcher.png"><img border="0" align="top" src="../../src/main/res/mipmap-xxhdpi/ic_launcher.png" /></a>
+</td><td><a href="../../src/main/res/mipmap-xxxhdpi/ic_launcher.png"><img border="0" align="top" src="../../src/main/res/mipmap-xxxhdpi/ic_launcher.png" /></a>
+</td></tr><tr><th></th><th></th><th></th><th></th><th></th></tr>
+</table>
+</div>
+<div class="metadata"><div class="explanation" id="explanationIconDipSize" style="display: none;">
+Checks the all icons which are provided in multiple densities, all compute to roughly the same density-independent pixel (<code>dip</code>) size. This catches errors where images are either placed in the wrong folder, or icons are changed to new sizes but some folders are forgotten.<br/>To suppress this error, use the issue id "IconDipSize" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">IconDipSize</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Icons</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Usability</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 5/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationIconDipSizeLink" onclick="reveal('explanationIconDipSize');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="IconDipSizeCardLink" onclick="hideid('IconDipSizeCard');">
+Dismiss</button>            </div>
+            </div>
+          </section><a name="IconDuplicatesConfig"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="IconDuplicatesConfigCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Identical bitmaps across various configurations</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../src/main/res/mipmap-xxxhdpi/ic_launcher.png">../../src/main/res/mipmap-xxxhdpi/ic_launcher.png</a></span>: <span class="message">The <code>ic_launcher.png</code> icon has identical contents in the following configuration folders: mipmap-hdpi, mipmap-mdpi, mipmap-xhdpi, mipmap-xxhdpi, mipmap-xxxhdpi</span><br />
+<ul></ul><button id="Location1DivLink" onclick="reveal('Location1Div');" />+ 4 Additional Locations...</button>
+<div id="Location1Div" style="display: none">
+Additional locations: <ul>
+<li> <span class="location"><a href="../../src/main/res/mipmap-xxhdpi/ic_launcher.png">../../src/main/res/mipmap-xxhdpi/ic_launcher.png</a></span>
+<li> <span class="location"><a href="../../src/main/res/mipmap-xhdpi/ic_launcher.png">../../src/main/res/mipmap-xhdpi/ic_launcher.png</a></span>
+<li> <span class="location"><a href="../../src/main/res/mipmap-mdpi/ic_launcher.png">../../src/main/res/mipmap-mdpi/ic_launcher.png</a></span>
+<li> <span class="location"><a href="../../src/main/res/mipmap-hdpi/ic_launcher.png">../../src/main/res/mipmap-hdpi/ic_launcher.png</a></span>
+</ul>
+</div><br/><br/>
+<table>
+<tr><td><a href="../../src/main/res/mipmap-mdpi/ic_launcher.png"><img border="0" align="top" src="../../src/main/res/mipmap-mdpi/ic_launcher.png" /></a>
+</td><td><a href="../../src/main/res/mipmap-hdpi/ic_launcher.png"><img border="0" align="top" src="../../src/main/res/mipmap-hdpi/ic_launcher.png" /></a>
+</td><td><a href="../../src/main/res/mipmap-xhdpi/ic_launcher.png"><img border="0" align="top" src="../../src/main/res/mipmap-xhdpi/ic_launcher.png" /></a>
+</td><td><a href="../../src/main/res/mipmap-xxhdpi/ic_launcher.png"><img border="0" align="top" src="../../src/main/res/mipmap-xxhdpi/ic_launcher.png" /></a>
+</td><td><a href="../../src/main/res/mipmap-xxxhdpi/ic_launcher.png"><img border="0" align="top" src="../../src/main/res/mipmap-xxxhdpi/ic_launcher.png" /></a>
+</td></tr><tr><th></th><th></th><th></th><th></th><th></th></tr>
+</table>
+</div>
+<div class="metadata"><div class="explanation" id="explanationIconDuplicatesConfig" style="display: none;">
+If an icon is provided under different configuration parameters such as <code>drawable-hdpi</code> or <code>-v11</code>, they should typically be different. This detector catches cases where the same icon is provided in different configuration folder which is usually not intentional.<br/>To suppress this error, use the issue id "IconDuplicatesConfig" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">IconDuplicatesConfig</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Icons</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Usability</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 5/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationIconDuplicatesConfigLink" onclick="reveal('explanationIconDuplicatesConfig');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="IconDuplicatesConfigCardLink" onclick="hideid('IconDuplicatesConfigCard');">
+Dismiss</button>            </div>
+            </div>
+          </section><a name="IconLocation"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="IconLocationCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Image defined in density-independent drawable folder</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../src/main/res/drawable/tenor.gif">../../src/main/res/drawable/tenor.gif</a></span>: <img class="embedimage" align="right" src="../../src/main/res/drawable/tenor.gif" /><span class="message">Found bitmap drawable <code>res/drawable/tenor.gif</code> in densityless folder</span><br clear="right"/>
+<span class="location"><a href="../../src/main/res/drawable/thanos.gif">../../src/main/res/drawable/thanos.gif</a></span>: <img class="embedimage" align="right" src="../../src/main/res/drawable/thanos.gif" /><span class="message">Found bitmap drawable <code>res/drawable/thanos.gif</code> in densityless folder</span><br clear="right"/>
+</div>
+<div class="metadata"><div class="explanation" id="explanationIconLocation" style="display: none;">
+The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to <code>drawable-mdpi</code> and consider providing higher and lower resolution versions in <code>drawable-ldpi</code>, <code>drawable-hdpi</code> and <code>drawable-xhdpi</code>. If the icon <b>really</b> is density independent (for example a solid color) you can place it in <code>drawable-nodpi</code>.<br/><div class="moreinfo">More info: <a href="http://developer.android.com/guide/practices/screens_support.html">http://developer.android.com/guide/practices/screens_support.html</a>
+</div>To suppress this error, use the issue id "IconLocation" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">IconLocation</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Icons</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Usability</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 5/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationIconLocationLink" onclick="reveal('explanationIconLocation');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="IconLocationCardLink" onclick="hideid('IconLocationCard');">
+Dismiss</button>            </div>
+            </div>
+          </section>
+<a name="Usability"></a>
+<a name="ViewConstructor"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="ViewConstructorCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Missing View constructors for XML inflation</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../src/main/java/com/example/tetris/Juego.java">../../src/main/java/com/example/tetris/Juego.java</a>:24</span>: <span class="message">Custom view <code>Juego</code> is missing constructor used by tools: <code>(Context)</code> or <code>(Context,AttributeSet)</code> or <code>(Context,AttributeSet,int)</code></span><br /><pre class="errorlines">
+<span class="lineno">  21 </span><span class="keyword">import</span> pl.droidsonroids.gif.GifImageView;
+<span class="lineno">  22 </span>
+<span class="lineno">  23 </span>
+<span class="caretline"><span class="lineno">  24 </span><span class="keyword">public</span> <span class="keyword">class</span> <span class="warning">Juego</span> <span class="keyword">extends</span> View <span class="keyword">implements</span> View.OnClickListener {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  25 </span>
+<span class="lineno">  26 </span>    <span class="keyword">private</span> ImageButton botonDcha, botonBajar, botonIzda, botonRotar, snap;
+<span class="lineno">  27 </span>    <span class="keyword">private</span> TextView puntuacion, nivel;
+</pre>
+
+<span class="location"><a href="../../src/main/java/com/example/tetris/VentanaNext.java">../../src/main/java/com/example/tetris/VentanaNext.java</a>:15</span>: <span class="message">Custom view <code>VentanaNext</code> is missing constructor used by tools: <code>(Context)</code> or <code>(Context,AttributeSet)</code> or <code>(Context,AttributeSet,int)</code></span><br /><pre class="errorlines">
+<span class="lineno">  12 </span><span class="keyword">import</span> java.util.Timer;
+<span class="lineno">  13 </span><span class="keyword">import</span> java.util.TimerTask;
+<span class="lineno">  14 </span>
+<span class="caretline"><span class="lineno">  15 </span><span class="keyword">public</span> <span class="keyword">class</span> <span class="warning">VentanaNext</span> <span class="keyword">extends</span> View {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  16 </span>    <span class="keyword">private</span> MainActivity mainActivity;
+<span class="lineno">  17 </span>    <span class="keyword">private</span> Tablero ventana;
+</pre>
+
+</div>
+<div class="metadata"><div class="explanation" id="explanationViewConstructor" style="display: none;">
+Some layout tools (such as the Android layout editor) need to find a constructor with one of the following signatures:<br/>
+* <code>View(Context context)</code><br/>
+* <code>View(Context context, AttributeSet attrs)</code><br/>
+* <code>View(Context context, AttributeSet attrs, int defStyle)</code><br/>
+<br/>
+If your custom view needs to perform initialization which does not apply when used in a layout editor, you can surround the given code with a check to see if <code>View#isInEditMode()</code> is false, since that method will return <code>false</code> at runtime but true within a user interface editor.<br/>To suppress this error, use the issue id "ViewConstructor" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">ViewConstructor</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Usability</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 3/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationViewConstructorLink" onclick="reveal('explanationViewConstructor');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="ViewConstructorCardLink" onclick="hideid('ViewConstructorCard');">
+Dismiss</button>            </div>
+            </div>
+          </section>
+<a name="Internationalization"></a>
+<a name="SetTextI18n"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="SetTextI18nCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">TextView Internationalization</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../src/main/java/com/example/tetris/Exit.java">../../src/main/java/com/example/tetris/Exit.java</a>:66</span>: <span class="message">Number formatting does not take into account locale settings. Consider using <code>String.format</code> instead.</span><br /><pre class="errorlines">
+<span class="lineno">  63 </span>
+<span class="lineno">  64 </span>        et_nombre = (EditText)findViewById(R.id.nombre_jugador);
+<span class="lineno">  65 </span>        textPuntActual= findViewById(R.id.text_puntuacionActual);
+<span class="caretline"><span class="lineno">  66 </span>        textPuntActual.setText(<span class="warning">Integer.toString(puntosFinal)</span>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  67 </span>
+<span class="lineno">  68 </span>        again.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() {
+<span class="lineno">  69 </span>            <span class="annotation">@Override</span></pre>
+
+<span class="location"><a href="../../src/main/java/com/example/tetris/Juego.java">../../src/main/java/com/example/tetris/Juego.java</a>:138</span>: <span class="message">Do not concatenate text displayed with <code>setText</code>. Use resource string with placeholders.</span><br /><pre class="errorlines">
+<span class="lineno"> 135 </span>                     filasPorBorrar = tablero.detectarFilas(<span class="keyword">null</span>);
+<span class="lineno"> 136 </span>                     tablero.borrarPieza();
+<span class="lineno"> 137 </span>                     setPuntos(filasPorBorrar.size() * <span class="number">30</span>);
+<span class="caretline"><span class="lineno"> 138 </span>                     puntuacion.setText(<span class="warning"><span class="string">""</span> + puntos</span>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 139 </span>                     setNivel();
+<span class="lineno"> 140 </span>                     nivel.setText(<span class="string">""</span> + nivelvar);
+<span class="lineno"> 141 </span>                     <span class="keyword">if</span>(getNivel() > nivelActual){
+</pre>
+
+<span class="location"><a href="../../src/main/java/com/example/tetris/Juego.java">../../src/main/java/com/example/tetris/Juego.java</a>:140</span>: <span class="message">Do not concatenate text displayed with <code>setText</code>. Use resource string with placeholders.</span><br /><pre class="errorlines">
+<span class="lineno"> 137 </span>                     setPuntos(filasPorBorrar.size() * <span class="number">30</span>);
+<span class="lineno"> 138 </span>                     puntuacion.setText(<span class="string">""</span> + puntos);
+<span class="lineno"> 139 </span>                     setNivel();
+<span class="caretline"><span class="lineno"> 140 </span>                     nivel.setText(<span class="warning"><span class="string">""</span> + nivelvar</span>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 141 </span>                     <span class="keyword">if</span>(getNivel() > nivelActual){
+<span class="lineno"> 142 </span>                         nivelActual = getNivel();
+<span class="lineno"> 143 </span>                         timerPeriod = timerPeriod - (getNivel());
+</pre>
+
+<span class="location"><a href="../../src/main/java/com/example/tetris/Juego.java">../../src/main/java/com/example/tetris/Juego.java</a>:199</span>: <span class="message">Do not concatenate text displayed with <code>setText</code>. Use resource string with placeholders.</span><br /><pre class="errorlines">
+<span class="lineno"> 196 </span>                                    chasquido++;
+<span class="lineno"> 197 </span>                                    puntosSnap+=<span class="number">100</span>;
+<span class="lineno"> 198 </span>                                }
+<span class="caretline"><span class="lineno"> 199 </span>                                puntuacion.setText(<span class="warning"><span class="string">""</span> + puntos</span>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 200 </span>                                setNivel();
+<span class="lineno"> 201 </span>                                nivel.setText(<span class="string">""</span> + nivelvar);
+<span class="lineno"> 202 </span>                                <span class="keyword">if</span>(getNivel() > nivelActual){
+</pre>
+
+<span class="location"><a href="../../src/main/java/com/example/tetris/Juego.java">../../src/main/java/com/example/tetris/Juego.java</a>:201</span>: <span class="message">Do not concatenate text displayed with <code>setText</code>. Use resource string with placeholders.</span><br /><pre class="errorlines">
+<span class="lineno"> 198 </span>                    }
+<span class="lineno"> 199 </span>                    puntuacion.setText(<span class="string">""</span> + puntos);
+<span class="lineno"> 200 </span>                    setNivel();
+<span class="caretline"><span class="lineno"> 201 </span>                    nivel.setText(<span class="warning"><span class="string">""</span> + nivelvar</span>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 202 </span>                    <span class="keyword">if</span>(getNivel() > nivelActual){
+<span class="lineno"> 203 </span>                        nivelActual = getNivel();
+<span class="lineno"> 204 </span>                        timerPeriod = timerPeriod - (getNivel());}
+</pre>
+
+<span class="location"><a href="../../src/main/java/com/example/tetris/Juego.java">../../src/main/java/com/example/tetris/Juego.java</a>:352</span>: <span class="message">Do not concatenate text displayed with <code>setText</code>. Use resource string with placeholders.</span><br /><pre class="errorlines">
+<span class="lineno"> 349 </span>                tablero.moverPiezas(tablero.getPieza(), <span class="string">'a'</span>);
+<span class="lineno"> 350 </span>                tablero.moverPiezas(troll, <span class="string">'a'</span>);
+<span class="lineno"> 351 </span>                setPuntos(<span class="number">1</span>);
+<span class="caretline"><span class="lineno"> 352 </span>                puntuacion.setText(<span class="warning"><span class="string">""</span> + puntos</span>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 353 </span>                invalidate();
+<span class="lineno"> 354 </span>                <span class="keyword">break</span>;
+<span class="lineno"> 355 </span>            <span class="keyword">case</span> R.id.botonIzda:
+</pre>
+
+</div>
+<div class="metadata"><div class="explanation" id="explanationSetTextI18n" style="display: none;">
+When calling <code>TextView#setText</code><br/>
+* Never call <code>Number#toString()</code> to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using <code>String#format</code> with proper format specifications (<code>%d</code> or <code>%f</code>) instead.<br/>
+* Do not pass a string literal (e.g. "Hello") to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.<br/>
+* Do not build messages by concatenating text chunks. Such messages can not be properly translated.<br/><div class="moreinfo">More info: <a href="http://developer.android.com/guide/topics/resources/localization.html">http://developer.android.com/guide/topics/resources/localization.html</a>
+</div>To suppress this error, use the issue id "SetTextI18n" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">SetTextI18n</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Internationalization</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 6/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationSetTextI18nLink" onclick="reveal('explanationSetTextI18n');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="SetTextI18nCardLink" onclick="hideid('SetTextI18nCard');">
+Dismiss</button>            </div>
+            </div>
+          </section><a name="HardcodedText"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="HardcodedTextCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Hardcoded text</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../src/main/res/layout/activity_main.xml">../../src/main/res/layout/activity_main.xml</a>:149</span>: <span class="message">Hardcoded string "10 seconds", should use <code>@string</code> resource</span><br /><pre class="errorlines">
+<span class="lineno"> 146 </span>                <span class="prefix">android:</span><span class="attribute">layout_marginStart</span>=<span class="value">"9dp"</span>
+<span class="lineno"> 147 </span>                <span class="prefix">android:</span><span class="attribute">layout_marginLeft</span>=<span class="value">"9dp"</span>
+<span class="lineno"> 148 </span>                <span class="prefix">android:</span><span class="attribute">layout_marginBottom</span>=<span class="value">"166dp"</span>
+<span class="caretline"><span class="lineno"> 149 </span>                <span class="warning"><span class="prefix">android:</span><span class="attribute">text</span>=<span class="value">"10 seconds"</span></span> />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 150 </span>
+<span class="lineno"> 151 </span>            <span class="tag">&lt;Button</span><span class="attribute">
+</span><span class="lineno"> 152 </span><span class="attribute">                </span><span class="prefix">android:</span><span class="attribute">id</span>=<span class="value">"@+id/second20"</span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/layout/activity_main.xml">../../src/main/res/layout/activity_main.xml</a>:161</span>: <span class="message">Hardcoded string "20 seconds", should use <code>@string</code> resource</span><br /><pre class="errorlines">
+<span class="lineno"> 158 </span>                <span class="prefix">android:</span><span class="attribute">layout_marginStart</span>=<span class="value">"10dp"</span>
+<span class="lineno"> 159 </span>                <span class="prefix">android:</span><span class="attribute">layout_marginLeft</span>=<span class="value">"10dp"</span>
+<span class="lineno"> 160 </span>                <span class="prefix">android:</span><span class="attribute">layout_marginBottom</span>=<span class="value">"100dp"</span>
+<span class="caretline"><span class="lineno"> 161 </span>                <span class="warning"><span class="prefix">android:</span><span class="attribute">text</span>=<span class="value">"20 seconds"</span></span> />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 162 </span>
+<span class="lineno"> 163 </span>            <span class="tag">&lt;RelativeLayout</span><span class="attribute">
+</span><span class="lineno"> 164 </span><span class="attribute">                </span><span class="prefix">android:</span><span class="attribute">id</span>=<span class="value">"@+id/ventanaSig"</span>
+</pre>
+
+</div>
+<div class="metadata"><div class="explanation" id="explanationHardcodedText" style="display: none;">
+Hardcoding text attributes directly in layout files is bad for several reasons:<br/>
+<br/>
+* When creating configuration variations (for example for landscape or portrait) you have to repeat the actual text (and keep it up to date when making changes)<br/>
+<br/>
+* The application cannot be translated to other languages by just adding new translations for existing string resources.<br/>
+<br/>
+There are quickfixes to automatically extract this hardcoded string into a resource lookup.<br/>To suppress this error, use the issue id "HardcodedText" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">HardcodedText</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Internationalization</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 5/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationHardcodedTextLink" onclick="reveal('explanationHardcodedText');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="HardcodedTextCardLink" onclick="hideid('HardcodedTextCard');">
+Dismiss</button>            </div>
+            </div>
+          </section>
+<a name="MissingIssues"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="MissingIssuesCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Disabled Checks</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+One or more issues were not run by lint, either 
+because the check is not enabled by default, or because 
+it was disabled with a command line flag or via one or 
+more <code>lint.xml</code> configuration files in the project directories.
+<div id="SuppressedIssues" style="display: none;"><br/><br/><div class="issue">
+<div class="id">AppLinksAutoVerifyError<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+Ensures that app links are correctly set and associated with website.<br/><div class="moreinfo">More info: <a href="https://g.co/appindexing/applinks">https://g.co/appindexing/applinks</a>
+</div>To suppress this error, use the issue id "AppLinksAutoVerifyError" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">AppLinksAutoVerifyWarning<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+Ensures that app links are correctly set and associated with website.<br/><div class="moreinfo">More info: <a href="https://g.co/appindexing/applinks">https://g.co/appindexing/applinks</a>
+</div>To suppress this error, use the issue id "AppLinksAutoVerifyWarning" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">BackButton<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+According to the Android Design Guide,<br/>
+<br/>
+"Other platforms use an explicit back button with label to allow the user to navigate up the application's hierarchy. Instead, Android uses the main action bar's app icon for hierarchical navigation and the navigation bar's back button for temporal navigation."<br/>
+This check is not very sophisticated (it just looks for buttons with the label "Back"), so it is disabled by default to not trigger on common scenarios like pairs of Back/Next buttons to paginate through screens.<br/><div class="moreinfo">More info: <a href="http://developer.android.com/design/patterns/pure-android.html">http://developer.android.com/design/patterns/pure-android.html</a>
+</div>To suppress this error, use the issue id "BackButton" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">ConvertToWebp<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+The WebP format is typically more compact than PNG and JPEG. As of Android 4.2.1 it supports transparency and lossless conversion as well. Note that there is a quickfix in the IDE which lets you perform conversion.<br/>
+<br/>
+Launcher icons must be in the PNG format.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "ConvertToWebp" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">DalvikOverride<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+The Dalvik virtual machine will treat a package private method in one class as overriding a package private method in its super class, even if they are in separate packages.<br/>
+<br/>
+If you really did intend for this method to override the other, make the method <code>protected</code> instead.<br/>
+<br/>
+If you did <b>not</b> intend the override, consider making the method private, or changing its name or signature.<br/>
+<br/>
+Note that this check is disabled be default, because ART (the successor to Dalvik) no longer has this behavior.<br/>To suppress this error, use the issue id "DalvikOverride" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">DuplicateStrings<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+Duplicate strings can make applications larger unnecessarily.<br/>
+<br/>
+This lint check looks for duplicate strings, including differences for strings where the only difference is in capitalization. Title casing and all uppercase can all be adjusted in the layout or in code.<br/><div class="moreinfo">More info: <a href="https://developer.android.com/reference/android/widget/TextView.html#attr_android:inputType">https://developer.android.com/reference/android/widget/TextView.html#attr_android:inputType</a>
+</div>To suppress this error, use the issue id "DuplicateStrings" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">EasterEgg<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+An "easter egg" is code deliberately hidden in the code, both from potential users and even from other developers. This lint check looks for code which looks like it may be hidden from sight.<br/>To suppress this error, use the issue id "EasterEgg" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">FieldGetter<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+Accessing a field within the class that defines a getter for that field is at least 3 times faster than calling the getter. For simple getters that do nothing other than return the field, you might want to just reference the local field directly instead.<br/>
+<br/>
+<b>NOTE</b>: As of Android 2.3 (Gingerbread), this optimization is performed automatically by Dalvik, so there is no need to change your code; this is only relevant if you are targeting older versions of Android.<br/><div class="moreinfo">More info: <a href="http://developer.android.com/guide/practices/design/performance.html#internal_get_set">http://developer.android.com/guide/practices/design/performance.html#internal_get_set</a>
+</div>To suppress this error, use the issue id "FieldGetter" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">GoogleAppIndexingApiWarning<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+Adds URLs to get your app into the Google index, to get installs and traffic to your app from Google Search.<br/><div class="moreinfo">More info: <a href="https://g.co/AppIndexing/AndroidStudio">https://g.co/AppIndexing/AndroidStudio</a>
+</div>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "GoogleAppIndexingApiWarning" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">GoogleAppIndexingWarning<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+Adds URLs to get your app into the Google index, to get installs and traffic to your app from Google Search.<br/><div class="moreinfo">More info: <a href="https://g.co/AppIndexing/AndroidStudio">https://g.co/AppIndexing/AndroidStudio</a>
+</div>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "GoogleAppIndexingWarning" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">IconExpectedSize<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+There are predefined sizes (for each density) for launcher icons. You should follow these conventions to make sure your icons fit in with the overall look of the platform.<br/><div class="moreinfo">More info: <a href="http://developer.android.com/design/style/iconography.html">http://developer.android.com/design/style/iconography.html</a>
+</div>To suppress this error, use the issue id "IconExpectedSize" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">ImplicitSamInstance<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+Kotlin's support for SAM (single accessor method) interfaces lets you pass a lambda to the interface. This will create a new instance on the fly even though there is no explicit constructor call. If you pass one of these lambdas or method references into a method which (for example) stores or compares the object identity, unexpected results may happen.<br/>To suppress this error, use the issue id "ImplicitSamInstance" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">KotlinPropertyAccess<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+For a method to be represented as a property in Kotlin, strict &#8220;bean&#8221;-style prefixing must be used.<br/>
+<br/>
+Accessor methods require a &#8216;get&#8217; prefix or for boolean-returning methods an &#8216;is&#8217; prefix can be used.<br/><div class="moreinfo">More info: <a href="https://android.github.io/kotlin-guides/interop.html#property-prefixes">https://android.github.io/kotlin-guides/interop.html#property-prefixes</a>
+</div>To suppress this error, use the issue id "KotlinPropertyAccess" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">LambdaLast<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+To improve calling this code from Kotlin,<br/>
+parameter types eligible for SAM conversion should be last.<br/><div class="moreinfo">More info: <a href="https://android.github.io/kotlin-guides/interop.html#lambda-parameters-last">https://android.github.io/kotlin-guides/interop.html#lambda-parameters-last</a>
+</div>To suppress this error, use the issue id "LambdaLast" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">LockedOrientationActivity<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+The <code>&lt;activity></code> element should not be locked to any orientation so that users can take advantage of the multi-window environments and larger screens on Chrome OS. To fix the issue, consider declaring the corresponding activity element with `screenOrientation="unspecified"<code>or </code>"fullSensor"` attribute.<br/><div class="moreinfo">More info: <a href="https://developer.android.com/topic/arc/window-management">https://developer.android.com/topic/arc/window-management</a>
+</div>To suppress this error, use the issue id "LockedOrientationActivity" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">LogConditional<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+The BuildConfig class (available in Tools 17) provides a constant, "DEBUG", which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a "if (false)" check, surrounding your logging calls with a check for BuildConfig.DEBUG is a good idea.<br/>
+<br/>
+If you <b>really</b> intend for the logging to be present in release mode, you can suppress this warning with a @SuppressLint annotation for the intentional logging calls.<br/>To suppress this error, use the issue id "LogConditional" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">MangledCRLF<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+On Windows, line endings are typically recorded as carriage return plus newline: \r\n.<br/>
+<br/>
+This detector looks for invalid line endings with repeated carriage return characters (without newlines). Previous versions of the ADT plugin could accidentally introduce these into the file, and when editing the file, the editor could produce confusing visual artifacts.<br/><div class="moreinfo">More info: <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=375421">https://bugs.eclipse.org/bugs/show_bug.cgi?id=375421</a>
+</div>To suppress this error, use the issue id "MangledCRLF" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">MinSdkTooLow<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+The value of the <code>minSdkVersion</code> property is too low and can be incremented without noticeably reducing the number of supported devices.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "MinSdkTooLow" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">MissingRegistered<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+If a class is referenced in the manifest or in a layout file, it must also exist in the project (or in one of the libraries included by the project. This check helps uncover typos in registration names, or attempts to rename or move classes without updating the XML references properly.<br/><div class="moreinfo">More info: <a href="http://developer.android.com/guide/topics/manifest/manifest-intro.html">http://developer.android.com/guide/topics/manifest/manifest-intro.html</a>
+</div>To suppress this error, use the issue id "MissingRegistered" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">NegativeMargin<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+Margin values should be positive. Negative values are generally a sign that you are making assumptions about views surrounding the current one, or may be tempted to turn off child clipping to allow a view to escape its parent. Turning off child clipping to do this not only leads to poor graphical performance, it also results in wrong touch event handling since touch events are based strictly on a chain of parent-rect hit tests. Finally, making assumptions about the size of strings can lead to localization problems.<br/>To suppress this error, use the issue id "NegativeMargin" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">NewerVersionAvailable<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+This detector checks with a central repository to see if there are newer versions available for the dependencies used by this project. This is similar to the <code>GradleDependency</code> check, which checks for newer versions available in the Android SDK tools and libraries, but this works with any MavenCentral dependency, and connects to the library every time, which makes it more flexible but also <b>much</b> slower.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "NewerVersionAvailable" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">NoHardKeywords<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+Do not use Kotlin&#8217;s hard keywords as the name of methods or fields.<br/>
+These require the use of backticks to escape when calling from Kotlin.<br/>
+Soft keywords, modifier keywords, and special identifiers are allowed.<br/>
+<br/>
+For example, Mockito&#8217;s <code>when</code> function requires backticks when used from Kotlin:<br/>
+<br/>
+    val callable = Mockito.mock(Callable::class.java)<br/>
+    Mockito.`when`(callable.call()).thenReturn(/* &#8230; */)<br/><div class="moreinfo">More info: <a href="https://android.github.io/kotlin-guides/interop.html#no-hard-keywords">https://android.github.io/kotlin-guides/interop.html#no-hard-keywords</a>
+</div>To suppress this error, use the issue id "NoHardKeywords" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">NonResizeableActivity<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+The <code>&lt;activity></code> element should be allowed to be resized to allow users to take advantage of the multi-window environment on Chrome OS To fix the issue, consider declaring the corresponding activity element with <code>resizableActivity="true"</code> attribute.<br/><div class="moreinfo">More info: <a href="https://developer.android.com/topic/arc/window-management">https://developer.android.com/topic/arc/window-management</a>
+</div>To suppress this error, use the issue id "NonResizeableActivity" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">PermissionImpliesUnsupportedChromeOsHardware<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+The <code>&lt;uses-permission></code> element should not require a permission that implies an unsupported Chrome OS hardware feature. Google Play assumes that certain hardware related permissions indicate that the underlying hardware features are required by default. To fix the issue, consider declaring the corresponding uses-feature element with <code>required="false"</code> attribute.<br/><div class="moreinfo">More info: <a href="https://developer.android.com/topic/arc/manifest.html#implied-features">https://developer.android.com/topic/arc/manifest.html#implied-features</a>
+</div>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "PermissionImpliesUnsupportedChromeOsHardware" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">Registered<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+Activities, services and content providers should be registered in the <code>AndroidManifest.xml</code> file using <code>&lt;activity></code>, <code>&lt;service></code> and <code>&lt;provider></code> tags.<br/>
+<br/>
+If your activity is simply a parent class intended to be subclassed by other "real" activities, make it an abstract class.<br/><div class="moreinfo">More info: <a href="http://developer.android.com/guide/topics/manifest/manifest-intro.html">http://developer.android.com/guide/topics/manifest/manifest-intro.html</a>
+</div>To suppress this error, use the issue id "Registered" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">RequiredSize<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+All views must specify an explicit <code>layout_width</code> and <code>layout_height</code> attribute. There is a runtime check for this, so if you fail to specify a size, an exception is thrown at runtime.<br/>
+<br/>
+It's possible to specify these widths via styles as well. GridLayout, as a special case, does not require you to specify a size.<br/>To suppress this error, use the issue id "RequiredSize" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">SelectableText<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+If a <code>&lt;TextView></code> is used to display data, the user might want to copy that data and paste it elsewhere. To allow this, the <code>&lt;TextView></code> should specify <code>android:textIsSelectable="true"</code>.<br/>
+<br/>
+This lint check looks for TextViews which are likely to be displaying data: views whose text is set dynamically. This value will be ignored on platforms older than API 11, so it is okay to set it regardless of your <code>minSdkVersion</code>.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "SelectableText" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">SourceLockedOrientationActivity<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+The <code>Activity</code> should not be locked to any orientation so that users<br/>
+can take advantage of the multi-window environments and larger screens<br/>
+available on Chrome OS. To fix the issue, consider calling <code>setRequestedOrientation</code><br/>
+with the <code>ActivityInfo.SCREEN_ORIENTATION_FULL_SENSOR</code> or<br/>
+<code>ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED</code> options or removing the call<br/>
+all together.<br/>To suppress this error, use the issue id "SourceLockedOrientationActivity" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">StopShip<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+Using the comment <code>// STOPSHIP</code> can be used to flag code that is incomplete but checked in. This comment marker can be used to indicate that the code should not be shipped until the issue is addressed, and lint will look for these.  In Gradle projects, this is only checked for non-debug (release) builds.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "StopShip" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">SyntheticAccessor<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+A private inner class which is accessed from the outer class will force the compiler to insert a synthetic accessor; this means that you are causing extra overhead. This is not important in small projects, but is important for large apps running up against the 64K method handle limit, and especially for <b>libraries</b> where you want to make sure your library is as small as possible for the cases where your library is used in an app running up against the 64K limit.<br/>To suppress this error, use the issue id "SyntheticAccessor" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">TypographyQuotes<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+Straight single quotes and double quotes, when used as a pair, can be replaced by "curvy quotes" (or directional quotes). This can make the text more readable.<br/>
+<br/>
+Note that you should never use grave accents and apostrophes to quote, `like this'.<br/>
+<br/>
+(Also note that you should not use curvy quotes for code fragments.)<br/><div class="moreinfo">More info: <a href="http://en.wikipedia.org/wiki/Quotation_mark">http://en.wikipedia.org/wiki/Quotation_mark</a>
+</div>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "TypographyQuotes" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">UnknownNullness<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+To improve referencing this code from Kotlin, consider adding<br/>
+explicit nullness information here with either <code>@NonNull</code> or <code>@Nullable</code>.<br/>
+<br/>
+You can set the environment variable<br/>
+    <code>ANDROID_LINT_NULLNESS_IGNORE_DEPRECATED=true</code><br/>
+if you want lint to ignore classes and members that have been annotated with<br/>
+<code>@Deprecated</code>.<br/><div class="moreinfo">More info: <a href="https://android.github.io/kotlin-guides/interop.html#nullability-annotations">https://android.github.io/kotlin-guides/interop.html#nullability-annotations</a>
+</div>To suppress this error, use the issue id "UnknownNullness" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">UnpackedNativeCode<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+This app loads native libraries using <code>System.loadLibrary()</code>.<br/>
+<br/>
+Consider adding <code>android:extractNativeLibs="false"</code> to the <code>&lt;application></code> tag in AndroidManifest.xml. Starting with Android 6.0, this will make installation faster, the app will take up less space on the device and updates will have smaller download sizes.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "UnpackedNativeCode" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">UnsupportedChromeOsCameraSystemFeature<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+You should look for the <code>FEATURE_CAMERA_ANY</code> features to include all<br/>
+possible cameras that may be on the device. Looking for <code>FEATURE_CAMERA</code><br/>
+only looks for a rear facing camera, which certain tablets or Chrome OS<br/>
+devices don't have. To fix the issue, look for <code>FEATURE_CAMERA_ANY</code> instead.<br/>To suppress this error, use the issue id "UnsupportedChromeOsCameraSystemFeature" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">UnsupportedChromeOsHardware<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+The <code>&lt;uses-feature></code> element should not require this unsupported Chrome OS hardware feature. Any uses-feature not explicitly marked with <code>required="false"</code> is necessary on the device to be installed on. Ensure that any features that might prevent it from being installed on a Chrome OS device are reviewed and marked as not required in the manifest.<br/><div class="moreinfo">More info: <a href="https://developer.android.com/topic/arc/manifest.html#incompat-entries">https://developer.android.com/topic/arc/manifest.html#incompat-entries</a>
+</div>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "UnsupportedChromeOsHardware" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">UnusedIds<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.<br/>
+<br/>
+The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.<br/>
+<br/>
+You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "UnusedIds" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">ValidActionsXml<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+Ensures that an actions XML file is properly formed<br/>To suppress this error, use the issue id "ValidActionsXml" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">WrongThreadInterprocedural<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+Searches for interprocedural call paths that violate thread annotations in the program. Tracks the flow of instantiated types and lambda expressions to increase accuracy across method boundaries.<br/><div class="moreinfo">More info: <a href="https://developer.android.com/guide/components/processes-and-threads.html#Threads">https://developer.android.com/guide/components/processes-and-threads.html#Threads</a>
+</div>To suppress this error, use the issue id "WrongThreadInterprocedural" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+</div>              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="SuppressedIssuesLink" onclick="reveal('SuppressedIssues');">
+List Missing Issues</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="MissingIssuesCardLink" onclick="hideid('MissingIssuesCard');">
+Dismiss</button>            </div>
+            </div>
+          </section>
+<a name="SuppressInfo"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="SuppressCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Suppressing Warnings and Errors</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+Lint errors can be suppressed in a variety of ways:<br/>
+<br/>
+1. With a <code>@SuppressLint</code> annotation in the Java code<br/>
+2. With a <code>tools:ignore</code> attribute in the XML file<br/>
+3. With a //noinspection comment in the source code<br/>
+4. With ignore flags specified in the <code>build.gradle</code> file, as explained below<br/>
+5. With a <code>lint.xml</code> configuration file in the project<br/>
+6. With a <code>lint.xml</code> configuration file passed to lint via the --config flag<br/>
+7. With the --ignore flag passed to lint.<br/>
+<br/>
+To suppress a lint warning with an annotation, add a <code>@SuppressLint("id")</code> annotation on the class, method or variable declaration closest to the warning instance you want to disable. The id can be one or more issue id's, such as <code>"UnusedResources"</code> or <code>{"UnusedResources","UnusedIds"}</code>, or it can be <code>"all"</code> to suppress all lint warnings in the given scope.<br/>
+<br/>
+To suppress a lint warning with a comment, add a <code>//noinspection id</code> comment on the line before the statement with the error.<br/>
+<br/>
+To suppress a lint warning in an XML file, add a <code>tools:ignore="id"</code> attribute on the element containing the error, or one of its surrounding elements. You also need to define the namespace for the tools prefix on the root element in your document, next to the <code>xmlns:android</code> declaration:<br/>
+<code>xmlns:tools="http://schemas.android.com/tools"</code><br/>
+<br/>
+To suppress a lint warning in a <code>build.gradle</code> file, add a section like this:<br/>
+
+<pre>
+android {
+    lintOptions {
+        disable 'TypographyFractions','TypographyQuotes'
+    }
+}
+</pre>
+<br/>
+Here we specify a comma separated list of issue id's after the disable command. You can also use <code>warning</code> or <code>error</code> instead of <code>disable</code> to change the severity of issues.<br/>
+<br/>
+To suppress lint warnings with a configuration XML file, create a file named <code>lint.xml</code> and place it at the root directory of the module in which it applies.<br/>
+<br/>
+The format of the <code>lint.xml</code> file is something like the following:<br/>
+
+<pre>
+&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;lint>
+    &lt;!-- Ignore everything in the test source set -->
+    &lt;issue id="all">
+        &lt;ignore path="\*/test/\*" />
+    &lt;/issue>
+
+    &lt;!-- Disable this given check in this project -->
+    &lt;issue id="IconMissingDensityFolder" severity="ignore" />
+
+    &lt;!-- Ignore the ObsoleteLayoutParam issue in the given files -->
+    &lt;issue id="ObsoleteLayoutParam">
+        &lt;ignore path="res/layout/activation.xml" />
+        &lt;ignore path="res/layout-xlarge/activation.xml" />
+        &lt;ignore regexp="(foo|bar)\.java" />
+    &lt;/issue>
+
+    &lt;!-- Ignore the UselessLeaf issue in the given file -->
+    &lt;issue id="UselessLeaf">
+        &lt;ignore path="res/layout/main.xml" />
+    &lt;/issue>
+
+    &lt;!-- Change the severity of hardcoded strings to "error" -->
+    &lt;issue id="HardcodedText" severity="error" />
+&lt;/lint>
+</pre>
+<br/>
+To suppress lint checks from the command line, pass the --ignore flag with a comma separated list of ids to be suppressed, such as:<br/>
+<code>$ lint --ignore UnusedResources,UselessLeaf /my/project/path</code><br/>
+<br/>
+For more information, see <a href="http://g.co/androidstudio/suppressing-lint-warnings">http://g.co/androidstudio/suppressing-lint-warnings</a><br/>
+
+            </div>
+            </div>
+          </section>    </div>
+  </main>
+</div>
+</body>
+</html>

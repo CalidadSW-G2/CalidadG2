@@ -182,7 +182,8 @@ public class HarderRankingSteps {
 
     public void nuevaPartidaJugada(){ //Funcion identica a la de Ranking.java pero aqui usando fakes para BBDD
         baseDeDatos.getWritableDatabase();
-        fila0 = baseDeDatos; baseDeDatos.rawQuery("select * from "+tipoBBDD+"  order by puntuacion DESC", null);
+        fila0 = baseDeDatos; baseDeDatos.rawQuery("select * from "+tipoBBDD+
+                "  order by puntuacion DESC", null);
         fila0.moveToFirst();
         ContentValues againnew = new ContentValues();
         againnew.put("puntuacion", fila0.getInt(1)+10);
@@ -190,7 +191,6 @@ public class HarderRankingSteps {
         baseDeDatos = fila0; baseDeDatos.update(tipoBBDD, againnew, "nombre=?", whereArgs);
         baseDeDatos.close();
     }
-
     @Given("^DefaultRanking$")
     public void defaultranking() {
         ArrayList<ContentValues> bbdd = new ArrayList<>();
@@ -198,12 +198,10 @@ public class HarderRankingSteps {
         rellenerBBDD_Testeable(); //usamos este codigo tranquilos
         //porque fue testeado en la fase anterior
     }
-
     @When("^NewScoreWorseThanAllIsGotten$")
     public void newscoreworsethanallisgotten() {
         nuevaPartidaJugada();
     }
-
     @Then("^FirstScoreIncrementsTen$")
     public void firstscoreincrementsten()  {
         String expected = "Primero610Segundo500Tercero400Cuarto300Quinto200Sexto100";

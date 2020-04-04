@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
     private Tablero ventana = new Tablero();
     private Button menu;
     private MediaPlayer mediaPlayer;
+    private Button sencond10;
+    private Button sencond20;
     AudioService as;
 
     @Override
@@ -67,6 +69,23 @@ public class MainActivity extends AppCompatActivity {
         juego.setBackgroundColor(Color.LTGRAY);
         relativeTetris.addView(juego);
 
+        sencond10 = findViewById(R.id.second10);
+        sencond10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Juego.setLatency(10);
+                Toast.makeText(getApplicationContext(), "Has cambiado la musica a un intervalo de 10 segundos", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        sencond20 = findViewById(R.id.second20);
+        sencond20.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Juego.setLatency(20);
+                Toast.makeText(getApplicationContext(), "Has cambiado la musica a un intervalo de 20 segundos", Toast.LENGTH_SHORT).show();
+            }
+        });
         menu = (Button)findViewById(R.id.buttonAjustes);
         menu.setOnClickListener(new View.OnClickListener() {
             @Override

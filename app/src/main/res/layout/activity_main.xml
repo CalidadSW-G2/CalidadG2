@@ -136,6 +136,30 @@
             android:layout_weight="0.7"
             android:background="#423F3F">
 
+            <Button
+                android:id="@+id/second10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/restart"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="9dp"
+                android:layout_marginLeft="9dp"
+                android:layout_marginBottom="166dp"
+                android:text="10 seconds" />
+
+            <Button
+                android:id="@+id/second20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/restart"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="100dp"
+                android:text="20 seconds" />
+
             <RelativeLayout
                 android:id="@+id/ventanaSig"
                 android:layout_width="match_parent"

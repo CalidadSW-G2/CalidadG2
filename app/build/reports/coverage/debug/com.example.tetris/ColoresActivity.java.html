@@ -19,7 +19,7 @@ import android.widget.TextView;
     private Spinner sS;
     private Spinner sL;
     private Spinner sJ;
-
+    private Button buttonCambios;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 <span class="nc" id="L25">        super.onCreate(savedInstanceState);</span>
@@ -33,7 +33,7 @@ import android.widget.TextView;
 <span class="nc" id="L33">        sL = (Spinner) findViewById(R.id.spinnerLPieza);</span>
 <span class="nc" id="L34">        sJ = (Spinner) findViewById(R.id.spinnerJPieza);</span>
 
-<span class="nc" id="L36">        String[] opciones = {&quot;Red&quot;, &quot;Pink&quot;, &quot;Light Blue&quot;, &quot;Dark Blue&quot;, &quot;Green&quot;, &quot;Orange&quot;, &quot;Yellow&quot;};</span>
+<span class="nc" id="L36">        String[] opciones = {&quot;Red&quot;, &quot;Pink&quot;, &quot;Light Blue&quot;, &quot;Dark Blue&quot;, &quot;Green&quot;, &quot;Orange&quot;, &quot;Yellow&quot;,&quot;Random&quot;};</span>
 <span class="nc" id="L37">        ArrayAdapter&lt;String&gt; adapter = new ArrayAdapter&lt;String&gt;(this, android.R.layout.simple_spinner_item, opciones);</span>
 
 <span class="nc" id="L39">        sCuadrado.setAdapter(adapter);</span>
@@ -43,146 +43,182 @@ import android.widget.TextView;
 <span class="nc" id="L43">        sS.setAdapter(adapter);</span>
 <span class="nc" id="L44">        sL.setAdapter(adapter);</span>
 <span class="nc" id="L45">        sJ.setAdapter(adapter);</span>
-<span class="nc" id="L46">    }</span>
+
+<span class="nc" id="L47">        buttonCambios = findViewById(R.id.buttonCambios);</span>
+<span class="nc" id="L48">        buttonCambios.setOnClickListener(new View.OnClickListener() {</span>
+            @Override
+            public void onClick(View v) {
+<span class="nc" id="L51">                SetColor(v);</span>
+<span class="nc" id="L52">            }</span>
+        });
+<span class="nc" id="L54">    }</span>
+
+    public static int randomColor (int own) {
+        int num;
+        do {
+<span class="fc" id="L59">            num = (int) ((Math.random() * 7) +1);</span>
+<span class="fc bfc" id="L60" title="All 2 branches covered.">        }while(num == own);</span>
+<span class="fc" id="L61">        return num;</span>
+    }
 
     public void SetColor(View view) {//id:4 = verde, id:6 = amarillo, id:5 = naranja, id: 2 = azul claro, id:1 = rosa, id:3 = azul oscuro, id:7 = rojo
         // Cuadrado
 
-<span class="nc" id="L51">        String seleccionC = sCuadrado.getSelectedItem().toString();</span>
+<span class="nc" id="L67">        String seleccionC = sCuadrado.getSelectedItem().toString();</span>
 
-<span class="nc bnc" id="L53" title="All 2 branches missed.">        if (seleccionC.equals(&quot;Red&quot;)) {</span>
-<span class="nc" id="L54">            Tablero.setColorCuadrado(7);</span>
+<span class="nc bnc" id="L69" title="All 2 branches missed.">        if (seleccionC.equals(&quot;Red&quot;)) {</span>
+<span class="nc" id="L70">            Tablero.setColorCuadrado(7);</span>
             // codigo set cuadrado a rojo ID (integer) IDColor (integer)
         }
-<span class="nc bnc" id="L57" title="All 2 branches missed.">        if (seleccionC.equals(&quot;Pink&quot;)) {</span>
-<span class="nc" id="L58">            Tablero.setColorCuadrado(1); }</span>
-<span class="nc bnc" id="L59" title="All 2 branches missed.">        if (seleccionC.equals(&quot;Light Blue&quot;)) {</span>
-<span class="nc" id="L60">            Tablero.setColorCuadrado(2); }</span>
-<span class="nc bnc" id="L61" title="All 2 branches missed.">        if (seleccionC.equals(&quot;Dark Blue&quot;)) {</span>
-<span class="nc" id="L62">            Tablero.setColorCuadrado(3); }</span>
-<span class="nc bnc" id="L63" title="All 2 branches missed.">        if (seleccionC.equals(&quot;Green&quot;)) {</span>
-<span class="nc" id="L64">            Tablero.setColorCuadrado(4); }</span>
-<span class="nc bnc" id="L65" title="All 2 branches missed.">        if (seleccionC.equals(&quot;Orange&quot;)) {</span>
-<span class="nc" id="L66">            Tablero.setColorCuadrado(5); }</span>
-<span class="nc bnc" id="L67" title="All 2 branches missed.">        if (seleccionC.equals(&quot;Yellow&quot;)) {</span>
-<span class="nc" id="L68">            Tablero.setColorCuadrado(6); }</span>
+<span class="nc bnc" id="L73" title="All 2 branches missed.">        if (seleccionC.equals(&quot;Pink&quot;)) {</span>
+<span class="nc" id="L74">            Tablero.setColorCuadrado(1); }</span>
+<span class="nc bnc" id="L75" title="All 2 branches missed.">        if (seleccionC.equals(&quot;Light Blue&quot;)) {</span>
+<span class="nc" id="L76">            Tablero.setColorCuadrado(2); }</span>
+<span class="nc bnc" id="L77" title="All 2 branches missed.">        if (seleccionC.equals(&quot;Dark Blue&quot;)) {</span>
+<span class="nc" id="L78">            Tablero.setColorCuadrado(3); }</span>
+<span class="nc bnc" id="L79" title="All 2 branches missed.">        if (seleccionC.equals(&quot;Green&quot;)) {</span>
+<span class="nc" id="L80">            Tablero.setColorCuadrado(4); }</span>
+<span class="nc bnc" id="L81" title="All 2 branches missed.">        if (seleccionC.equals(&quot;Orange&quot;)) {</span>
+<span class="nc" id="L82">            Tablero.setColorCuadrado(5); }</span>
+<span class="nc bnc" id="L83" title="All 2 branches missed.">        if (seleccionC.equals(&quot;Yellow&quot;)) {</span>
+<span class="nc" id="L84">            Tablero.setColorCuadrado(6); }</span>
+<span class="nc bnc" id="L85" title="All 2 branches missed.">        if (seleccionC.equals(&quot;Random&quot;)) {</span>
+<span class="nc" id="L86">            Tablero.setColorCuadrado(randomColor(Tablero.getColorCuadrado()));</span>
+        }
 
         // Z Pieza
-<span class="nc" id="L71">        String seleccionZ = sZ.getSelectedItem().toString();</span>
-<span class="nc bnc" id="L72" title="All 2 branches missed.">        if (seleccionZ.equals(&quot;Red&quot;)) {</span>
+<span class="nc" id="L90">        String seleccionZ = sZ.getSelectedItem().toString();</span>
+<span class="nc bnc" id="L91" title="All 2 branches missed.">        if (seleccionZ.equals(&quot;Red&quot;)) {</span>
             // codigo set Z a rojo
-<span class="nc" id="L74">            Tablero.setColorZPieza(7);</span>
+<span class="nc" id="L93">            Tablero.setColorZPieza(7);</span>
         }
-<span class="nc bnc" id="L76" title="All 2 branches missed.">        if (seleccionZ.equals(&quot;Pink&quot;)) {</span>
-<span class="nc" id="L77">            Tablero.setColorZPieza(1); }</span>
-<span class="nc bnc" id="L78" title="All 2 branches missed.">        if (seleccionZ.equals(&quot;Light Blue&quot;)) {</span>
-<span class="nc" id="L79">            Tablero.setColorZPieza(2); }</span>
-<span class="nc bnc" id="L80" title="All 2 branches missed.">        if (seleccionZ.equals(&quot;Dark Blue&quot;)) {</span>
-<span class="nc" id="L81">            Tablero.setColorZPieza(3); }</span>
-<span class="nc bnc" id="L82" title="All 2 branches missed.">        if (seleccionZ.equals(&quot;Green&quot;)) {</span>
-<span class="nc" id="L83">            Tablero.setColorZPieza(4); }</span>
-<span class="nc bnc" id="L84" title="All 2 branches missed.">        if (seleccionZ.equals(&quot;Orange&quot;)) {</span>
-<span class="nc" id="L85">            Tablero.setColorZPieza(5); }</span>
-<span class="nc bnc" id="L86" title="All 2 branches missed.">        if (seleccionZ.equals(&quot;Yellow&quot;)) {</span>
-<span class="nc" id="L87">            Tablero.setColorZPieza(6); }</span>
+<span class="nc bnc" id="L95" title="All 2 branches missed.">        if (seleccionZ.equals(&quot;Pink&quot;)) {</span>
+<span class="nc" id="L96">            Tablero.setColorZPieza(1); }</span>
+<span class="nc bnc" id="L97" title="All 2 branches missed.">        if (seleccionZ.equals(&quot;Light Blue&quot;)) {</span>
+<span class="nc" id="L98">            Tablero.setColorZPieza(2); }</span>
+<span class="nc bnc" id="L99" title="All 2 branches missed.">        if (seleccionZ.equals(&quot;Dark Blue&quot;)) {</span>
+<span class="nc" id="L100">            Tablero.setColorZPieza(3); }</span>
+<span class="nc bnc" id="L101" title="All 2 branches missed.">        if (seleccionZ.equals(&quot;Green&quot;)) {</span>
+<span class="nc" id="L102">            Tablero.setColorZPieza(4); }</span>
+<span class="nc bnc" id="L103" title="All 2 branches missed.">        if (seleccionZ.equals(&quot;Orange&quot;)) {</span>
+<span class="nc" id="L104">            Tablero.setColorZPieza(5); }</span>
+<span class="nc bnc" id="L105" title="All 2 branches missed.">        if (seleccionZ.equals(&quot;Yellow&quot;)) {</span>
+<span class="nc" id="L106">            Tablero.setColorZPieza(6); }</span>
+<span class="nc bnc" id="L107" title="All 2 branches missed.">        if (seleccionZ.equals(&quot;Random&quot;)){</span>
+<span class="nc" id="L108">            Tablero.setColorZPieza(randomColor(Tablero.getColorZPieza()));</span>
+        }
 
         // I Pieza
-<span class="nc" id="L90">        String seleccionI = sI.getSelectedItem().toString();</span>
-<span class="nc bnc" id="L91" title="All 2 branches missed.">        if (seleccionI.equals(&quot;Red&quot;)) {</span>
+<span class="nc" id="L112">        String seleccionI = sI.getSelectedItem().toString();</span>
+<span class="nc bnc" id="L113" title="All 2 branches missed.">        if (seleccionI.equals(&quot;Red&quot;)) {</span>
             // codigo set I a rojo
-<span class="nc" id="L93">            Tablero.setColorIPieza(7);</span>
+<span class="nc" id="L115">            Tablero.setColorIPieza(7);</span>
         }
-<span class="nc bnc" id="L95" title="All 2 branches missed.">        if (seleccionI.equals(&quot;Pink&quot;)) {</span>
-<span class="nc" id="L96">            Tablero.setColorIPieza(1); }</span>
-<span class="nc bnc" id="L97" title="All 2 branches missed.">        if (seleccionI.equals(&quot;Light Blue&quot;)) {</span>
-<span class="nc" id="L98">            Tablero.setColorIPieza(2); }</span>
-<span class="nc bnc" id="L99" title="All 2 branches missed.">        if (seleccionI.equals(&quot;Dark Blue&quot;)) {</span>
-<span class="nc" id="L100">            Tablero.setColorIPieza(3); }</span>
-<span class="nc bnc" id="L101" title="All 2 branches missed.">        if (seleccionI.equals(&quot;Green&quot;)) {</span>
-<span class="nc" id="L102">            Tablero.setColorIPieza(4); }</span>
-<span class="nc bnc" id="L103" title="All 2 branches missed.">        if (seleccionI.equals(&quot;Orange&quot;)) {</span>
-<span class="nc" id="L104">            Tablero.setColorIPieza(5); }</span>
-<span class="nc bnc" id="L105" title="All 2 branches missed.">        if (seleccionI.equals(&quot;Yellow&quot;)) {</span>
-<span class="nc" id="L106">            Tablero.setColorIPieza(6); }</span>
+<span class="nc bnc" id="L117" title="All 2 branches missed.">        if (seleccionI.equals(&quot;Pink&quot;)) {</span>
+<span class="nc" id="L118">            Tablero.setColorIPieza(1); }</span>
+<span class="nc bnc" id="L119" title="All 2 branches missed.">        if (seleccionI.equals(&quot;Light Blue&quot;)) {</span>
+<span class="nc" id="L120">            Tablero.setColorIPieza(2); }</span>
+<span class="nc bnc" id="L121" title="All 2 branches missed.">        if (seleccionI.equals(&quot;Dark Blue&quot;)) {</span>
+<span class="nc" id="L122">            Tablero.setColorIPieza(3); }</span>
+<span class="nc bnc" id="L123" title="All 2 branches missed.">        if (seleccionI.equals(&quot;Green&quot;)) {</span>
+<span class="nc" id="L124">            Tablero.setColorIPieza(4); }</span>
+<span class="nc bnc" id="L125" title="All 2 branches missed.">        if (seleccionI.equals(&quot;Orange&quot;)) {</span>
+<span class="nc" id="L126">            Tablero.setColorIPieza(5); }</span>
+<span class="nc bnc" id="L127" title="All 2 branches missed.">        if (seleccionI.equals(&quot;Yellow&quot;)) {</span>
+<span class="nc" id="L128">            Tablero.setColorIPieza(6); }</span>
+<span class="nc bnc" id="L129" title="All 2 branches missed.">        if (seleccionI.equals(&quot;Random&quot;)){</span>
+<span class="nc" id="L130">            Tablero.setColorIPieza(randomColor(Tablero.getColorIPieza()));</span>
+        }
 
         // T Pieza
-<span class="nc" id="L109">        String seleccionT = sT.getSelectedItem().toString();</span>
-<span class="nc bnc" id="L110" title="All 2 branches missed.">        if (seleccionT.equals(&quot;Red&quot;)) {</span>
+<span class="nc" id="L134">        String seleccionT = sT.getSelectedItem().toString();</span>
+<span class="nc bnc" id="L135" title="All 2 branches missed.">        if (seleccionT.equals(&quot;Red&quot;)) {</span>
             // codigo set T a rojo
-<span class="nc" id="L112">            Tablero.setColorTPieza(7);</span>
+<span class="nc" id="L137">            Tablero.setColorTPieza(7);</span>
         }
-<span class="nc bnc" id="L114" title="All 2 branches missed.">        if (seleccionT.equals(&quot;Pink&quot;)) {</span>
-<span class="nc" id="L115">            Tablero.setColorTPieza(1); }</span>
-<span class="nc bnc" id="L116" title="All 2 branches missed.">        if (seleccionT.equals(&quot;Light Blue&quot;)) {</span>
-<span class="nc" id="L117">            Tablero.setColorTPieza(2); }</span>
-<span class="nc bnc" id="L118" title="All 2 branches missed.">        if (seleccionT.equals(&quot;Dark Blue&quot;)) {</span>
-<span class="nc" id="L119">            Tablero.setColorTPieza(3); }</span>
-<span class="nc bnc" id="L120" title="All 2 branches missed.">        if (seleccionT.equals(&quot;Green&quot;)) {</span>
-<span class="nc" id="L121">            Tablero.setColorTPieza(4); }</span>
-<span class="nc bnc" id="L122" title="All 2 branches missed.">        if (seleccionT.equals(&quot;Orange&quot;)) {</span>
-<span class="nc" id="L123">            Tablero.setColorTPieza(5); }</span>
-<span class="nc bnc" id="L124" title="All 2 branches missed.">        if (seleccionT.equals(&quot;Yellow&quot;)) {</span>
-<span class="nc" id="L125">            Tablero.setColorTPieza(6); }</span>
+<span class="nc bnc" id="L139" title="All 2 branches missed.">        if (seleccionT.equals(&quot;Pink&quot;)) {</span>
+<span class="nc" id="L140">            Tablero.setColorTPieza(1); }</span>
+<span class="nc bnc" id="L141" title="All 2 branches missed.">        if (seleccionT.equals(&quot;Light Blue&quot;)) {</span>
+<span class="nc" id="L142">            Tablero.setColorTPieza(2); }</span>
+<span class="nc bnc" id="L143" title="All 2 branches missed.">        if (seleccionT.equals(&quot;Dark Blue&quot;)) {</span>
+<span class="nc" id="L144">            Tablero.setColorTPieza(3); }</span>
+<span class="nc bnc" id="L145" title="All 2 branches missed.">        if (seleccionT.equals(&quot;Green&quot;)) {</span>
+<span class="nc" id="L146">            Tablero.setColorTPieza(4); }</span>
+<span class="nc bnc" id="L147" title="All 2 branches missed.">        if (seleccionT.equals(&quot;Orange&quot;)) {</span>
+<span class="nc" id="L148">            Tablero.setColorTPieza(5); }</span>
+<span class="nc bnc" id="L149" title="All 2 branches missed.">        if (seleccionT.equals(&quot;Yellow&quot;)) {</span>
+<span class="nc" id="L150">            Tablero.setColorTPieza(6); }</span>
+<span class="nc bnc" id="L151" title="All 2 branches missed.">        if (seleccionT.equals(&quot;Random&quot;)){</span>
+<span class="nc" id="L152">            Tablero.setColorTPieza(randomColor(Tablero.getColorTPieza()));</span>
+        }
 
         // S Pieza
-<span class="nc" id="L128">        String seleccionS = sS.getSelectedItem().toString();</span>
-<span class="nc bnc" id="L129" title="All 2 branches missed.">        if (seleccionS.equals(&quot;Red&quot;)) {</span>
+<span class="nc" id="L156">        String seleccionS = sS.getSelectedItem().toString();</span>
+<span class="nc bnc" id="L157" title="All 2 branches missed.">        if (seleccionS.equals(&quot;Red&quot;)) {</span>
             // codigo set S a rojo
-<span class="nc" id="L131">            Tablero.setColorSPieza(7);</span>
+<span class="nc" id="L159">            Tablero.setColorSPieza(7);</span>
         }
-<span class="nc bnc" id="L133" title="All 2 branches missed.">        if (seleccionS.equals(&quot;Pink&quot;)) {</span>
-<span class="nc" id="L134">            Tablero.setColorSPieza(1); }</span>
-<span class="nc bnc" id="L135" title="All 2 branches missed.">        if (seleccionS.equals(&quot;Light Blue&quot;)) {</span>
-<span class="nc" id="L136">            Tablero.setColorSPieza(2); }</span>
-<span class="nc bnc" id="L137" title="All 2 branches missed.">        if (seleccionS.equals(&quot;Dark Blue&quot;)) {</span>
-<span class="nc" id="L138">            Tablero.setColorSPieza(3); }</span>
-<span class="nc bnc" id="L139" title="All 2 branches missed.">        if (seleccionS.equals(&quot;Green&quot;)) {</span>
-<span class="nc" id="L140">            Tablero.setColorSPieza(4); }</span>
-<span class="nc bnc" id="L141" title="All 2 branches missed.">        if (seleccionS.equals(&quot;Orange&quot;)) {</span>
-<span class="nc" id="L142">            Tablero.setColorSPieza(5); }</span>
-<span class="nc bnc" id="L143" title="All 2 branches missed.">        if (seleccionS.equals(&quot;Yellow&quot;)) {</span>
-<span class="nc" id="L144">            Tablero.setColorSPieza(6); }</span>
+<span class="nc bnc" id="L161" title="All 2 branches missed.">        if (seleccionS.equals(&quot;Pink&quot;)) {</span>
+<span class="nc" id="L162">            Tablero.setColorSPieza(1); }</span>
+<span class="nc bnc" id="L163" title="All 2 branches missed.">        if (seleccionS.equals(&quot;Light Blue&quot;)) {</span>
+<span class="nc" id="L164">            Tablero.setColorSPieza(2); }</span>
+<span class="nc bnc" id="L165" title="All 2 branches missed.">        if (seleccionS.equals(&quot;Dark Blue&quot;)) {</span>
+<span class="nc" id="L166">            Tablero.setColorSPieza(3); }</span>
+<span class="nc bnc" id="L167" title="All 2 branches missed.">        if (seleccionS.equals(&quot;Green&quot;)) {</span>
+<span class="nc" id="L168">            Tablero.setColorSPieza(4); }</span>
+<span class="nc bnc" id="L169" title="All 2 branches missed.">        if (seleccionS.equals(&quot;Orange&quot;)) {</span>
+<span class="nc" id="L170">            Tablero.setColorSPieza(5); }</span>
+<span class="nc bnc" id="L171" title="All 2 branches missed.">        if (seleccionS.equals(&quot;Yellow&quot;)) {</span>
+<span class="nc" id="L172">            Tablero.setColorSPieza(6); }</span>
+<span class="nc bnc" id="L173" title="All 2 branches missed.">        if (seleccionS.equals(&quot;Random&quot;)){</span>
+<span class="nc" id="L174">            Tablero.setColorSPieza(randomColor(Tablero.getColorSPieza()));</span>
+        }
 
         // L Pieza
-<span class="nc" id="L147">        String seleccionL = sL.getSelectedItem().toString();</span>
-<span class="nc bnc" id="L148" title="All 2 branches missed.">        if (seleccionL.equals(&quot;Red&quot;)) {</span>
+<span class="nc" id="L178">        String seleccionL = sL.getSelectedItem().toString();</span>
+<span class="nc bnc" id="L179" title="All 2 branches missed.">        if (seleccionL.equals(&quot;Red&quot;)) {</span>
             // codigo set L a rojo
-<span class="nc" id="L150">            Tablero.setColorLPieza(7);</span>
+<span class="nc" id="L181">            Tablero.setColorLPieza(7);</span>
         }
-<span class="nc bnc" id="L152" title="All 2 branches missed.">        if (seleccionL.equals(&quot;Pink&quot;)) {</span>
-<span class="nc" id="L153">            Tablero.setColorLPieza(1); }</span>
-<span class="nc bnc" id="L154" title="All 2 branches missed.">        if (seleccionL.equals(&quot;Light Blue&quot;)) {</span>
-<span class="nc" id="L155">            Tablero.setColorLPieza(2); }</span>
-<span class="nc bnc" id="L156" title="All 2 branches missed.">        if (seleccionL.equals(&quot;Dark Blue&quot;)) {</span>
-<span class="nc" id="L157">            Tablero.setColorLPieza(3); }</span>
-<span class="nc bnc" id="L158" title="All 2 branches missed.">        if (seleccionL.equals(&quot;Green&quot;)) {</span>
-<span class="nc" id="L159">            Tablero.setColorLPieza(4); }</span>
-<span class="nc bnc" id="L160" title="All 2 branches missed.">        if (seleccionL.equals(&quot;Orange&quot;)) {</span>
-<span class="nc" id="L161">            Tablero.setColorLPieza(5); }</span>
-<span class="nc bnc" id="L162" title="All 2 branches missed.">        if (seleccionL.equals(&quot;Yellow&quot;)) {</span>
-<span class="nc" id="L163">            Tablero.setColorLPieza(6); }</span>
+<span class="nc bnc" id="L183" title="All 2 branches missed.">        if (seleccionL.equals(&quot;Pink&quot;)) {</span>
+<span class="nc" id="L184">            Tablero.setColorLPieza(1); }</span>
+<span class="nc bnc" id="L185" title="All 2 branches missed.">        if (seleccionL.equals(&quot;Light Blue&quot;)) {</span>
+<span class="nc" id="L186">            Tablero.setColorLPieza(2); }</span>
+<span class="nc bnc" id="L187" title="All 2 branches missed.">        if (seleccionL.equals(&quot;Dark Blue&quot;)) {</span>
+<span class="nc" id="L188">            Tablero.setColorLPieza(3); }</span>
+<span class="nc bnc" id="L189" title="All 2 branches missed.">        if (seleccionL.equals(&quot;Green&quot;)) {</span>
+<span class="nc" id="L190">            Tablero.setColorLPieza(4); }</span>
+<span class="nc bnc" id="L191" title="All 2 branches missed.">        if (seleccionL.equals(&quot;Orange&quot;)) {</span>
+<span class="nc" id="L192">            Tablero.setColorLPieza(5); }</span>
+<span class="nc bnc" id="L193" title="All 2 branches missed.">        if (seleccionL.equals(&quot;Yellow&quot;)) {</span>
+<span class="nc" id="L194">            Tablero.setColorLPieza(6); }</span>
+<span class="nc bnc" id="L195" title="All 2 branches missed.">        if (seleccionL.equals(&quot;Random&quot;)){</span>
+<span class="nc" id="L196">            Tablero.setColorLPieza(randomColor(Tablero.getColorLPieza()));</span>
+        }
 
         // J Pieza
-<span class="nc" id="L166">        String seleccionJ = sJ.getSelectedItem().toString();</span>
-<span class="nc bnc" id="L167" title="All 2 branches missed.">        if (seleccionJ.equals(&quot;Red&quot;)) {</span>
+<span class="nc" id="L200">        String seleccionJ = sJ.getSelectedItem().toString();</span>
+<span class="nc bnc" id="L201" title="All 2 branches missed.">        if (seleccionJ.equals(&quot;Red&quot;)) {</span>
             // codigo set cuadrado a rojo
-<span class="nc" id="L169">            Tablero.setColorJPieza(7);</span>
+<span class="nc" id="L203">            Tablero.setColorJPieza(7);</span>
         }
-<span class="nc bnc" id="L171" title="All 2 branches missed.">        if (seleccionJ.equals(&quot;Pink&quot;)) {</span>
-<span class="nc" id="L172">            Tablero.setColorJPieza(1); }</span>
-<span class="nc bnc" id="L173" title="All 2 branches missed.">        if (seleccionJ.equals(&quot;Light Blue&quot;)) {</span>
-<span class="nc" id="L174">            Tablero.setColorJPieza(2); }</span>
-<span class="nc bnc" id="L175" title="All 2 branches missed.">        if (seleccionJ.equals(&quot;Dark Blue&quot;)) {</span>
-<span class="nc" id="L176">            Tablero.setColorJPieza(3); }</span>
-<span class="nc bnc" id="L177" title="All 2 branches missed.">        if (seleccionJ.equals(&quot;Green&quot;)) {</span>
-<span class="nc" id="L178">            Tablero.setColorJPieza(4); }</span>
-<span class="nc bnc" id="L179" title="All 2 branches missed.">        if (seleccionJ.equals(&quot;Orange&quot;)) {</span>
-<span class="nc" id="L180">            Tablero.setColorJPieza(5); }</span>
-<span class="nc bnc" id="L181" title="All 2 branches missed.">        if (seleccionJ.equals(&quot;Yellow&quot;)) {</span>
-<span class="nc" id="L182">            Tablero.setColorJPieza(6); }</span>
+<span class="nc bnc" id="L205" title="All 2 branches missed.">        if (seleccionJ.equals(&quot;Pink&quot;)) {</span>
+<span class="nc" id="L206">            Tablero.setColorJPieza(1); }</span>
+<span class="nc bnc" id="L207" title="All 2 branches missed.">        if (seleccionJ.equals(&quot;Light Blue&quot;)) {</span>
+<span class="nc" id="L208">            Tablero.setColorJPieza(2); }</span>
+<span class="nc bnc" id="L209" title="All 2 branches missed.">        if (seleccionJ.equals(&quot;Dark Blue&quot;)) {</span>
+<span class="nc" id="L210">            Tablero.setColorJPieza(3); }</span>
+<span class="nc bnc" id="L211" title="All 2 branches missed.">        if (seleccionJ.equals(&quot;Green&quot;)) {</span>
+<span class="nc" id="L212">            Tablero.setColorJPieza(4); }</span>
+<span class="nc bnc" id="L213" title="All 2 branches missed.">        if (seleccionJ.equals(&quot;Orange&quot;)) {</span>
+<span class="nc" id="L214">            Tablero.setColorJPieza(5); }</span>
+<span class="nc bnc" id="L215" title="All 2 branches missed.">        if (seleccionJ.equals(&quot;Yellow&quot;)) {</span>
+<span class="nc" id="L216">            Tablero.setColorJPieza(6); }</span>
+<span class="nc bnc" id="L217" title="All 2 branches missed.">        if (seleccionJ.equals(&quot;Random&quot;)){</span>
+<span class="nc" id="L218">            Tablero.setColorJPieza(randomColor(Tablero.getColorJPieza()));</span>
+        }
 
-
-<span class="nc" id="L185">    }</span>
+<span class="nc" id="L221">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>Generated by the Android Gradle plugin 3.6.1</div></body></html>

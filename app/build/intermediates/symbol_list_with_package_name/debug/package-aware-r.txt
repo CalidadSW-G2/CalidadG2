@@ -1663,6 +1663,8 @@ id search_mag_icon
 id search_plate
 id search_src_text
 id search_voice_btn
+id second10
+id second20
 id segundo
 id select_dialog_listview
 id selected

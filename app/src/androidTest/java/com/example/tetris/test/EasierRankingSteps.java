@@ -197,7 +197,8 @@ public class EasierRankingSteps {
     public void newdefaultranking() {
         ArrayList<ContentValues> bbdd = new ArrayList<>();
         baseDeDatos = new BBDDSimulator(bbdd);
-        rellenerBBDD_Testeable(); //el segundo parte con 591, para que haya sorpasso
+        rellenerBBDD_Testeable(); //en este ranking
+        // el segundo parte con 591, para que haya sorpasso
     }
 
     @When("^NewScorWorseThanAllIsGotten$")
