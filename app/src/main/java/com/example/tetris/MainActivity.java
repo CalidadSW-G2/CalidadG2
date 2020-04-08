@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton botonDcha, botonBajar, botonIzda, botonRotar;
     private TextView puntosTextView, nivelTextView;
     private Activity myActivity;
-    private Juego juego;
+    private static Juego juego;
     private Tablero tablero = new Tablero();
     private Tablero ventana = new Tablero();
     private Button menu;
@@ -115,6 +115,8 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         Toast.makeText(this, "Para huir pulsa MENU", Toast.LENGTH_SHORT).show();
     }
+
+    public Juego getJuego() { return juego; }
 
     public ImageButton getBotonDcha() {
         return findViewById(R.id.botonDcha);

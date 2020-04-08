@@ -27,7 +27,7 @@ public class Juego extends View implements View.OnClickListener {
     private TextView puntuacion, nivel;
     private MainActivity mainActivity;
     private Tablero tablero;
-    private ArrayList<Pieza> listaPiezas;
+    private static ArrayList<Pieza> listaPiezas;
     private Random random = new Random();
     private static int puntos = 0;
     public int nivelActual = 0;
@@ -383,10 +383,11 @@ public class Juego extends View implements View.OnClickListener {
         }
     }
 
+    public static ArrayList<Pieza> getListaPiezas() { return listaPiezas; }
 
     public AudioService getNewAS(){return newas;}
 
-    public  void setPuntos(int nuevosPuntos) { puntos = puntos + nuevosPuntos; }
+    public static void setPuntos(int nuevosPuntos) { puntos = puntos + nuevosPuntos; }
 
     public static int getPuntos() {
         return puntos;
