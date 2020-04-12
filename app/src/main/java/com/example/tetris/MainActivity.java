@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton botonDcha, botonBajar, botonIzda, botonRotar;
     private TextView puntosTextView, nivelTextView;
     private Activity myActivity;
-    private static Juego juego;
+    private Juego juego;
     private Tablero tablero = new Tablero();
     private Tablero ventana = new Tablero();
     private Button menu;
@@ -157,7 +157,5 @@ public class MainActivity extends AppCompatActivity {
     public AudioService getAudio(){
         return as;
     }
-
-
 
 }

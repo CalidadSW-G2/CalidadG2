@@ -383,7 +383,11 @@ public class Juego extends View implements View.OnClickListener {
         }
     }
 
-    public static ArrayList<Pieza> getListaPiezas() { return listaPiezas; }
+    public Tablero getTablero(){
+        return tablero;
+    }
+
+    public ArrayList<Pieza> getListaPiezas() { return listaPiezas; }
 
     public AudioService getNewAS(){return newas;}
 

@@ -15,7 +15,7 @@ public class Tablero {
     private final int anchuraTablero = 10;
     public int tab[][] = new int[anchuraTablero][alturaTablero];
     private static final Random random = new Random();
-    public static ArrayList<Pieza> listaPiezas = new ArrayList<Pieza>();
+    public ArrayList<Pieza> listaPiezas = new ArrayList<Pieza>();
     private static final int numeroPiezas = 7;
     private static int colorCuadrado = 1;
     private static int colorZPieza = 2;
@@ -31,7 +31,7 @@ public class Tablero {
         listaPiezas.add(new Pieza(random.nextInt(numeroPiezas) + 1, 0));
     }
 
-    public static void generarPieza(int altura) {
+    public void generarPieza(int altura) {
         listaPiezas.add(new Pieza(random.nextInt(numeroPiezas) + 1, altura));
     }
 
