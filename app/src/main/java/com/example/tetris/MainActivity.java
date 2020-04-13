@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private Activity myActivity;
     private Juego juego;
     private int modo;
+    private int puntos;
     private Tablero tablero = new Tablero();
     private Tablero ventana = new Tablero();
     private Button menu;
@@ -69,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         RelativeLayout relativeTetris = (RelativeLayout) findViewById(R.id.layoutTablero);
         juego.setBackgroundColor(Color.LTGRAY);
         relativeTetris.addView(juego);
+        puntos = juego.getPuntos();
 
         sencond10 = findViewById(R.id.second10);
         sencond10.setOnClickListener(new View.OnClickListener() {
@@ -160,5 +162,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public int getModo() { return modo; }
+
+    public int getPuntosInt() {return puntos; }
 
 }

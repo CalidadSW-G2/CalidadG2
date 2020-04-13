@@ -79,7 +79,7 @@ public class JuegoIntegrationTest {
 
     @Then("^Juego in MainActivity class should have 100 points$")
     public void checkIncrementPoints(){
-        Assert.assertEquals(ma.getJuego().getPuntos(),100);
+        Assert.assertEquals(ma.getPuntosInt(),100);
     }
 
     @Then("^MainActivity and Juego gamemode should be the same$")
