@@ -42,7 +42,7 @@ public class Juego extends View implements View.OnClickListener {
     private int restoSnap = 0;
     private int puntosSnap = 100;
     private int alturaVariable;
-    private int modo;
+    private static int modo;
     private Pieza troll;
     private int restoPieza;
     private int chasquido = 0;
@@ -383,9 +383,9 @@ public class Juego extends View implements View.OnClickListener {
         }
     }
 
-    public Tablero getTablero(){
-        return tablero;
-    }
+    public static int getModo() { return modo; }
+
+    public Tablero getTablero(){ return tablero; }
 
     public ArrayList<Pieza> getListaPiezas() { return listaPiezas; }
 

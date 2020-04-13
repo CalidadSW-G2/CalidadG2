@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView puntosTextView, nivelTextView;
     private Activity myActivity;
     private Juego juego;
+    private int modo;
     private Tablero tablero = new Tablero();
     private Tablero ventana = new Tablero();
     private Button menu;
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         as.start(this, R.raw.acdcbackinblack);
 
         Bundle b = this.getIntent().getExtras();
-        int modo = b.getInt("MODO");
+        modo = b.getInt("MODO");
 
         Juego.reiniciarPuntos();
 
@@ -157,5 +158,7 @@ public class MainActivity extends AppCompatActivity {
     public AudioService getAudio(){
         return as;
     }
+
+    public int getModo() { return modo; }
 
 }

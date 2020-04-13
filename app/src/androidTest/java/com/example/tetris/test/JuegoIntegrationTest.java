@@ -2,6 +2,7 @@ package com.example.tetris.test;
 
 import com.example.tetris.Juego;
 import com.example.tetris.MainActivity;
+import com.example.tetris.Pieza;
 import com.example.tetris.Tablero;
 
 import org.junit.Assert;
@@ -15,6 +16,9 @@ public class JuegoIntegrationTest {
     Tablero tablero;
     Juego juego;
     MainActivity ma;
+    Pieza pieza;
+
+    /* First and second scenario*/
 
     @Given("^Tablero class generates all the pieces$")
     public void setupTablero() {
@@ -22,10 +26,16 @@ public class JuegoIntegrationTest {
     }
 
     @When("^Juego class creates two more pieces$")
-    public void setupJuego() {
+    public void setupJuegoIncremented() {
         juego = new Juego(null,tablero,null,0,null);
         juego.getTablero().generarPieza(1);
         juego.getTablero().generarPieza(2);
+    }
+
+    @When("^Juego class removes a piece$")
+    public void setupJuegoDecremented() {
+        juego = new Juego(null,tablero,null,0,null);
+        juego.getTablero().borrarPieza();
     }
 
     @Then("^Tablero and Juego should have the same number of pieces$")
@@ -33,9 +43,33 @@ public class JuegoIntegrationTest {
         Assert.assertEquals(tablero.getListaPiezas().size(),juego.getListaPiezas().size());
     }
 
-    @Given("^MainActivity class generates Juego with 0 points$")
+    /* Third scenario */
+
+    @Given("^Tablero generates a new piece$")
+    public void tableroGeneratesNewPiece(){
+        tablero = new Tablero();
+        tablero.generarPieza(5);
+    }
+
+    @When("^Tablero deletes the new created piece$")
+    public void tableroDeletesThatPiece(){
+        int index = tablero.getListaPiezas().size()-1;
+        pieza = tablero.getListaPiezas().get(index);
+        tablero.borrarPieza(pieza);
+        tablero.getListaPiezas().remove(pieza);
+        Juego juego = new Juego(null,tablero,null,0,null);
+    }
+
+    @Then("^Juego should not have that piece$")
+    public void checkNotSpecificPieceInJuego(){
+        Assert.assertEquals(juego.getListaPiezas().contains(pieza),false);
+    }
+
+    /* Fourth and fifth Scenario*/
+
+    @Given("^MainActivity class generates Juego$")
     public void setupMainActivity(){
-        MainActivity ma = new MainActivity();
+        ma = new MainActivity();
     }
 
     @When("^Juego changes player points$")
@@ -46,6 +80,11 @@ public class JuegoIntegrationTest {
     @Then("^Juego in MainActivity class should have 100 points$")
     public void checkIncrementPoints(){
         Assert.assertEquals(ma.getJuego().getPuntos(),100);
+    }
+
+    @Then("^MainActivity and Juego gamemode should be the same$")
+    public void checkGamemode(){
+        Assert.assertEquals(ma.getModo(),Juego.getModo());
     }
 
 }
