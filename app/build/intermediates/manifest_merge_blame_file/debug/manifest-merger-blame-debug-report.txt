@@ -6,127 +6,126 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="15"
-8-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml
+8-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="29" />
-9-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml
+9-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml
 10
 11    <uses-feature
-11-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:5:5-6:35
+11-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:5:5-6:35
 12        android:name="android.hardware.camera"
-12-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:5:19-57
+12-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:5:19-57
 13        android:required="true" />
-13-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:6:9-32
+13-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:6:9-32
 14
 15    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-15-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:7:5-80
-15-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:7:22-78
+15-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:7:5-80
+15-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:7:22-78
 16
 17    <application
-17-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:9:5-60:19
+17-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:9:5-60:19
 18        android:allowBackup="true"
-18-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:10:9-35
+18-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:10:9-35
 19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-19-->[androidx.core:core:1.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\59b85a6fa9e503d16ce6f2c531c10d0a\core-1.1.0\AndroidManifest.xml:24:18-86
+19-->[androidx.core:core:1.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\72194278d2ed76c03101107da07eeec6\core-1.1.0\AndroidManifest.xml:24:18-86
 20        android:debuggable="true"
 21        android:icon="@mipmap/ic_launcher"
-21-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:11:9-43
+21-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:11:9-43
 22        android:label="@string/app_name"
-22-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:12:9-41
+22-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:12:9-41
 23        android:roundIcon="@mipmap/ic_launcher_round"
-23-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:13:9-54
+23-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:13:9-54
 24        android:supportsRtl="true"
-24-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:14:9-35
-25        android:testOnly="true"
-26        android:theme="@style/AppTheme" >
-26-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:15:9-40
-27        <activity
-27-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:16:9-18:15
-28            android:name="com.example.tetris.Rankings"
-28-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:16:19-43
-29            android:theme="@style/Theme.AppCompat.NoActionBar" />
-29-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:17:13-63
-30        <activity
-30-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:19:9-21:65
-31            android:name="com.example.tetris.CreditosActivity"
-31-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:20:13-45
-32            android:theme="@style/Theme.AppCompat.NoActionBar" />
-32-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:21:13-63
-33        <activity
-33-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:22:9-24:65
-34            android:name="com.example.tetris.ColoresActivity"
-34-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:23:13-44
-35            android:theme="@style/Theme.AppCompat.NoActionBar" />
-35-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:24:13-63
-36        <activity
-36-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:25:9-27:65
-37            android:name="com.example.tetris.InstruccionesActivity"
-37-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:26:13-50
-38            android:theme="@style/Theme.AppCompat.NoActionBar" />
-38-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:27:13-63
-39        <activity
-39-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:28:9-30:65
-40            android:name="com.example.tetris.AjustesActivity"
-40-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:29:13-44
-41            android:theme="@style/Theme.AppCompat.NoActionBar" />
-41-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:30:13-63
-42        <activity
-42-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:31:9-33:66
-43            android:name="com.example.tetris.Exit"
-43-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:32:13-33
-44            android:theme="@style/Theme.AppCompat.NoActionBar" />
-44-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:33:13-63
-45        <activity
-45-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:34:9-42:20
-46            android:name="com.example.tetris.Inicio"
-46-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:35:13-35
-47            android:theme="@style/Theme.AppCompat.NoActionBar" >
-47-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:36:13-63
-48            <intent-filter>
-48-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:37:13-41:29
-49                <action android:name="android.intent.action.MAIN" />
-49-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:38:17-69
-49-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:38:25-66
-50
-51                <category android:name="android.intent.category.LAUNCHER" />
-51-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:40:17-77
-51-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:40:27-74
-52            </intent-filter>
-53        </activity>
-54
-55        <service
-55-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:43:9-46:48
-56            android:name="com.example.tetris.AudioService"
-56-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:44:13-41
-57            android:icon="@mipmap/ic_launcher"
-57-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:45:13-47
-58            android:label="@string/app_name" />
-58-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:46:13-45
-59
-60        <activity
-60-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:47:9-49:66
-61            android:name="com.example.tetris.MainActivity"
-61-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:48:13-41
-62            android:theme="@style/Theme.AppCompat.NoActionBar" />
-62-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:49:13-63
-63
-64        <provider
-64-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:50:9-59:20
-65            android:name="androidx.core.content.FileProvider"
-65-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:51:13-62
-66            android:authorities="com.example.android.fileprovider"
-66-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:52:13-67
-67            android:exported="false"
-67-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:53:13-37
-68            android:grantUriPermissions="true" >
-68-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:54:13-47
-69            <meta-data
-69-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:55:13-58:25
-70                android:name="android.support.FILE_PROVIDER_PATHS"
-70-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:56:17-67
-71                android:resource="@xml/file_paths" >
-71-->C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:57:17-51
-72            </meta-data>
-73        </provider>
-74    </application>
-75
-76</manifest>
+24-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:14:9-35
+25        android:theme="@style/AppTheme" >
+25-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:15:9-40
+26        <activity
+26-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:16:9-18:15
+27            android:name="com.example.tetris.Rankings"
+27-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:16:19-43
+28            android:theme="@style/Theme.AppCompat.NoActionBar" />
+28-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:17:13-63
+29        <activity
+29-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:19:9-21:65
+30            android:name="com.example.tetris.CreditosActivity"
+30-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:20:13-45
+31            android:theme="@style/Theme.AppCompat.NoActionBar" />
+31-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:21:13-63
+32        <activity
+32-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:22:9-24:65
+33            android:name="com.example.tetris.ColoresActivity"
+33-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:23:13-44
+34            android:theme="@style/Theme.AppCompat.NoActionBar" />
+34-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:24:13-63
+35        <activity
+35-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:25:9-27:65
+36            android:name="com.example.tetris.InstruccionesActivity"
+36-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:26:13-50
+37            android:theme="@style/Theme.AppCompat.NoActionBar" />
+37-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:27:13-63
+38        <activity
+38-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:28:9-30:65
+39            android:name="com.example.tetris.AjustesActivity"
+39-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:29:13-44
+40            android:theme="@style/Theme.AppCompat.NoActionBar" />
+40-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:30:13-63
+41        <activity
+41-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:31:9-33:66
+42            android:name="com.example.tetris.Exit"
+42-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:32:13-33
+43            android:theme="@style/Theme.AppCompat.NoActionBar" />
+43-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:33:13-63
+44        <activity
+44-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:34:9-42:20
+45            android:name="com.example.tetris.Inicio"
+45-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:35:13-35
+46            android:theme="@style/Theme.AppCompat.NoActionBar" >
+46-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:36:13-63
+47            <intent-filter>
+47-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:37:13-41:29
+48                <action android:name="android.intent.action.MAIN" />
+48-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:38:17-69
+48-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:38:25-66
+49
+50                <category android:name="android.intent.category.LAUNCHER" />
+50-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:40:17-77
+50-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:40:27-74
+51            </intent-filter>
+52        </activity>
+53
+54        <service
+54-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:43:9-46:48
+55            android:name="com.example.tetris.AudioService"
+55-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:44:13-41
+56            android:icon="@mipmap/ic_launcher"
+56-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:45:13-47
+57            android:label="@string/app_name" />
+57-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:46:13-45
+58
+59        <activity
+59-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:47:9-49:66
+60            android:name="com.example.tetris.MainActivity"
+60-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:48:13-41
+61            android:theme="@style/Theme.AppCompat.NoActionBar" />
+61-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:49:13-63
+62
+63        <provider
+63-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:50:9-59:20
+64            android:name="androidx.core.content.FileProvider"
+64-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:51:13-62
+65            android:authorities="com.example.android.fileprovider"
+65-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:52:13-67
+66            android:exported="false"
+66-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:53:13-37
+67            android:grantUriPermissions="true" >
+67-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:54:13-47
+68            <meta-data
+68-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:55:13-58:25
+69                android:name="android.support.FILE_PROVIDER_PATHS"
+69-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:56:17-67
+70                android:resource="@xml/file_paths" >
+70-->D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:57:17-51
+71            </meta-data>
+72        </provider>
+73    </application>
+74
+75</manifest>
