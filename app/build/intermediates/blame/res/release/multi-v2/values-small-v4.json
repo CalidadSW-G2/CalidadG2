@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Marcos\\Desktop\\Carrera\\3 Curso\\Segundo Cuatrimestre\\Calidad del Software\\ProyectoCalidad\\CalidadG2\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-small-v4\\values-small-v4.xml",
+            "outputFile": "D:\\Documents\\GitHub\\CalidadG2\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-small-v4\\values-small-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Marcos\\.gradle\\caches\\transforms-2\\files-2.1\\809cc3f2bba1c774735061f0594f7d7f\\material-1.1.0\\res\\values-small-v4\\values-small-v4.xml",
+                    "source": "C:\\Users\\alvar\\.gradle\\caches\\transforms-2\\files-2.1\\a1ada4668eee414853b5b5710430b7a6\\material-1.1.0\\res\\values-small-v4\\values-small-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

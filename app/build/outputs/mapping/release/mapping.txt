@@ -1,5 +1,5 @@
 # compiler: R8
-# compiler_version: 1.6.67
+# compiler_version: 1.6.82
 # min_api: 15
 # pg_map_id: 02e93ce
 # common_typos_disable

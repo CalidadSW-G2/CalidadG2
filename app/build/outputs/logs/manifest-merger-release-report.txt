@@ -1,237 +1,237 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:2:1-62:12
-INJECTED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:2:1-62:12
-INJECTED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:2:1-62:12
-INJECTED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:2:1-62:12
-MERGED from [com.google.android.material:material:1.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\809cc3f2bba1c774735061f0594f7d7f\material-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\b7b23e1493e81561b03c52000804cbc3\appcompat-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\8d1bb3b1784a5540d9bd0784f9632958\constraintlayout-1.1.3\AndroidManifest.xml:2:1-11:12
-MERGED from [pl.droidsonroids.gif:android-gif-drawable:1.2.7] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\c1ea278cbed298221676fd19f569199f\jetified-android-gif-drawable-1.2.7\AndroidManifest.xml:2:1-11:12
-MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\7bbf48d6fe9ea0e4c35fcd173e08d4b5\jetified-viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\5330110c177b4f4d56c41cff895a7bda\fragment-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\a516538c0c442aa198f52466a45e2a08\jetified-appcompat-resources-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\0706d33ce4cbd80e60736dee29e696e5\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\a5ec3da6668080c4914c6bbd6ffb0772\coordinatorlayout-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.transition:transition:1.2.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\dd4c7f631be2be79190f8aff2df2a74a\transition-1.2.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\d7e0c37caad683cafd2173770a0de63f\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\16a4fb79b4976729a3fae8bcc90573ba\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\e206f123464e69b25b42aced47cfbf8b\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.loader:loader:1.0.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\095f5740028e3423a00ecc428d8e15a7\loader-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.activity:activity:1.0.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\aaded7ff58af8b4eb676411b30c86486\jetified-activity-1.0.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\608c26a4253bdc7399ebcf4c9937b585\recyclerview-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.customview:customview:1.0.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\dbee659fed283a9f963359fc60e10973\customview-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.core:core:1.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\59b85a6fa9e503d16ce6f2c531c10d0a\core-1.1.0\AndroidManifest.xml:17:1-26:12
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\0d1ef0bc05b28c4e209eefb5a0d700af\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\3a8f0a81779c8d951d56ab0e5fb0836a\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\a0789bfe6657dab06edcbc683805c408\versionedparcelable-1.1.0\AndroidManifest.xml:17:1-27:12
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\29c019f013715e45a6baf99e8c22c0da\lifecycle-runtime-2.1.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\6c3319ab0b21a3beef26f9cbcee1543f\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\f0c7d4c78081e6b414d1fddf37c0be1e\jetified-savedstate-1.0.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\f40b21e2c6cadfd4635389aec67c188f\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\14964655e0a0fe160d3aa46e0193ab2b\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\ed0d0f181bf360a672e9239a54215c82\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\c42e503be5f82ef53d52d60d53c5b0a0\core-runtime-2.0.0\AndroidManifest.xml:17:1-22:12
-INJECTED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:2:1-62:12
-INJECTED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:2:1-62:12
-INJECTED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:2:1-62:12
+ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:2:1-62:12
+INJECTED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:2:1-62:12
+INJECTED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:2:1-62:12
+INJECTED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:2:1-62:12
+MERGED from [com.google.android.material:material:1.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\a1ada4668eee414853b5b5710430b7a6\material-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\87a1e05fe904cb787a8bbb0258944015\appcompat-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\0f002fdbc5940bd65c368be3916e33c3\constraintlayout-1.1.3\AndroidManifest.xml:2:1-11:12
+MERGED from [pl.droidsonroids.gif:android-gif-drawable:1.2.7] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\62b8eb2c9d02d5d7f527cfee1b45152a\jetified-android-gif-drawable-1.2.7\AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\4dc2fffda6f57cd4d04f7eaa80213fc8\jetified-viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\1bcc324a1fa3121b042acce54b6ac584\fragment-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\1eed070a98320b3edd46a1f48b026216\jetified-appcompat-resources-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\1fe173a969767fcbc7535a91b5cecaaa\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\2321506d7e936e83a3e0b0ac73347c22\coordinatorlayout-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\db412e1520a5bc277a413195c5a9bf51\transition-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\bb2e46988bcfb6c248a02cb38c0b825c\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\0492e5c33d70c91da5f3fe8766f25a5e\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\a1acd9a1f11fd83f7e237e3da57b32e9\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\8cb0699c8e74770757027aa567028369\loader-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.0.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\1fea02bba654f0278a25f39296b25aab\jetified-activity-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\9ccea7b8ea45980a3df4b757f02f4e39\recyclerview-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\bc60168f87479263555ae2d0178f0a38\customview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\e85aa1ac0d1113fe5782750528a1dbf5\core-1.1.0\AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\3cdb1e9f2e5f785d417fd50613fa5249\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\bd45c268ba4a75d83936a369cb646d6e\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\860df4b7257676090f6869be9ff4ce35\versionedparcelable-1.1.0\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\e106a9f358fd97875a6ccc5957bcd3a4\lifecycle-runtime-2.1.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\603523041c59757a2e0e1591d209f33c\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\556340745191ad875652e14e59ba4226\jetified-savedstate-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\1fa29261df9e34643e852ca04cf5ebf5\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\4faf6f679efdc91bc89f392d649cb150\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\d7927bbc17b1f0fc303de1f41c6f84a7\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\61ca8c816f5680c2b8f9ea1a2dae4869\core-runtime-2.0.0\AndroidManifest.xml:17:1-22:12
+INJECTED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:2:1-62:12
+INJECTED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:2:1-62:12
+INJECTED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:2:1-62:12
 	package
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:3:5-33
-		INJECTED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:3:5-33
+		INJECTED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:2:1-62:12
-		INJECTED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:2:1-62:12
+		INJECTED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml
 	android:versionCode
-		INJECTED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:2:1-62:12
-		INJECTED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:2:1-62:12
+		INJECTED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:2:11-69
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:2:11-69
 uses-feature#android.hardware.camera
-ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:5:5-6:35
+ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:5:5-6:35
 	android:required
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:6:9-32
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:6:9-32
 	android:name
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:5:19-57
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:5:19-57
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:7:5-80
+ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:7:5-80
 	android:name
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:7:22-78
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:7:22-78
 application
-ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:9:5-60:19
-MERGED from [com.google.android.material:material:1.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\809cc3f2bba1c774735061f0594f7d7f\material-1.1.0\AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.material:material:1.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\809cc3f2bba1c774735061f0594f7d7f\material-1.1.0\AndroidManifest.xml:22:5-20
-MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\8d1bb3b1784a5540d9bd0784f9632958\constraintlayout-1.1.3\AndroidManifest.xml:9:5-20
-MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\8d1bb3b1784a5540d9bd0784f9632958\constraintlayout-1.1.3\AndroidManifest.xml:9:5-20
-MERGED from [androidx.core:core:1.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\59b85a6fa9e503d16ce6f2c531c10d0a\core-1.1.0\AndroidManifest.xml:24:5-89
-MERGED from [androidx.core:core:1.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\59b85a6fa9e503d16ce6f2c531c10d0a\core-1.1.0\AndroidManifest.xml:24:5-89
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\a0789bfe6657dab06edcbc683805c408\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\a0789bfe6657dab06edcbc683805c408\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
+ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:9:5-60:19
+MERGED from [com.google.android.material:material:1.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\a1ada4668eee414853b5b5710430b7a6\material-1.1.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\a1ada4668eee414853b5b5710430b7a6\material-1.1.0\AndroidManifest.xml:22:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\0f002fdbc5940bd65c368be3916e33c3\constraintlayout-1.1.3\AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\0f002fdbc5940bd65c368be3916e33c3\constraintlayout-1.1.3\AndroidManifest.xml:9:5-20
+MERGED from [androidx.core:core:1.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\e85aa1ac0d1113fe5782750528a1dbf5\core-1.1.0\AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\e85aa1ac0d1113fe5782750528a1dbf5\core-1.1.0\AndroidManifest.xml:24:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\860df4b7257676090f6869be9ff4ce35\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\860df4b7257676090f6869be9ff4ce35\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
 	android:appComponentFactory
-		ADDED from [androidx.core:core:1.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\59b85a6fa9e503d16ce6f2c531c10d0a\core-1.1.0\AndroidManifest.xml:24:18-86
+		ADDED from [androidx.core:core:1.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\e85aa1ac0d1113fe5782750528a1dbf5\core-1.1.0\AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:14:9-35
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:14:9-35
 	android:label
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:12:9-41
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:12:9-41
 	android:roundIcon
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:13:9-54
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:13:9-54
 	android:icon
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:11:9-43
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:11:9-43
 	android:allowBackup
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:10:9-35
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:10:9-35
 	android:theme
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:15:9-40
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:15:9-40
 activity#com.example.tetris.Rankings
-ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:16:9-18:15
+ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:16:9-18:15
 	android:theme
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:17:13-63
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:17:13-63
 	android:name
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:16:19-43
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:16:19-43
 activity#com.example.tetris.CreditosActivity
-ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:19:9-21:65
+ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:19:9-21:65
 	android:theme
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:21:13-63
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:21:13-63
 	android:name
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:20:13-45
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:20:13-45
 activity#com.example.tetris.ColoresActivity
-ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:22:9-24:65
+ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:22:9-24:65
 	android:theme
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:24:13-63
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:24:13-63
 	android:name
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:23:13-44
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:23:13-44
 activity#com.example.tetris.InstruccionesActivity
-ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:25:9-27:65
+ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:25:9-27:65
 	android:theme
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:27:13-63
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:27:13-63
 	android:name
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:26:13-50
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:26:13-50
 activity#com.example.tetris.AjustesActivity
-ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:28:9-30:65
+ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:28:9-30:65
 	android:theme
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:30:13-63
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:30:13-63
 	android:name
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:29:13-44
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:29:13-44
 activity#com.example.tetris.Exit
-ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:31:9-33:66
+ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:31:9-33:66
 	android:theme
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:33:13-63
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:33:13-63
 	android:name
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:32:13-33
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:32:13-33
 activity#com.example.tetris.Inicio
-ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:34:9-42:20
+ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:34:9-42:20
 	android:theme
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:36:13-63
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:36:13-63
 	android:name
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:35:13-35
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:35:13-35
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:37:13-41:29
+ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:37:13-41:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:38:17-69
+ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:38:17-69
 	android:name
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:38:25-66
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:38:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:40:17-77
+ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:40:17-77
 	android:name
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:40:27-74
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:40:27-74
 service#com.example.tetris.AudioService
-ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:43:9-46:48
+ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:43:9-46:48
 	android:label
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:46:13-45
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:46:13-45
 	android:icon
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:45:13-47
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:45:13-47
 	android:name
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:44:13-41
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:44:13-41
 activity#com.example.tetris.MainActivity
-ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:47:9-49:66
+ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:47:9-49:66
 	android:theme
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:49:13-63
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:49:13-63
 	android:name
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:48:13-41
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:48:13-41
 provider#androidx.core.content.FileProvider
-ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:50:9-59:20
+ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:50:9-59:20
 	android:grantUriPermissions
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:54:13-47
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:54:13-47
 	android:authorities
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:52:13-67
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:52:13-67
 	android:exported
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:53:13-37
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:53:13-37
 	android:name
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:51:13-62
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:51:13-62
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:55:13-58:25
+ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:55:13-58:25
 	android:resource
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:57:17-51
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:57:17-51
 	android:name
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml:56:17-67
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml:56:17-67
 uses-sdk
-INJECTED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml
-MERGED from [com.google.android.material:material:1.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\809cc3f2bba1c774735061f0594f7d7f\material-1.1.0\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.material:material:1.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\809cc3f2bba1c774735061f0594f7d7f\material-1.1.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\b7b23e1493e81561b03c52000804cbc3\appcompat-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\b7b23e1493e81561b03c52000804cbc3\appcompat-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\8d1bb3b1784a5540d9bd0784f9632958\constraintlayout-1.1.3\AndroidManifest.xml:5:5-7:41
-MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\8d1bb3b1784a5540d9bd0784f9632958\constraintlayout-1.1.3\AndroidManifest.xml:5:5-7:41
-MERGED from [pl.droidsonroids.gif:android-gif-drawable:1.2.7] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\c1ea278cbed298221676fd19f569199f\jetified-android-gif-drawable-1.2.7\AndroidManifest.xml:7:5-9:41
-MERGED from [pl.droidsonroids.gif:android-gif-drawable:1.2.7] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\c1ea278cbed298221676fd19f569199f\jetified-android-gif-drawable-1.2.7\AndroidManifest.xml:7:5-9:41
-MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\7bbf48d6fe9ea0e4c35fcd173e08d4b5\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\7bbf48d6fe9ea0e4c35fcd173e08d4b5\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\5330110c177b4f4d56c41cff895a7bda\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\5330110c177b4f4d56c41cff895a7bda\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\a516538c0c442aa198f52466a45e2a08\jetified-appcompat-resources-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\a516538c0c442aa198f52466a45e2a08\jetified-appcompat-resources-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\0706d33ce4cbd80e60736dee29e696e5\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\0706d33ce4cbd80e60736dee29e696e5\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\a5ec3da6668080c4914c6bbd6ffb0772\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\a5ec3da6668080c4914c6bbd6ffb0772\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.transition:transition:1.2.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\dd4c7f631be2be79190f8aff2df2a74a\transition-1.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.transition:transition:1.2.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\dd4c7f631be2be79190f8aff2df2a74a\transition-1.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\d7e0c37caad683cafd2173770a0de63f\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\d7e0c37caad683cafd2173770a0de63f\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\16a4fb79b4976729a3fae8bcc90573ba\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\16a4fb79b4976729a3fae8bcc90573ba\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\e206f123464e69b25b42aced47cfbf8b\viewpager-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\e206f123464e69b25b42aced47cfbf8b\viewpager-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.loader:loader:1.0.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\095f5740028e3423a00ecc428d8e15a7\loader-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.loader:loader:1.0.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\095f5740028e3423a00ecc428d8e15a7\loader-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.activity:activity:1.0.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\aaded7ff58af8b4eb676411b30c86486\jetified-activity-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.activity:activity:1.0.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\aaded7ff58af8b4eb676411b30c86486\jetified-activity-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\608c26a4253bdc7399ebcf4c9937b585\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\608c26a4253bdc7399ebcf4c9937b585\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.customview:customview:1.0.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\dbee659fed283a9f963359fc60e10973\customview-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.customview:customview:1.0.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\dbee659fed283a9f963359fc60e10973\customview-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.core:core:1.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\59b85a6fa9e503d16ce6f2c531c10d0a\core-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.core:core:1.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\59b85a6fa9e503d16ce6f2c531c10d0a\core-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\0d1ef0bc05b28c4e209eefb5a0d700af\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\0d1ef0bc05b28c4e209eefb5a0d700af\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\3a8f0a81779c8d951d56ab0e5fb0836a\cardview-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\3a8f0a81779c8d951d56ab0e5fb0836a\cardview-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\a0789bfe6657dab06edcbc683805c408\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\a0789bfe6657dab06edcbc683805c408\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\29c019f013715e45a6baf99e8c22c0da\lifecycle-runtime-2.1.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\29c019f013715e45a6baf99e8c22c0da\lifecycle-runtime-2.1.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\6c3319ab0b21a3beef26f9cbcee1543f\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\6c3319ab0b21a3beef26f9cbcee1543f\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\f0c7d4c78081e6b414d1fddf37c0be1e\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\f0c7d4c78081e6b414d1fddf37c0be1e\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\f40b21e2c6cadfd4635389aec67c188f\interpolator-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\f40b21e2c6cadfd4635389aec67c188f\interpolator-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\14964655e0a0fe160d3aa46e0193ab2b\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\14964655e0a0fe160d3aa46e0193ab2b\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\ed0d0f181bf360a672e9239a54215c82\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\ed0d0f181bf360a672e9239a54215c82\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\c42e503be5f82ef53d52d60d53c5b0a0\core-runtime-2.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\Marcos\.gradle\caches\transforms-2\files-2.1\c42e503be5f82ef53d52d60d53c5b0a0\core-runtime-2.0.0\AndroidManifest.xml:20:5-44
-INJECTED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml
+INJECTED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml
+INJECTED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml
+MERGED from [com.google.android.material:material:1.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\a1ada4668eee414853b5b5710430b7a6\material-1.1.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\a1ada4668eee414853b5b5710430b7a6\material-1.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\87a1e05fe904cb787a8bbb0258944015\appcompat-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\87a1e05fe904cb787a8bbb0258944015\appcompat-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\0f002fdbc5940bd65c368be3916e33c3\constraintlayout-1.1.3\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\0f002fdbc5940bd65c368be3916e33c3\constraintlayout-1.1.3\AndroidManifest.xml:5:5-7:41
+MERGED from [pl.droidsonroids.gif:android-gif-drawable:1.2.7] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\62b8eb2c9d02d5d7f527cfee1b45152a\jetified-android-gif-drawable-1.2.7\AndroidManifest.xml:7:5-9:41
+MERGED from [pl.droidsonroids.gif:android-gif-drawable:1.2.7] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\62b8eb2c9d02d5d7f527cfee1b45152a\jetified-android-gif-drawable-1.2.7\AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\4dc2fffda6f57cd4d04f7eaa80213fc8\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\4dc2fffda6f57cd4d04f7eaa80213fc8\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\1bcc324a1fa3121b042acce54b6ac584\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\1bcc324a1fa3121b042acce54b6ac584\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\1eed070a98320b3edd46a1f48b026216\jetified-appcompat-resources-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\1eed070a98320b3edd46a1f48b026216\jetified-appcompat-resources-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\1fe173a969767fcbc7535a91b5cecaaa\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\1fe173a969767fcbc7535a91b5cecaaa\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\2321506d7e936e83a3e0b0ac73347c22\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\2321506d7e936e83a3e0b0ac73347c22\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\db412e1520a5bc277a413195c5a9bf51\transition-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\db412e1520a5bc277a413195c5a9bf51\transition-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\bb2e46988bcfb6c248a02cb38c0b825c\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\bb2e46988bcfb6c248a02cb38c0b825c\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\0492e5c33d70c91da5f3fe8766f25a5e\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\0492e5c33d70c91da5f3fe8766f25a5e\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\a1acd9a1f11fd83f7e237e3da57b32e9\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\a1acd9a1f11fd83f7e237e3da57b32e9\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\8cb0699c8e74770757027aa567028369\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\8cb0699c8e74770757027aa567028369\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.0.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\1fea02bba654f0278a25f39296b25aab\jetified-activity-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.0.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\1fea02bba654f0278a25f39296b25aab\jetified-activity-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\9ccea7b8ea45980a3df4b757f02f4e39\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\9ccea7b8ea45980a3df4b757f02f4e39\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\bc60168f87479263555ae2d0178f0a38\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\bc60168f87479263555ae2d0178f0a38\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\e85aa1ac0d1113fe5782750528a1dbf5\core-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\e85aa1ac0d1113fe5782750528a1dbf5\core-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\3cdb1e9f2e5f785d417fd50613fa5249\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\3cdb1e9f2e5f785d417fd50613fa5249\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\bd45c268ba4a75d83936a369cb646d6e\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\bd45c268ba4a75d83936a369cb646d6e\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\860df4b7257676090f6869be9ff4ce35\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\860df4b7257676090f6869be9ff4ce35\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\e106a9f358fd97875a6ccc5957bcd3a4\lifecycle-runtime-2.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\e106a9f358fd97875a6ccc5957bcd3a4\lifecycle-runtime-2.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\603523041c59757a2e0e1591d209f33c\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\603523041c59757a2e0e1591d209f33c\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\556340745191ad875652e14e59ba4226\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\556340745191ad875652e14e59ba4226\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\1fa29261df9e34643e852ca04cf5ebf5\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\1fa29261df9e34643e852ca04cf5ebf5\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\4faf6f679efdc91bc89f392d649cb150\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\4faf6f679efdc91bc89f392d649cb150\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\d7927bbc17b1f0fc303de1f41c6f84a7\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\d7927bbc17b1f0fc303de1f41c6f84a7\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\61ca8c816f5680c2b8f9ea1a2dae4869\core-runtime-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\alvar\.gradle\caches\transforms-2\files-2.1\61ca8c816f5680c2b8f9ea1a2dae4869\core-runtime-2.0.0\AndroidManifest.xml:20:5-44
+INJECTED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml
+INJECTED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Marcos\Desktop\Carrera\3 Curso\Segundo Cuatrimestre\Calidad del Software\ProyectoCalidad\CalidadG2\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml
+		ADDED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Documents\GitHub\CalidadG2\app\src\main\AndroidManifest.xml
