@@ -1,4 +1,4 @@
-#Wed Apr 15 12:43:38 CEST 2020
-base.0=D\:\\Documents\\GitHub\\CalidadG2\\app\\build\\intermediates\\dex\\debug\\out\\classes.dex
+#Mon Apr 20 13:05:38 CEST 2020
+base.0=C\:\\Users\\alvar\\GitHub\\CalidadG2\\app\\build\\intermediates\\dex\\debug\\out\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

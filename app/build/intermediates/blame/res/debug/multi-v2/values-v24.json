@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Documents\\GitHub\\CalidadG2\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v24\\values-v24.xml",
+            "outputFile": "C:\\Users\\alvar\\GitHub\\CalidadG2\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v24\\values-v24.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\alvar\\.gradle\\caches\\transforms-2\\files-2.1\\7ea1555f48e5bb59e4cc2243c13d7a67\\appcompat-1.1.0\\res\\values-v24\\values-v24.xml",
+                    "source": "C:\\Users\\alvar\\.gradle\\caches\\transforms-2\\files-2.1\\87a1e05fe904cb787a8bbb0258944015\\appcompat-1.1.0\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
