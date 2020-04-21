@@ -1,10 +1,10 @@
-sudo: false
+sudo: required
 language: android
 dist: trusty
 cache:
   directories:
    - node_modules
-   
+ 
 android:
   components:
     - build-tools-29.0.2
