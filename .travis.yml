@@ -24,9 +24,8 @@ before_install:
     - echo "$LICENSES_HASH_TWO" >> "$ANDROID_HOME/licenses/android-sdk-license"
     - echo y | sdkmanager tools
     - echo y | sdkmanager "system-images;android-29;default;x86"
-    - echo no | avdmanager create avd --force -n test -k "system-images;android-29;default;x86"
-    - emulator -avd test -no-skin -no-audio -no-window &
-    - $ANDROID_HOME/emulator/emulator -avd test -no-window > /dev/null 2>&1 
+    - echo no | avdmanager create avd --force -n emu -k "system-images;android-29;default;x86"
+    - $ANDROID_HOME/emulator/emulator -avd emu -no-audio -no-window &
     
 before_script:
     - android-wait-for-emulator
