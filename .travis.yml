@@ -29,7 +29,7 @@ before_install:
     - JDK="1.8" 
     - source ~/.install-jdk-travis.sh
 
-    - wget -q "https://dl.google.com/android/repository/sdk-tools-linux-$ANDROID_TOOLS.zip" -O android-sdk-tools.zip
+    - wget -q "https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip" -O android-sdk-tools.zip
     - unzip -q android-sdk-tools.zip -d ${ANDROID_HOME}
     - rm android-sdk-tools.zip
     
