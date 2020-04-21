@@ -38,7 +38,7 @@ before_install:
     
     - echo y | sdkmanager "platform-tools" >/dev/null
     - echo y | sdkmanager "tools" >/dev/null 
-    - echo y | sdkmanager "build-tools;$ANDROID_BUILD_TOOLS_VERSION" >/dev/null 
+    - echo y | sdkmanager "build-tools;$ANDROID_TOOLS" >/dev/null 
     - echo y | sdkmanager "platforms;android-$API" >/dev/null 
     - echo y | sdkmanager "platforms;android-$ANDROID_SDK_VERSION" >/dev/null
     - echo y | sdkmanager "emulator" >/dev/null
@@ -46,9 +46,9 @@ before_install:
     - echo y | sdkmanager "system-images;android-$ANDROID_SDK_VERSION;default;x86" >/dev/null 
     - echo y | sdkmanager "system-images;android-$API;$GOO;$ABI" >/dev/null 
 
-    - echo no | avdmanager --verbose create avd --force -n test -k "system-images;android-$API;$GOO;$ABI"
+    - echo no | avdmanager --verbose create avd --force -n emu -k "system-images;android-$API;$GOO;$ABI"
     - EMU_COMMAND="emulator"
-    - sudo -E sudo -u $USER -E bash -c "${ANDROID_HOME}/emulator/${EMU_COMMAND} -avd test -verbose -no-window -no-audio &"
+    - sudo -E sudo -u $USER -E bash -c "${ANDROID_HOME}/emulator/${EMU_COMMAND} -avd emu -verbose -no-window -no-audio &"
     
 before_script:
     - android-wait-for-emulator
