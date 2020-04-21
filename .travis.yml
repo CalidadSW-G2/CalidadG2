@@ -1,5 +1,7 @@
-language: android
+sudo: true
+language: generic
 dist: bionic
+ 
 env:
   global:
     - ANDROID_TOOLS=29.0.2
@@ -12,22 +14,28 @@ env:
     - API=29
     - ABI=x86
     - GOO=google_apis_playstore
-    - GRAVIS="https://raw.githubusercontent.com/DanySK/Gravis-CI/master/"  
+    - GRAVIS="https://raw.githubusercontent.com/DanySK/Gravis-CI/master/"
+    
 before_install:
     - chmod +x gradlew
+    
     - sudo apt-get -y --no-install-recommends install bridge-utils libpulse0 libvirt-bin qemu-kvm virtinst ubuntu-vm-builder > /dev/null
     - sudo apt-get install -y libxtst6 libnss3-dev libnspr4 libxss1 libasound2 libatk-bridge2.0-0 libgtk-3-0 libgdk-pixbuf2.0-0
     - sudo adduser $USER libvirt
     - sudo adduser $USER kvm
+    
     - curl "${GRAVIS}.install-jdk-travis.sh" --output ~/.install-jdk-travis.sh
     - export TARGET_JDK="${JDK}"
     - JDK="1.8" 
     - source ~/.install-jdk-travis.sh
+
     - wget -q "https://dl.google.com/android/repository/sdk-tools-linux-$ANDROID_TOOLS.zip" -O android-sdk-tools.zip
     - unzip -q android-sdk-tools.zip -d ${ANDROID_HOME}
     - rm android-sdk-tools.zip
+    
     - mkdir ~/.android
     - echo 'count=0' > ~/.android/repositories.cfg
+    
     - echo y | sdkmanager "platform-tools" >/dev/null
     - echo y | sdkmanager "tools" >/dev/null 
     - echo y | sdkmanager "build-tools;$ANDROID_BUILD_TOOLS_VERSION" >/dev/null 
@@ -37,21 +45,18 @@ before_install:
     - echo y | sdkmanager "extras;android;m2repository" >/dev/null
     - echo y | sdkmanager "system-images;android-$ANDROID_SDK_VERSION;default;x86" >/dev/null 
     - echo y | sdkmanager "system-images;android-$API;$GOO;$ABI" >/dev/null 
+
     - echo no | avdmanager --verbose create avd --force -n test -k "system-images;android-$API;$GOO;$ABI"
-    - EMU_PARAMS="
-        -avd test
-        -verbose
-        -no-window
-        -no-audio
-    "
     - EMU_COMMAND="emulator"
-    - sudo -E sudo -u $USER -E bash -c "${ANDROID_HOME}/emulator/${EMU_COMMAND} ${EMU_PARAMS} &"
+    - sudo -E sudo -u $USER -E bash -c "${ANDROID_HOME}/emulator/${EMU_COMMAND} -avd test -verbose -no-window -no-audio &"
+    
 before_script:
     - android-wait-for-emulator
     - adb shell settings put global window_animation_scale 0 &
     - adb shell settings put global transition_animation_scale 0 &
     - adb shell settings put global animator_duration_scale 0 &
     - adb shell input keyevent 82 &
+    
 script:
     - android list target
     - ./gradlew connectedAndroidTest
