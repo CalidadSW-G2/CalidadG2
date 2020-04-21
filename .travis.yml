@@ -1,32 +1,60 @@
-sudo: false
-language: android
-dist: trusty
-cache:
-  directories:
-   - node_modules
+sudo: true
+language: generic
+dist: bionic
  
-android:
-  components:
-    - build-tools-29.0.2
-    - android-29
-    - extra-google-google_play_services
-    - extra-google-m2repository
-    - extra-android-m2repository
-    
 env:
   global:
+    - ANDROID_TOOLS=29.0.2
+    - ANDROID_SDK_VERSION=29
+    - ANDROID_HOME=${HOME}/android-sdk
+    - JDK="1.8"
+    - TOOLS=${ANDROID_HOME}/tools
+    - PATH=${ANDROID_HOME}:${ANDROID_HOME}/emulator:${TOOLS}:${TOOLS}/bin:${ANDROID_HOME}/platform-tools:${PATH}
     - ADB_INSTALL_TIMEOUT=8
+    - API=29
+    - ABI=x86
+    - GOO=google_apis_playstore
+    - GRAVIS="https://raw.githubusercontent.com/DanySK/Gravis-CI/master/"
     
 before_install:
     - chmod +x gradlew
-    - mkdir "$ANDROID_HOME/licenses" || true
-    - echo "$LICENSES_HASH" > "$ANDROID_HOME/licenses/android-sdk-license"
-    - echo "$LICENSES_HASH_TWO" >> "$ANDROID_HOME/licenses/android-sdk-license"
-    - echo y | sdkmanager tools
-    - echo y | sdkmanager "system-images;android-29;default;x86_64"
-    - sudo -E apt-get -yq --no-install-suggests --no-install-recommends install bridge-utils libpulse0 libvirt-bin qemu-kvm virtinst ubuntu-vm-builder
-    - echo no | avdmanager create avd --force -n emu -k "system-images;android-29;default;x86_64"
-    - $ANDROID_HOME/emulator/emulator -avd emu -no-audio -no-window -no-boot-anim &
+    
+    - sudo apt-get -y --no-install-recommends install bridge-utils libpulse0 libvirt-bin qemu-kvm virtinst ubuntu-vm-builder > /dev/null
+    - sudo apt-get install -y libxtst6 libnss3-dev libnspr4 libxss1 libasound2 libatk-bridge2.0-0 libgtk-3-0 libgdk-pixbuf2.0-0
+    - sudo adduser $USER libvirt
+    - sudo adduser $USER kvm
+    
+    - curl "${GRAVIS}.install-jdk-travis.sh" --output ~/.install-jdk-travis.sh
+    - export TARGET_JDK="${JDK}"
+    - JDK="1.8" 
+    - source ~/.install-jdk-travis.sh
+
+    - wget -q "https://dl.google.com/android/repository/sdk-tools-linux-$ANDROID_TOOLS.zip" -O android-sdk-tools.zip
+    - unzip -q android-sdk-tools.zip -d ${ANDROID_HOME}
+    - rm android-sdk-tools.zip
+    
+    - mkdir ~/.android
+    - echo 'count=0' > ~/.android/repositories.cfg
+    
+    - echo y | sdkmanager "platform-tools" >/dev/null
+    - echo y | sdkmanager "tools" >/dev/null 
+    - echo y | sdkmanager "build-tools;$ANDROID_BUILD_TOOLS_VERSION" >/dev/null 
+    - echo y | sdkmanager "platforms;android-$API" >/dev/null 
+    - echo y | sdkmanager "platforms;android-$ANDROID_SDK_VERSION" >/dev/null
+    - echo y | sdkmanager "emulator" >/dev/null
+    - echo y | sdkmanager "extras;android;m2repository" >/dev/null
+    - echo y | sdkmanager "system-images;android-$ANDROID_SDK_VERSION;default;x86" >/dev/null 
+    - echo y | sdkmanager "system-images;android-$API;$GOO;$ABI" >/dev/null 
+
+    - echo no | avdmanager --verbose create avd --force -n test -k "system-images;android-$API;$GOO;$ABI"
+    - EMU_PARAMS="
+        -avd test
+        -verbose
+        -no-window
+        -no-audio
+    "
+    - EMU_COMMAND="emulator"
+    - sudo -E sudo -u $USER -E bash -c "${ANDROID_HOME}/emulator/${EMU_COMMAND} ${EMU_PARAMS} &"
     
 before_script:
     - android-wait-for-emulator
