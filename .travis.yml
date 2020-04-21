@@ -1,4 +1,4 @@
-sudo: required
+sudo: false
 language: android
 dist: trusty
 cache:
@@ -22,8 +22,7 @@ before_install:
     - mkdir "$ANDROID_HOME/licenses" || true
     - echo "$LICENSES_HASH" > "$ANDROID_HOME/licenses/android-sdk-license"
     - echo "$LICENSES_HASH_TWO" >> "$ANDROID_HOME/licenses/android-sdk-license"
-    - yes | sdkmanager --licenses
-    - y | sdkmanager tools
+    - echo y | sdkmanager tools
     - sdkmanager "system-images;android-29;default;x86"
     - echo no | avdmanager create avd --force -n test -k "system-images;android-29;default;x86"
     - emulator -avd test -no-skin -no-audio -no-window &
