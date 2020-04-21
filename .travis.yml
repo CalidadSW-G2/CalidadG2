@@ -24,8 +24,9 @@ before_install:
     - echo "$LICENSES_HASH_TWO" >> "$ANDROID_HOME/licenses/android-sdk-license"
     - echo y | sdkmanager tools
     - echo y | sdkmanager "system-images;android-29;default;x86_64"
+    - sudo -E apt-get -yq --no-install-suggests --no-install-recommends install bridge-utils libpulse0 libvirt-bin qemu-kvm virtinst ubuntu-vm-builder
     - echo no | avdmanager create avd --force -n emu -k "system-images;android-29;default;x86_64"
-    - $ANDROID_HOME/emulator/emulator -avd emu -no-skin -no-audio -no-window -no-boot-anim &
+    - $ANDROID_HOME/emulator/emulator -avd emu -no-audio -no-window -no-boot-anim &
     
 before_script:
     - android-wait-for-emulator
