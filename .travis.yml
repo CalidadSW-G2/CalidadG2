@@ -63,3 +63,4 @@ before_script:
     
 script:
     - ./gradlew test
+    - calabash-android run ./app/build/outputs/apk/releasea/app-release-unsigned.apk
