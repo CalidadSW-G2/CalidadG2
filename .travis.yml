@@ -46,6 +46,9 @@ before_install:
     - echo y | sdkmanager "extras;android;m2repository" >/dev/null
     - echo y | sdkmanager "system-images;android-$ANDROID_SDK_VERSION;default;x86" >/dev/null 
     - echo y | sdkmanager "system-images;android-$API;$GOO;$ABI" >/dev/null 
+    
+    - rvm install 2.7.1
+    - gem install calabash-android
 
     - echo no | avdmanager --verbose create avd --force -n emu -k "system-images;android-$API;$GOO;$ABI"
     - EMU_COMMAND="emulator"
@@ -60,4 +63,3 @@ before_script:
     
 script:
     - ./gradlew test
-    - ./gradlew cucumber
