@@ -48,6 +48,7 @@ before_install:
     - echo y | sdkmanager "system-images;android-$API;$GOO;$ABI" >/dev/null 
     
     - rvm install 2.7.1
+    - bundle install
     - gem install calabash-android
 
     - echo no | avdmanager --verbose create avd --force -n emu -k "system-images;android-$API;$GOO;$ABI"
