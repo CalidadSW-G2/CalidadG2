@@ -43,8 +43,7 @@ before_install:
     - echo y | sdkmanager "platforms;android-$API" >/dev/null 
     - echo y | sdkmanager "platforms;android-$ANDROID_SDK_VERSION" >/dev/null
     - echo y | sdkmanager "emulator" >/dev/null
-    - echo y | sdkmanager "extras;android;m2repository" >/dev/null
-    - echo y | sdkmanager "system-images;android-$ANDROID_SDK_VERSION;default;x86" >/dev/null 
+    - echo y | sdkmanager "extras;android;m2repository" >/dev/null 
     - echo y | sdkmanager "system-images;android-$API;$GOO;$ABI" >/dev/null 
     
     - rvm install 2.7.1
@@ -64,7 +63,6 @@ before_script:
     
 script:
     - calabash-android resign ./APKFile/app-release-unsigned.apk
-    - cd ./app/src/androidTest/assets/features
+    - cucumber --init
     - calabash-android run ../../../../../APKFile/app-release-unsigned.apk
-    - cd $HOME
     - ./gradlew test
