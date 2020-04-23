@@ -63,6 +63,9 @@ before_script:
     
 script:
     - calabash-android resign ./APKFile/app-release-unsigned.apk
-    - cucumber --init
-    - calabash-android run ./APKFile/app-release-unsigned.apk
+    - calabash-android run ./APKFile/app-release-unsigned.apk ./app/src/androidTest/assets/features/changeMusicLatency.feature
+    - calabash-android run ./APKFile/app-release-unsigned.apk ./app/src/androidTest/assets/features/easierRanking.feature
+    - calabash-android run ./APKFile/app-release-unsigned.apk ./app/src/androidTest/assets/features/harderRanking.feature
+    - calabash-android run ./APKFile/app-release-unsigned.apk ./app/src/androidTest/assets/features/randomColors.feature
+    - calabash-android run ./APKFile/app-release-unsigned.apk ./app/src/androidTest/assets/features/tenSongs.feature
     - ./gradlew test
