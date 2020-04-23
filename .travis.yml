@@ -48,9 +48,8 @@ before_install:
     - echo y | sdkmanager "system-images;android-$API;$GOO;$ABI" >/dev/null 
     
     - rvm install 2.7.1
-    - gem install bundler
-    - bundle install
-
+    - gem install calabash-android
+    
     - echo no | avdmanager --verbose create avd --force -n emu -k "system-images;android-$API;$GOO;$ABI"
     - EMU_COMMAND="emulator"
     - sudo -E sudo -u $USER -E bash -c "${ANDROID_HOME}/emulator/${EMU_COMMAND} -avd emu -verbose -no-window -no-audio &"
@@ -63,5 +62,5 @@ before_script:
     - adb shell input keyevent 82 &
     
 script:
+    - calabash-android run ./APKFile/app-release-unsigned.apk
     - ./gradlew test
-    - bundle exec cucumber
