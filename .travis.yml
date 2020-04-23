@@ -49,6 +49,7 @@ before_install:
     
     - rvm install 2.7.1
     - gem install calabash-android
+    - keytool -genkey -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Android Debug,O=Android,C=US"
     
     - echo no | avdmanager --verbose create avd --force -n emu -k "system-images;android-$API;$GOO;$ABI"
     - EMU_COMMAND="emulator"
@@ -62,5 +63,6 @@ before_script:
     - adb shell input keyevent 82 &
     
 script:
+    - calabash-android resign ./APKFile/app-release-unsigned.apk
     - calabash-android run ./APKFile/app-release-unsigned.apk
     - ./gradlew test
