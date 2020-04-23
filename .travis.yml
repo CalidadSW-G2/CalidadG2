@@ -64,5 +64,5 @@ before_script:
 script:
     - calabash-android resign ./APKFile/app-release-unsigned.apk
     - cucumber --init
-    - calabash-android run ../../../../../APKFile/app-release-unsigned.apk
+    - calabash-android run ./APKFile/app-release-unsigned.apk
     - ./gradlew test
